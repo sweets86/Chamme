@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function OrderView() {
-    return (
-        <div>
-            <h1>OrderView</h1>
-        </div>
-    )
+  return (
+    <div>
+      <Link to={"/detail"}>
+        <h1 style={{display: "inline-block", color: "black"}}>OrderView</h1>
+      </Link>
+    </div>
+  );
 }

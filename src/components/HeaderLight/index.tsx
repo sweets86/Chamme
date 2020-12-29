@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {navbar, titleLink} from './HeaderLightStyled'
+import {navbar, titleLink, counter} from './HeaderLightStyled'
 
 export default function HeaderLight() {
     return (
@@ -9,6 +9,9 @@ export default function HeaderLight() {
             <h1 style={titleLink}>
                 Chameleone</h1>
             </Link>
+            <Link to={"/order"}>
+        <h3 style={counter}>Counter</h3>
+      </Link>
         </div>
     )
 }

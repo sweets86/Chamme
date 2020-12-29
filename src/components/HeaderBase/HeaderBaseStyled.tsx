@@ -4,7 +4,8 @@ export const navbar: CSSProperties = {
     height: '5em',
     width: '100%',
     position: 'sticky',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    boxShadow: 'blur'
 }
 
 export const titleLink: CSSProperties = {

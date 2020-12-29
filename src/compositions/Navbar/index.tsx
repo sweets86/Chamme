@@ -13,7 +13,6 @@ interface Props extends RouteComponentProps<Params> {}
 
 function Navbar(props: Props) {
   const headerBase = props.location.pathname;
-  console.log(headerBase);
 
   const [renderViewDetail, setRenderViewDetail] = useState(false);
   const [renderViewProducts, setRenderViewProducts] = useState(false);
@@ -23,12 +22,24 @@ function Navbar(props: Props) {
   useEffect(() => {
     if (headerBase === "/") {
       setRenderViewMain(true);
+      setRenderViewDetail(false)
+      setRenderViewProducts(false)
+      setRenderViewOther(false)
     } else if (headerBase === "/products") {
       setRenderViewProducts(true);
+      setRenderViewOther(false)
+      setRenderViewDetail(false)
+      setRenderViewMain(false);
     } else if (headerBase === "/detail") {
       setRenderViewDetail(true);
+      setRenderViewMain(false);
+      setRenderViewProducts(false);
+      setRenderViewOther(false)
     } else {
       setRenderViewOther(true);
+      setRenderViewDetail(false);
+      setRenderViewMain(false);
+      setRenderViewProducts(false);
     }
   }, [headerBase]);
 
