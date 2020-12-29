@@ -1,6 +1,6 @@
 import React from "react";
-/* import ReuseComposition from "../compositions/ReuseComposition/index"; */
 import styled from "styled-components";
+import PrivacyComposition from "../compositions/PrivacyComposition";
 
 const Contain = styled.div`
   display: flex;
@@ -10,8 +10,7 @@ const Contain = styled.div`
 export default function PrivacyView() {
   return (
     <Contain>
-      <h1>Privacy</h1>
-      {/* <ReuseComposition /> */}
+      <PrivacyComposition />
     </Contain>
   );
 }

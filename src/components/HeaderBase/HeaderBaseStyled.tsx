@@ -5,12 +5,11 @@ export const navbar: CSSProperties = {
     width: '100%',
     position: 'sticky',
     backgroundColor: 'black',
-    boxShadow: 'blur'
 }
 
 export const titleLink: CSSProperties = {
     display: 'inline-block',
     margin: '8px',
     marginTop: '17px',
-    color: 'white'
+    color: 'white',
 }

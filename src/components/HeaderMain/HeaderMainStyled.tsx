@@ -9,6 +9,7 @@ const HeaderMainStyled = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 8px 6px -6px black;
   }
 
   .titleLink {
