@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+/* import ReuseComposition from "../compositions/ReuseComposition/index"; */
+import styled from "styled-components";
+
+const Contain = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default function PrivacyView() {
-    return (
-        <div>
-            <h1>PrivacyView</h1>
-        </div>
-    )
+  return (
+    <Contain>
+      <h1>Privacy</h1>
+      {/* <ReuseComposition /> */}
+    </Contain>
+  );
 }
