@@ -1,7 +1,7 @@
 import React from "react";
 import NewsCompositionStyled from "./NewsCompositionStyled";
-import Video from '../../assets/Video/Pexels.mp4'
-
+import Video from "../../assets/Video/Pexels.mp4";
+import ReactPlayer from "react-player";
 
 export default function ReuseComposition() {
   const getCurrentDate = () => {
@@ -23,7 +23,7 @@ export default function ReuseComposition() {
       {getCurrentDate()}
       <div className="contain">
         <div className="videoDiv">
-          <video src={Video}></video>
+          <ReactPlayer url={Video} width="100%" height="100%" controls={true} />
         </div>
         <div className="description">
           <p>
@@ -36,7 +36,7 @@ export default function ReuseComposition() {
             It was popularised in the 1960s with the release of Letraset sheets
             containing Lorem Ipsum passages, and more recently with desktop
             publishing software like Aldus PageMaker including versions of Lorem
-            Ipsum. 
+            Ipsum.
           </p>
         </div>
       </div>

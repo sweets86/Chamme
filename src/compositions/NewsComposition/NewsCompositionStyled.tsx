@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const NewsCompositionStyled = styled.div`
   width: 85%;
-  height: 75%;
+  height: auto;
   top: 17%;
   background-color: white;
 
@@ -19,18 +19,13 @@ const NewsCompositionStyled = styled.div`
   }
 
   .videoDiv {
-    background-color: white;
     margin-bottom: 1em;
-  }
-
-  video {
-    object-fit: contain;
-    width: auto;
   }
 
   .description {
     padding: 0.5em;
-    background-color: white
+    background-color: white;
+    box-shadow: 0 8px 6px -6px white;
   }
 `;
 
