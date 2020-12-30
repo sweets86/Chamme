@@ -16,6 +16,7 @@ const PrivacyCompositionStyled = styled.div`
     max-height: 87%;
     min-height: 80%;
     padding: 1em;
+    margin-bottom: 3em;
   }
 
   .contentBox {
@@ -30,7 +31,6 @@ const PrivacyCompositionStyled = styled.div`
 
     .contain {
       flex-wrap: wrap;
-      margin-bottom: 3em;
     }
 
     .contentBox {
