@@ -1,9 +1,15 @@
-import React from 'react'
+import styled from "styled-components";
+import NewsComposition from "../compositions/NewsComposition";
+
+const Contain = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default function NewsView() {
-    return (
-        <div>
-            <h1>NewsView</h1>
-        </div>
-    )
+  return (
+    <Contain>
+      <NewsComposition />
+    </Contain>
+  );
 }
