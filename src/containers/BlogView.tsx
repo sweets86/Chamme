@@ -1,9 +1,20 @@
-import React from 'react'
+import styled from "styled-components";
+import BlogImage from "../components/BlogImage";
+import BlogComposition from "../compositions/BlogComposition";
+
+const Contain = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+    
+`;
 
 export default function BlogView() {
-    return (
-        <div>
-            <h1>BlogView</h1>
-        </div>
-    )
+  return (
+    <Contain>
+      <BlogComposition />
+      <BlogImage />
+    </Contain>
+  );
 }
