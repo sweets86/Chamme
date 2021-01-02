@@ -13,7 +13,7 @@ export default function Footer() {
     <FooterStyled>
         <div className="pageLinks">
             <Link to={'/blog'}><h4>Contact</h4></Link>
-            <Link to={'/blog'}><h4>Subscribe</h4></Link>
+            <Link to='/blog#subscribe'><h4>Subscribe</h4></Link>
             <Link to={'/privacy'}><h4>Privacy Policy</h4></Link>
         </div>
         <div className="iconLinks">

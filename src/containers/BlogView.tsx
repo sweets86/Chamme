@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import BlogImage from "../components/BlogImage";
 import BlogComposition from "../compositions/BlogComposition";
+import InfoComposition from "../compositions/InfoComposition";
 
 const Contain = styled.div`
   display: flex;
@@ -15,6 +16,7 @@ export default function BlogView() {
     <Contain>
       <BlogComposition />
       <BlogImage />
+      <InfoComposition />
     </Contain>
   );
 }

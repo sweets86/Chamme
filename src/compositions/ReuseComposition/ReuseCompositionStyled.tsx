@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 const ReuseCompositionStyled = styled.div`
   width: 85%;
-  height: 75%;
+  height: auto;
   top: 17%;
-  background-color: white;
 
   .contain {
     display: flex;

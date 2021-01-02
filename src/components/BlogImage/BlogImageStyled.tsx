@@ -3,10 +3,8 @@ import styled from "styled-components";
 const BlogImageStyled = styled.div`
   width: 100%;
   height: auto;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   padding: 1em;
-  box-shadow: 0 8px 6px -6px black;
-  padding-bottom: 2em;
 
   .contain {
     padding: 1em;
@@ -28,6 +26,7 @@ const BlogImageStyled = styled.div`
     background-color: #201e1e;
     box-shadow: 0 8px 6px -6px black;
     padding: 0;
+    margin-bottom: 3em;
   }
 `;
 export default BlogImageStyled;
