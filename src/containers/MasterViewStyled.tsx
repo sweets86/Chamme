@@ -11,16 +11,6 @@ const MasterViewStyled = styled.div`
   flex-direction: column;
   align-items: center;
 
-  .carousel {
-    width: 50%;
-    height: 15em;
-    margin-top: 5em;
-    background-color: gainsboro;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .cardContainer {
     display: flex;
     justify-content: space-around;

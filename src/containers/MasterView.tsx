@@ -2,11 +2,12 @@ import React from "react";
 import MasterViewStyled from "./MasterViewStyled";
 import Footer from "../components/Footer/index";
 import { Link } from "react-router-dom";
+import Carousel from "./../components/Carousel";
 
 export default function MasterView() {
   return (
     <MasterViewStyled>
-      <div className="carousel">Carousel</div>
+      <Carousel />
       <div className="cardContainer">
         <div className="card">
           <Link to={"/gallery"}>
