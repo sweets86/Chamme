@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import HeaderMainStyled from "./HeaderMainStyled";
+import Burger from './../Burger'
 
 export default function HeaderMain() {
   return (
@@ -9,9 +10,9 @@ export default function HeaderMain() {
         <Link to={"/"}>
           <h1 className="titleLink">Chameleone</h1>
         </Link>
-        <Link to={"/products"}>
-          <h3 className="menu">Meny</h3>
-        </Link>
+        {/* <Link to={"/products"}> */}
+          <Burger open />
+        {/* </Link> */}
       </div>
     </HeaderMainStyled>
   );
