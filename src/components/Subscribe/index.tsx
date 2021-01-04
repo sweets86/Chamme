@@ -11,7 +11,7 @@ export default function Subscribe() {
   };
 
   return (
-    <SubscribeStyled>
+    <SubscribeStyled id="subscribe">
       <h2 className="subscribe">Subscribe</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">
