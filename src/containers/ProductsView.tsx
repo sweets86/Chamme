@@ -1,10 +1,23 @@
 import React from 'react'
+import styled from 'styled-components'
+import CategoryComposition from './../compositions/CategoryComposition'
 
-export default function ProductsView() {
+const Contain = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;
+
+interface Props {
+    category: string
+}
+
+export default function ProductsView(props: Props) {
 
     return (
-        <div>
-            <h1>ProductsView</h1>
-        </div>
+        <Contain>
+            <CategoryComposition category={props.category} />
+        </Contain>
     )
 }
