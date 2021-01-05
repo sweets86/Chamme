@@ -8,7 +8,7 @@ const ProductCompositionStyled = styled.div`
     display: flex;
     align-items: center;
     /* justify-content: center; */
-    background-color: #201e1e;
+    /* background-color: #201e1e; */
     box-shadow: 0 8px 6px -6px black;
     min-height: 80%;
     padding: 1em;
