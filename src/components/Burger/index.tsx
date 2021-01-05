@@ -11,6 +11,7 @@ const BurgerStyled = styled.div<Props>`
   justify-content: space-around;
   flex-flow: column nowrap;
   z-index: 20;
+  cursor: pointer;
 
   div {
     width: 2rem;
