@@ -12,10 +12,8 @@ export default function ProductComposition(props: Props) {
     <ProductCompositionStyled>
       <h1>{props.category}</h1>
       <div className="contain">
-        {Products.map((product, index) => {
-          if (props.category === product.title) {
-            return <ProductCard product={product} />;
-          }
+        {Products.filter(product => product.title === props.category).map((product, index) => {
+          return <ProductCard product={product} />;
         })}
       </div>
     </ProductCompositionStyled>

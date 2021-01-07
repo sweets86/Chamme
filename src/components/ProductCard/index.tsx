@@ -11,7 +11,7 @@ export default function ProductCard(props: Props) {
       <div className="imgDiv">
         <img
           src={require("./../../assets/Products/" + props.product.img).default}
-          alt="slide img"
+          alt="product img"
         />
       </div>
       <div className="contentDiv">

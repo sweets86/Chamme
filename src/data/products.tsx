@@ -9,6 +9,7 @@ export interface Product {
   deliver: string;
   description: string;
   color: string;
+  size: string;
 }
 
 export const Products: Product[] = [
@@ -23,6 +24,7 @@ export const Products: Product[] = [
     deliver: "1-3 dagar",
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
     color: "white",
+    size: "",
   },
   {
     title: "T-shirts",
@@ -35,6 +37,7 @@ export const Products: Product[] = [
     deliver: "1-3 dagar",
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
     color: "white",
+    size: "",
   },
   {
     title: "T-shirts",
@@ -47,6 +50,7 @@ export const Products: Product[] = [
     deliver: "1-3 dagar",
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
     color: "black",
+    size: "",
   },
   {
     title: "T-shirts",
@@ -59,6 +63,7 @@ export const Products: Product[] = [
     deliver: "1-3 dagar",
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
     color: "black",
+    size: "",
   },
   {
     title: "Fragrances",
@@ -72,5 +77,132 @@ export const Products: Product[] = [
     description:
       "Doftpåse med en doft av sagolik liljekonvalj. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar. Kika runt bland våra underbara doftpåsar och hitta din favorit ",
     color: "",
+    size: "",
+  },
+  {
+    title: "Fragrances",
+    id: 6,
+    brand: "Interiör Huset",
+    name: "Peach",
+    img: "peach.png",
+    price: 20,
+    status: "Finns i lager",
+    deliver: "1-3 dagar",
+    description:
+      "Doftpåse med en doft av fruktig peach. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar. Kika runt bland våra underbara doftpåsar och hitta din favorit ",
+    color: "",
+    size: "",
+  },
+  {
+    title: "Fragrances",
+    id: 7,
+    brand: "Interiör Huset",
+    name: "Vanilla",
+    img: "vanilla.png",
+    price: 20,
+    status: "Finns i lager",
+    deliver: "1-3 dagar",
+    description:
+      "Doftpåse med en drömmande vaniljdoft. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar. Kika runt bland våra underbara doftpåsar och hitta din favorit",
+    color: "",
+    size: "",
+  },
+  {
+    title: "Fragrances",
+    id: 8,
+    brand: "Interiör Huset",
+    name: "Ocean",
+    img: "ocean.png",
+    price: 20,
+    status: "Finns i lager",
+    deliver: "1-3 dagar",
+    description:
+      "Doftpåse med en fräsch doft som vi kallar Ocean. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar. Kika runt bland våra underbara doftpåsar och hitta din favorit",
+    color: "",
+    size: "",
+  },
+  {
+    title: "Fragrances",
+    id: 9,
+    brand: "Yankee Candle",
+    name: "Vanilla 411g",
+    img: "yankeeVanilla.png",
+    price: 199,
+    status: "Finns i lager",
+    deliver: "1-3 dagar",
+    description:
+      "En ren vaniljdoft som är både söt och dämpad, sockrad men krämig och alltid förförisk. Innehåll: Socker, Vanilj, Vanilj Orkidé, Vit musk. Brinntid: 65-75 timmar",
+    color: "",
+    size: "",
+  },
+  {
+    title: "Fragrances",
+    id: 10,
+    brand: "Yankee Candle",
+    name: "Calm and Quiet 411g",
+    img: "calmAndQuiet.jpg",
+    price: 199,
+    status: "Finns i lager",
+    deliver: "1-3 dagar",
+    description:
+      "En meditativ doftbalanserad och centrerad med mild jasmin, en viskning av patchouli och varm bärnstenmusk. Innehåll: Mandarinblad, Jasmin, Cedarwood, Patchouli, Sandelträ, Bärnstensmusk. Brinntid: 65-75 timmar",
+    color: "",
+    size: "",
+  },
+  {
+    title: "Fragrances",
+    id: 11,
+    brand: "Yankee Candle",
+    name: "Rainbow Cookie 411g",
+    img: "rainbowCookie.png",
+    price: 199,
+    status: "Finns i lager",
+    deliver: "1-3 dagar",
+    description:
+      "Lätta och luftiga cookies med citrus och persikafyllning, toppad med söt vaniljfrostning Innehåll: Söt Apelsin, Krämig Persika, Passionsfrukt, Buttercream, Vaniljfrostning, Kokos. Brinntid: 65-75 timmar",
+    color: "",
+    size: "",
+  },
+  {
+    title: "Lotion",
+    id: 12,
+    brand: "Victoria's Secret",
+    name: "Aqua Kiss 236ml",
+    img: "aquaKiss.png",
+    price: 199,
+    status: "Finns i lager",
+    deliver: "1-3 dagar",
+    description:
+      "Näring med doft. Snabbt absorberande doftlotion med 24 timmars återfunktande, perfekt för händer och kropp. Doftäventyr som börjar med dig. Innehåll: Cool Water, Bright Daisy. Style: Fresh",
+    color: "",
+    size: "",
+  },
+  {
+    title: "Lotion",
+    id: 13,
+    brand: "Victoria's Secret",
+    name: "Love Spell 236ml",
+    img: "loveSpell.png",
+    price: 199,
+    status: "Finns i lager",
+    deliver: "1-3 dagar",
+    description:
+      "Näring med doft. Snabbt absorberande doftlotion med 24 timmars återfunktande, perfekt för händer och kropp. Doftäventyr som börjar med dig. Innehåll: Körsbärsblom, Färsk Persika. Style: Fruktig & Blommig",
+    color: "",
+    size: "",
+  },
+  {
+    title: "Lotion",
+    id: 13,
+    brand: "Victoria's Secret",
+    name: "Pure Seduction Shimmer 236ml",
+    img: "pureShimmer.png",
+    price: 199,
+    status: "Finns i lager",
+    deliver: "1-3 dagar",
+    description:
+      "Lys hela säsongen. Skimmrande och doftande, denna silkeslena lotion gör så att du glittrar från topp till tå. Innehåll: Prssad Plommon, Krossad Freesia. Style: Fruktig",
+    color: "",
+    size: "",
   },
 ];

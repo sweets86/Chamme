@@ -12,11 +12,12 @@ const ProductCardStyled = styled.div`
   .imgDiv {
     width: 100%;
     height: 80%;
+    display: flex;
+    justify-content: center;
   }
 
   img {
     object-fit: cover;
-    width: 100%;
     height: 100%;
   }
 
@@ -29,7 +30,7 @@ const ProductCardStyled = styled.div`
   }
 
   .infoDiv {
-    width: 50%;
+    width: 75%;
     height: auto;
   }
 
@@ -39,7 +40,7 @@ const ProductCardStyled = styled.div`
   }
 
   button {
-    width: 10em;
+    width: 5em;
     height: 3em;
     border-radius: 3px;
     margin-top: 5px;
