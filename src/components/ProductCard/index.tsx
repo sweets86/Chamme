@@ -15,11 +15,11 @@ export default function ProductCard(props: Props) {
         />
       </div>
       <div className="contentDiv">
-        <div className="infoDiv">
-          <h3>{props.product.name}</h3>
+        <h3>{props.product.name}</h3>
+        <div className="price-and-btn-div">
           <h3>{props.product.price} Kr</h3>
+          <button>Köp</button>
         </div>
-        <button>Köp</button>
       </div>
     </ProductCardStyled>
   );

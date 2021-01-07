@@ -12,10 +12,13 @@ export default function ProductComposition(props: Props) {
     <ProductCompositionStyled>
       <h1>{props.category}</h1>
       <div className="contain">
-        {Products.filter(product => product.title === props.category).map((product, index) => {
-          return <ProductCard product={product} />;
-        })}
+        {Products.filter((product) => product.title === props.category).map(
+          (product, index) => {
+            return <ProductCard product={product} />;
+          }
+        )}
       </div>
+      <div id="fragrances"></div>
     </ProductCompositionStyled>
   );
 }

@@ -85,7 +85,7 @@ export const Products: Product[] = [
     brand: "Interiör Huset",
     name: "Peach",
     img: "peach.png",
-    price: 20,
+    price: 25,
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
@@ -99,7 +99,7 @@ export const Products: Product[] = [
     brand: "Interiör Huset",
     name: "Vanilla",
     img: "vanilla.png",
-    price: 20,
+    price: 25,
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
@@ -113,7 +113,7 @@ export const Products: Product[] = [
     brand: "Interiör Huset",
     name: "Ocean",
     img: "ocean.png",
-    price: 20,
+    price: 25,
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
@@ -169,7 +169,7 @@ export const Products: Product[] = [
     brand: "Victoria's Secret",
     name: "Aqua Kiss 236ml",
     img: "aquaKiss.png",
-    price: 199,
+    price: 99,
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
@@ -183,7 +183,7 @@ export const Products: Product[] = [
     brand: "Victoria's Secret",
     name: "Love Spell 236ml",
     img: "loveSpell.png",
-    price: 199,
+    price: 99,
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
@@ -193,11 +193,11 @@ export const Products: Product[] = [
   },
   {
     title: "Lotion",
-    id: 13,
+    id: 14,
     brand: "Victoria's Secret",
     name: "Pure Seduction Shimmer 236ml",
     img: "pureShimmer.png",
-    price: 199,
+    price: 99,
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:

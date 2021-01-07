@@ -16,6 +16,7 @@ export default function CategoryComposition(props: Props) {
                    return <ProductsComposition category={category.title} />
                 })}
             {/* </div> */}
+            <div id="lotion"></div>
         </CategoryCompositionStyled>
     )
 }

@@ -11,7 +11,7 @@ const ProductCardStyled = styled.div`
 
   .imgDiv {
     width: 100%;
-    height: 80%;
+    height: 75%;
     display: flex;
     justify-content: center;
   }
@@ -22,28 +22,28 @@ const ProductCardStyled = styled.div`
   }
 
   .contentDiv {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     height: auto;
     width: auto;
   }
 
-  .infoDiv {
-    width: 75%;
+  .price-and-btn-div {
     height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   h3 {
     margin: 0;
-    margin-top: 5px;
+    font-size: large;
   }
 
   button {
-    width: 5em;
-    height: 3em;
+    width: 7em;
+    height: 2.5em;
     border-radius: 3px;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-right: 5px;
   }
 
   @media screen and (max-width: 400px) {
@@ -54,21 +54,26 @@ const ProductCardStyled = styled.div`
     margin-bottom: 0.8em;
 
     .imgDiv {
-        height: 50%;
+        height: 60%;
     }
 
     .contentDiv {
-        height: 50%;
+        height: auto;
     }
 
-    .infoDiv {
-        height: 100%;
+    .price-and-btn-div {
+      height: 1.5em;
     }
 
     button {
-        width: 4em;
-        height: 2em;
-        margin-top: 20px;
+        width: 3em;
+        height: 1.5em;
+        margin-right: 12px;
+        margin-top: 0;
+    }
+
+    h3 {
+      font-size: small;
     }
   }
 `;

@@ -55,10 +55,10 @@ export default function DropMenu(props: Props) {
         <Link to="/products">
           <li>T-Shirts</li>
         </Link>
-        <Link to="/products#fragrance">
+        <Link to="/products#fragrances">
           <li>Fragrance Bags</li>
         </Link>
-        <Link to="/products#fragrance">
+        <Link to="/products#fragrances">
           <li>Yankee Candle</li>
         </Link>
         <Link to="/products#lotion">

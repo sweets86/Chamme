@@ -16,9 +16,17 @@ const ProductCompositionStyled = styled.div`
     flex-wrap: wrap;
   }
 
+  h1 {
+    margin-left: 13px;
+  }
+
   @media screen and (max-width: 400px) {
       .contain {
           padding: 0;
+      }
+
+      h1 {
+        margin-left: 0;
       }
   }
 `;
