@@ -6,7 +6,7 @@ import Contact from '../../components/Contact'
 export default function ReuseComposition() {
 
     return (
-        <InfoCompositionStyled id="subscribe">
+        <InfoCompositionStyled>
             <div className="contain">
                 <Info />
                 <Contact />

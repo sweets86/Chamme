@@ -3,8 +3,7 @@ import styled from "styled-components";
 const GalleryCompositionStyled = styled.div`
   width: 85%;
   height: auto;
-  top: 17%;
-  background-color: white;
+  margin-top: 5em;
 
   .contain {
     display: flex;
@@ -14,9 +13,9 @@ const GalleryCompositionStyled = styled.div`
     box-shadow: 0 8px 6px -6px black;
     min-height: 80%;
     padding: 2em;
-    margin-bottom: 3em;
+    margin-bottom: 5em;
   }
-
+  
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

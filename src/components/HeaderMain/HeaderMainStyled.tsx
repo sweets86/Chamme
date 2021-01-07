@@ -1,24 +1,22 @@
 import styled from "styled-components";
 
 const HeaderMainStyled = styled.header`
-  .navbar {
-    height: 5em;
-    width: 100%;
-    position: sticky;
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 8px 6px -6px black;
-  }
+  height: 5em;
+  width: 100%;
+  position: sticky;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 6px -6px black;
 
   .titleLink {
     display: inline-block;
     margin: 8px;
-    margin-top: 17px;
     color: white;
+    margin-left: 2.1em;
   }
-
+  
   .menu {
     margin: 0;
     margin-right: 5em;
@@ -27,9 +25,13 @@ const HeaderMainStyled = styled.header`
   }
 
   @media screen and (max-width: 400px) {
-      .menu {
-        margin-right: 2em;
-      }
+    .menu {
+      margin-right: 2em;
+    }
+
+    .titleLink {
+      margin-left: 0.9em;
+    }
   }
 `;
 

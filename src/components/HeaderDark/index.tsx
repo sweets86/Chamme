@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { navbar, titleLink, counter } from "./HeaderDarkStyled";
+import HeaderDarkStyled from "./HeaderDarkStyled";
 
 export default function HeaderDark() {
   return (
-    <div style={navbar}>
+    <HeaderDarkStyled>
       <Link to={"/"}>
-        <h1 style={titleLink}>Chameleone</h1>
+        <h1 className="titleLink">Chameleone</h1>
       </Link>
       <Link to={"/order"}>
-        <h3 style={counter}>Counter</h3>
+        <h3 className="counter">Counter</h3>
       </Link>
-    </div>
+    </HeaderDarkStyled>
   );
 }

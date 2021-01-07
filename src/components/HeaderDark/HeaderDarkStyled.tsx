@@ -1,25 +1,37 @@
-import { CSSProperties } from "react";
+import styled from "styled-components";
 
-export const navbar: CSSProperties = {
-    height: '5em',
-    width: '100%',
-    position: 'sticky',
-    backgroundColor: 'black',
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between"
-}
+const HeaderDarkStyled = styled.div`
+  height: 5em;
+  width: 100%;
+  position: fixed;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-export const titleLink: CSSProperties = {
-    display: 'inline-block',
-    margin: '8px',
-    marginTop: '17px',
-    color: 'white'
-}
+  .titleLink {
+    display: inline-block;
+    margin: 8px;
+    color: white;
+    margin-left: 2.1em;
+  }
 
-export const counter: CSSProperties = {
-    margin: "0",
-    marginRight: "5em",
-    display: "inline-block",
-    color: "white"
-}
+  .counter {
+    margin: 0;
+    margin-right: 5em;
+    display: inline-block;
+    color: white;
+  }
+
+  @media screen and (max-width: 400px) {
+    .titleLink {
+      margin-left: 0.9em;
+    }
+
+    .counter {
+      margin-right: 2em;
+    }
+  }
+`;
+
+export default HeaderDarkStyled;

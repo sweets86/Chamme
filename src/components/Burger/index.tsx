@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import DropMenu from './../DropMenu'
+import DropMenu from "./../DropMenu";
 
 const BurgerStyled = styled.div<Props>`
   width: 2rem;
   height: 2rem;
-  position: absolute;
+  position: fixed;
   right: 100px;
   display: flex;
   justify-content: space-around;
   flex-flow: column nowrap;
   z-index: 20;
   cursor: pointer;
+  position: ${({ open }) => (open ? "fixed" : "sticky")};
 
   div {
     width: 2rem;
@@ -34,7 +35,7 @@ const BurgerStyled = styled.div<Props>`
   }
 
   @media screen and (max-width: 400px) {
-      right: 40px;
+    right: 40px;
   }
 `;
 
@@ -46,13 +47,13 @@ export default function Burger(props: Props) {
   const [open, setOpen] = useState(false);
 
   return (
-      <>
-    <BurgerStyled open={open} onClick={() => setOpen(!open)}>
-      <div />
-      <div />
-      <div />
-    </BurgerStyled>
-    <DropMenu open={open} />
+    <>
+      <BurgerStyled open={open} onClick={() => setOpen(!open)}>
+        <div />
+        <div />
+        <div />
+      </BurgerStyled>
+      <DropMenu open={open} />
     </>
   );
 }

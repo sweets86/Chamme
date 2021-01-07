@@ -3,9 +3,7 @@ import styled from "styled-components";
 const PrivacyCompositionStyled = styled.div`
   width: 85%;
   height: 75%;
-  /* position: absolute; */
-  top: 17%;
-  background-color: white;
+  margin-top: 5em;
 
   .contain {
     display: flex;

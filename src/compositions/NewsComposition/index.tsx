@@ -20,7 +20,7 @@ export default function ReuseComposition() {
   return (
     <NewsCompositionStyled>
       <h1>News</h1>
-      {getCurrentDate()}
+      <h3>{getCurrentDate()}</h3>
       <div className="contain">
         <div className="videoDiv">
           <ReactPlayer url={Video} width="100%" height="100%" controls={true} />

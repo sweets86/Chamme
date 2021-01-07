@@ -1,6 +1,5 @@
 import React from "react";
 import FooterStyled from './FooterStyled'
-/* import {Link} from 'react-router-dom' */
 import {HashLink as Link} from 'react-router-hash-link'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {
@@ -13,7 +12,7 @@ export default function Footer() {
   return (
     <FooterStyled>
         <div className="pageLinks">
-            <Link to={'/blog#subscribe'}><h4>Contact</h4></Link>
+            <Link to={'/blog#contact'}><h4>Contact</h4></Link>
             <Link to='/blog#subscribe'><h4>Subscribe</h4></Link>
             <Link to={'/privacy'}><h4>Privacy Policy</h4></Link>
         </div>

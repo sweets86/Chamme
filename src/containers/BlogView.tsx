@@ -17,6 +17,8 @@ export default function BlogView() {
       <BlogComposition />
       <BlogImage />
       <InfoComposition />
+      <div id="contact"></div>
+      <div id="subscribe"></div>
     </Contain>
   );
 }

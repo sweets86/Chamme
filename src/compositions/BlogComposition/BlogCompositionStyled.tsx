@@ -3,7 +3,7 @@ import styled from "styled-components";
 const BlogCompositionStyled = styled.div`
   width: 85%;
   height: auto;
-  top: 17%;
+  margin-top: 5em;
 
   h1 {
     padding-left: 0.7em;
