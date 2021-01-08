@@ -50,7 +50,6 @@ interface Props {
 export default function DropMenu(props: Props) {
   return (
     <DropMenuStyled open={props.open}>
-      {/* <h3>Products</h3> */}
       <ul>
         <Link to="/products">
           <li>T-Shirts</li>

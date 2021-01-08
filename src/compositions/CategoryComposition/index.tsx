@@ -11,7 +11,7 @@ export default function CategoryComposition(props: Props) {
   return (
     <CategoryCompositionStyled>
       {ProductCategories.map((category, index) => {
-        return <ProductsComposition category={category.title} />;
+        return <ProductsComposition category={category.title} key={index} />;
       })}
       <div id="lotion"></div>
     </CategoryCompositionStyled>

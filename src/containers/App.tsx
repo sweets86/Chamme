@@ -1,14 +1,17 @@
-import React from 'react';
-import '../App.css';
-import Layout from './Layout'
-import {BrowserRouter} from 'react-router-dom'
+import React from "react";
+import "../App.css";
+import Layout from "./Layout";
+import { BrowserRouter } from "react-router-dom";
+import { CartProvider } from "../providers/cartProvider";
 
 function App() {
   return (
     <div className="App">
-     <BrowserRouter>
-     <Layout/>
-     </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <Layout />
+        </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }
