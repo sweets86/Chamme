@@ -9,7 +9,7 @@ export default function HeaderLight() {
         <h1 className="titleLink">Chameleone</h1>
       </Link>
       <Link to={"/order"}>
-        <h3 className="counter">Counter</h3>
+        <h3 className="counter">1</h3>
       </Link>
     </HeaderLightStyled>
   );

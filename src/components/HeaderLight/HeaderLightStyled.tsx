@@ -8,6 +8,7 @@ const HeaderLightStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 8px 6px -6px black;
 
   .titleLink {
     display: inline-block;
@@ -20,7 +21,14 @@ const HeaderLightStyled = styled.div`
     margin: 0;
     margin-right: 5em;
     display: inline-block;
-    color: black;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   @media screen and (max-width: 400px) {

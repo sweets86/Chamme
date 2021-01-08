@@ -16,11 +16,22 @@ const HeaderDarkStyled = styled.div`
     margin-left: 2.1em;
   }
 
+  a {
+      text-decoration: none;
+  }
+
   .counter {
     margin: 0;
     margin-right: 5em;
     display: inline-block;
-    color: white;
+    color: black;
+    background-color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   @media screen and (max-width: 400px) {
