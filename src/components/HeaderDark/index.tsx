@@ -13,7 +13,9 @@ export default function HeaderDark() {
               <h1 className="titleLink">Chameleone</h1>
             </Link>
             <Link to={"/order"}>
-              <h3 className="counter">{contextData.countCart()}</h3>
+              {contextData.cartItems.length ? (
+                <h3 className="counter">{contextData.countCart()}</h3>
+              ) : null}
             </Link>
           </HeaderDarkStyled>
         );
