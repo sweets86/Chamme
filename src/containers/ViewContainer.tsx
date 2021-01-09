@@ -19,7 +19,7 @@ export default function ViewContainer() {
             <Route path='/news' component={NewsView} />
             <Route path='/blog' component={BlogView} />
             <Route path='/products' component={ProductsView} />
-            <Route path='/detail' component={DetailView} />
+            <Route path='/product/:id' component={DetailView} />
             <Route path='/order' component={OrderView} />
             <Route path='/confirmation' component={ConfirmationView} />
         </Switch>

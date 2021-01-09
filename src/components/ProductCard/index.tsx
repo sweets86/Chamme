@@ -1,6 +1,7 @@
 import React from "react";
 import ProductCardStyled from "./ProductCardStyled";
 import { CartConsumer, ContextState } from "../../contexts/cartContext";
+import { Link } from "react-router-dom";
 
 interface Props {
   product: any;
@@ -12,15 +13,17 @@ export default function ProductCard(props: Props) {
       {(contextData: ContextState) => {
         return (
           <ProductCardStyled>
-            <div className="imgDiv">
-              <img
-                src={
-                  require("./../../assets/Products/" + props.product.img)
-                    .default
-                }
-                alt="product img"
-              />
-            </div>
+            <Link to={"/product/" + props.product.name}>
+              <div className="imgDiv">
+                <img
+                  src={
+                    require("./../../assets/Products/" + props.product.img)
+                      .default
+                  }
+                  alt="product img"
+                />
+              </div>
+            </Link>
             <div className="contentDiv">
               <h3>{props.product.name}</h3>
               <div className="price-and-btn-div">

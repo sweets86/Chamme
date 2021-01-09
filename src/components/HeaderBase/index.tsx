@@ -5,7 +5,7 @@ import HeaderBaseStyled from "./HeaderBaseStyled";
 export default function HeaderBase() {
   return (
     <HeaderBaseStyled>
-      <Link to={"./"}>
+      <Link to={"/"}>
         <h1 className="titleLink">Chameleone</h1>
       </Link>
     </HeaderBaseStyled>
