@@ -17,6 +17,16 @@ const HeaderLightStyled = styled.div`
     margin-left: 2.1em;
   }
 
+  .navigation {
+    display: flex;
+  }
+
+  h4 {
+    padding-left: 10px;
+    display: inline-block;
+    color: black;
+  }
+
   .counter {
     margin: 0;
     margin-right: 5em;

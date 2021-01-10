@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import HeaderBase from "../../components/HeaderBase/index";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+import { RouteComponentProps, withRouter, useParams } from "react-router-dom";
 import HeaderMain from "../../components/HeaderMain";
 import HeaderDark from "../../components/HeaderDark";
 import HeaderLight from "../../components/HeaderLight";
 
 interface Params {
-  privacy: string;
+  id: string;
 }
 
 interface Props extends RouteComponentProps<Params> {}
 
 function Navbar(props: Props) {
   const headerBase = props.location.pathname;
+  const id = window.location.href.split('/')[4]  
+
 
   const [renderViewDetail, setRenderViewDetail] = useState(false);
   const [renderViewProducts, setRenderViewProducts] = useState(false);
@@ -30,7 +32,7 @@ function Navbar(props: Props) {
       setRenderViewOther(false)
       setRenderViewDetail(false)
       setRenderViewMain(false);
-    } else if (headerBase === "/detail") {
+    } else if (headerBase === `/product/${id}`) {
       setRenderViewDetail(true);
       setRenderViewMain(false);
       setRenderViewProducts(false);
@@ -41,7 +43,7 @@ function Navbar(props: Props) {
       setRenderViewMain(false);
       setRenderViewProducts(false);
     }
-  }, [headerBase]);
+  }, [headerBase, id]);
 
   return (
     <div>

@@ -13,7 +13,7 @@ export default function ProductCard(props: Props) {
       {(contextData: ContextState) => {
         return (
           <ProductCardStyled>
-            <Link to={"/product/" + props.product.name}>
+            <Link to={"/product/" + props.product.id}>
               <div className="imgDiv">
                 <img
                   src={
