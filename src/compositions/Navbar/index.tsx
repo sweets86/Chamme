@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HeaderBase from "../../components/HeaderBase/index";
-import { RouteComponentProps, withRouter, useParams } from "react-router-dom";
+import { RouteComponentProps, withRouter} from "react-router-dom";
 import HeaderMain from "../../components/HeaderMain";
 import HeaderDark from "../../components/HeaderDark";
 import HeaderLight from "../../components/HeaderLight";

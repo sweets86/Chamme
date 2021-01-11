@@ -49,6 +49,15 @@ const HeaderLightStyled = styled.div`
     .counter {
       margin-right: 2em;
     }
+
+    .navigation {
+      flex-direction: column;
+    }
+
+    h4 {
+      margin: 0;
+      margin-left: 1em;
+    }
   }
 `;
 export default HeaderLightStyled;

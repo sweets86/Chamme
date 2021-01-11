@@ -8,6 +8,8 @@ export interface Product {
   status: string;
   deliver: string;
   description: string;
+  content: string;
+  extra: string;
   color: string;
   size: string;
 }
@@ -23,6 +25,8 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
+    content: "",
+    extra: "",
     color: "white",
     size: "",
   },
@@ -36,6 +40,8 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
+    content: "",
+    extra: "",
     color: "white",
     size: "",
   },
@@ -49,6 +55,8 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
+    content: "",
+    extra: "",
     color: "black",
     size: "",
   },
@@ -62,6 +70,8 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
+    content: "",
+    extra: "",
     color: "black",
     size: "",
   },
@@ -75,7 +85,9 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
-      "Doftpåse med en doft av sagolik liljekonvalj. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar. Kika runt bland våra underbara doftpåsar och hitta din favorit ",
+      "Doftpåse med en doft av sagolik liljekonvalj. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar.",
+    content: "",
+    extra: "Kika runt bland våra underbara doftpåsar och hitta din favorit.",
     color: "",
     size: "",
   },
@@ -89,7 +101,9 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
-      "Doftpåse med en doft av fruktig peach. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar. Kika runt bland våra underbara doftpåsar och hitta din favorit ",
+      "Doftpåse med en doft av fruktig peach. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar.",
+    content: "",
+    extra: "Kika runt bland våra underbara doftpåsar och hitta din favorit.",
     color: "",
     size: "",
   },
@@ -103,7 +117,9 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
-      "Doftpåse med en drömmande vaniljdoft. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar. Kika runt bland våra underbara doftpåsar och hitta din favorit",
+      "Doftpåse med en drömmande vaniljdoft. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar.",
+    content: "",
+    extra: "Kika runt bland våra underbara doftpåsar och hitta din favorit.",
     color: "",
     size: "",
   },
@@ -117,7 +133,9 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
-      "Doftpåse med en fräsch doft som vi kallar Ocean. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar. Kika runt bland våra underbara doftpåsar och hitta din favorit",
+      "Doftpåse med en fräsch doft som vi kallar Ocean. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar.",
+    content: "",
+    extra: "Kika runt bland våra underbara doftpåsar och hitta din favorit.",
     color: "",
     size: "",
   },
@@ -131,7 +149,9 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
-      "En ren vaniljdoft som är både söt och dämpad, sockrad men krämig och alltid förförisk. Innehåll: Socker, Vanilj, Vanilj Orkidé, Vit musk. Brinntid: 65-75 timmar",
+      "En ren vaniljdoft som är både söt och dämpad, sockrad men krämig och alltid förförisk.",
+    content: "Innehåll: Socker, Vanilj, Vanilj Orkidé, Vit musk.",
+    extra: "Brinntid: 65-75 timmar",
     color: "",
     size: "",
   },
@@ -145,7 +165,10 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
-      "En meditativ doftbalanserad och centrerad med mild jasmin, en viskning av patchouli och varm bärnstenmusk. Innehåll: Mandarinblad, Jasmin, Cedarwood, Patchouli, Sandelträ, Bärnstensmusk. Brinntid: 65-75 timmar",
+      "En meditativ doftbalanserad och centrerad med mild jasmin, en viskning av patchouli och varm bärnstenmusk.",
+    content:
+      "Innehåll: Mandarinblad, Jasmin, Cedarwood, Patchouli, Sandelträ, Bärnstensmusk.",
+    extra: "Brinntid: 65-75 timmar",
     color: "",
     size: "",
   },
@@ -159,7 +182,10 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
-      "Lätta och luftiga cookies med citrus och persikafyllning, toppad med söt vaniljfrostning Innehåll: Söt Apelsin, Krämig Persika, Passionsfrukt, Buttercream, Vaniljfrostning, Kokos. Brinntid: 65-75 timmar",
+      "Lätta och luftiga cookies med citrus och persikafyllning, toppad med söt vaniljfrostning.",
+    content:
+      "Innehåll: Söt Apelsin, Krämig Persika, Passionsfrukt, Buttercream, Vaniljfrostning, Kokos.",
+    extra: "Brinntid: 65-75 timmar",
     color: "",
     size: "",
   },
@@ -173,7 +199,9 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
-      "Näring med doft. Snabbt absorberande doftlotion med 24 timmars återfunktande, perfekt för händer och kropp. Doftäventyr som börjar med dig. Innehåll: Cool Water, Bright Daisy. Style: Fresh",
+      "Näring med doft. Snabbt absorberande doftlotion med 24 timmars återfunktande, perfekt för händer och kropp. Doftäventyr som börjar med dig.",
+    content: "Innehåll: Cool Water, Bright Daisy.",
+    extra: "Style: Fresh",
     color: "",
     size: "",
   },
@@ -187,7 +215,9 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
-      "Näring med doft. Snabbt absorberande doftlotion med 24 timmars återfunktande, perfekt för händer och kropp. Doftäventyr som börjar med dig. Innehåll: Körsbärsblom, Färsk Persika. Style: Fruktig & Blommig",
+      "Näring med doft. Snabbt absorberande doftlotion med 24 timmars återfunktande, perfekt för händer och kropp. Doftäventyr som börjar med dig.",
+    content: "Innehåll: Körsbärsblom, Färsk Persika.",
+    extra: "Style: Fruktig & Blommig",
     color: "",
     size: "",
   },
@@ -201,7 +231,9 @@ export const Products: Product[] = [
     status: "Finns i lager",
     deliver: "1-3 dagar",
     description:
-      "Lys hela säsongen. Skimmrande och doftande, denna silkeslena lotion gör så att du glittrar från topp till tå. Innehåll: Prssad Plommon, Krossad Freesia. Style: Fruktig",
+      "Lys hela säsongen. Skimmrande och doftande, denna silkeslena lotion gör så att du glittrar från topp till tå.",
+    content: "Innehåll: Prssad Plommon, Krossad Freesia.",
+    extra: "Style: Fruktig",
     color: "",
     size: "",
   },

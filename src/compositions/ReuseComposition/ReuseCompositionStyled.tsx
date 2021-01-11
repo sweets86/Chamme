@@ -3,7 +3,7 @@ import styled from "styled-components";
 const ReuseCompositionStyled = styled.div`
   width: 85%;
   height: auto;
-  top: 17%;
+  margin-top: 5em;
 
   .contain {
     display: flex;
