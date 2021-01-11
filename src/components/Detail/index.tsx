@@ -3,12 +3,21 @@ import DetailStyled from "./DetailStyled";
 
 interface Props {
   size: string[];
+  color: string[];
 }
 
 export default function Detail(props: Props) {
   const sizes = props.size;
+  const colors = props.color;
 
-  const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCheckedColor = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let value = event.target.value;
+    let checked = event.target.checked;
+
+    console.log(value, checked);
+  };
+
+  const handleCheckedSize = (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value;
     let checked = event.target.checked;
 
@@ -17,24 +26,36 @@ export default function Detail(props: Props) {
 
   return (
     <DetailStyled>
-      <div className="colorDiv">
-        <h3>COLOR</h3>
+      <h3>COLOR</h3>
+      <div className="gridColor">
+        {colors.map((color, index) => {
+          return (
+            <form className="sizeCheckbox" key={index}>
+              <input
+                type="checkbox"
+                value={color}
+                onChange={(e) => handleCheckedColor(e)}
+              />
+              <label htmlFor={color}>{color}</label>
+            </form>
+          );
+        })}
       </div>
-      <div className="sizeDiv">
-        <h3>SIZE</h3>
-        <div className="sizeCheckboxDiv">
-          {sizes.map((size, index) => {
-            return (
-              <div className="sizeCheckbox" key={index}>
-                <input
-                  type="checkbox"
-                  value={size}
-                  onChange={(e) => handleChecked(e)}
-                />
-              </div>
-            );
-          })}
-        </div>
+
+      <h3>SIZE</h3>
+      <div className="grid">
+        {sizes.map((size, index) => {
+          return (
+            <form className="sizeCheckbox" key={index}>
+              <input
+                type="checkbox"
+                value={size}
+                onChange={(e) => handleCheckedSize(e)}
+              />
+              <label htmlFor={size}>{size}</label>
+            </form>
+          );
+        })}
       </div>
     </DetailStyled>
   );

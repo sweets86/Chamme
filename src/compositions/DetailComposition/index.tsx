@@ -62,7 +62,7 @@ function DetailComposition(props: Props) {
                 <p className="description">{product.description}</p>
                 <p>{product.content}</p>
                 <p>{product.extra}</p>
-                {detailComponent ? <Detail size={product.size} /> : null}
+                {detailComponent ? <Detail size={product.size} color={product.color} /> : null}
               </div>
             </div>
           );
