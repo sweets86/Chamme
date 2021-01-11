@@ -5,15 +5,22 @@ import { Link } from "react-router-dom";
 
 interface Props {
   product: any;
+  category: string;
 }
 
-export default function ProductCard(props: Props) {
+function ProductCard(props: Props) {
+  const category = props.category;
   return (
     <CartConsumer>
       {(contextData: ContextState) => {
         return (
           <ProductCardStyled>
-            <Link to={"/product/" + props.product.id}>
+            <Link
+              to={{
+                pathname: "/product/" + props.product.id,
+                state: category,
+              }}
+            >
               <div className="imgDiv">
                 <img
                   src={
@@ -41,3 +48,5 @@ export default function ProductCard(props: Props) {
     </CartConsumer>
   );
 }
+
+export default ProductCard;

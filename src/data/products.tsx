@@ -10,8 +10,8 @@ export interface Product {
   description: string;
   content: string;
   extra: string;
-  color: string;
-  size: string;
+  color: string[]
+  size: string[];
 }
 
 export const Products: Product[] = [
@@ -27,8 +27,8 @@ export const Products: Product[] = [
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
     content: "",
     extra: "",
-    color: "white",
-    size: "",
+    color: ["White", "Black"],
+    size: ["S", "M", "L", "XL","2XL", "3XL"],
   },
   {
     title: "T-shirts",
@@ -42,8 +42,8 @@ export const Products: Product[] = [
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
     content: "",
     extra: "",
-    color: "white",
-    size: "",
+    color: ["White", "Black"],
+    size: ["S", "M", "L", "XL","2XL", "3XL"],
   },
   {
     title: "T-shirts",
@@ -57,8 +57,8 @@ export const Products: Product[] = [
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
     content: "",
     extra: "",
-    color: "black",
-    size: "",
+    color: ["White", "Black"],
+    size: ["S", "M", "L", "XL","2XL", "3XL"],
   },
   {
     title: "T-shirts",
@@ -72,8 +72,8 @@ export const Products: Product[] = [
     description: "T- shirt branding by Chameleone, Cotton 98 % Elastan 2%",
     content: "",
     extra: "",
-    color: "black",
-    size: "",
+    color: ["White", "Black"],
+    size: ["S", "M", "L", "XL","2XL", "3XL"],
   },
   {
     title: "Fragrances",
@@ -88,8 +88,8 @@ export const Products: Product[] = [
       "Doftpåse med en doft av sagolik liljekonvalj. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar.",
     content: "",
     extra: "Kika runt bland våra underbara doftpåsar och hitta din favorit.",
-    color: "",
-    size: "",
+    color: [""],
+    size: [""],
   },
   {
     title: "Fragrances",
@@ -104,8 +104,8 @@ export const Products: Product[] = [
       "Doftpåse med en doft av fruktig peach. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar.",
     content: "",
     extra: "Kika runt bland våra underbara doftpåsar och hitta din favorit.",
-    color: "",
-    size: "",
+    color: [""],
+    size: [""],
   },
   {
     title: "Fragrances",
@@ -120,8 +120,8 @@ export const Products: Product[] = [
       "Doftpåse med en drömmande vaniljdoft. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar.",
     content: "",
     extra: "Kika runt bland våra underbara doftpåsar och hitta din favorit.",
-    color: "",
-    size: "",
+    color: [""],
+    size: [""],
   },
   {
     title: "Fragrances",
@@ -136,8 +136,8 @@ export const Products: Product[] = [
       "Doftpåse med en fräsch doft som vi kallar Ocean. En doftpåse kan man kan ha på alla ställen i hemmet där man önskar lite fräsch doft och en extra hemtrevlig atmosfär. Doften håller i högst 3 månader. Påsen innehåller en liten mängd olja då det därför är viktigt att låta den bli kvar i plasthöljet. Tycker du att doftpåsen börjar tappa doft kan du öpnna en lucka i plasten. Tar man bort hela plastfodralet så får man inte glömma att den kan ge oljefläckar.",
     content: "",
     extra: "Kika runt bland våra underbara doftpåsar och hitta din favorit.",
-    color: "",
-    size: "",
+    color: [""],
+    size: [""],
   },
   {
     title: "Fragrances",
@@ -152,8 +152,8 @@ export const Products: Product[] = [
       "En ren vaniljdoft som är både söt och dämpad, sockrad men krämig och alltid förförisk.",
     content: "Innehåll: Socker, Vanilj, Vanilj Orkidé, Vit musk.",
     extra: "Brinntid: 65-75 timmar",
-    color: "",
-    size: "",
+    color: [""],
+    size: [""],
   },
   {
     title: "Fragrances",
@@ -169,8 +169,8 @@ export const Products: Product[] = [
     content:
       "Innehåll: Mandarinblad, Jasmin, Cedarwood, Patchouli, Sandelträ, Bärnstensmusk.",
     extra: "Brinntid: 65-75 timmar",
-    color: "",
-    size: "",
+    color: [""],
+    size: [""],
   },
   {
     title: "Fragrances",
@@ -186,8 +186,8 @@ export const Products: Product[] = [
     content:
       "Innehåll: Söt Apelsin, Krämig Persika, Passionsfrukt, Buttercream, Vaniljfrostning, Kokos.",
     extra: "Brinntid: 65-75 timmar",
-    color: "",
-    size: "",
+    color: [""],
+    size: [""],
   },
   {
     title: "Lotion",
@@ -202,8 +202,8 @@ export const Products: Product[] = [
       "Näring med doft. Snabbt absorberande doftlotion med 24 timmars återfunktande, perfekt för händer och kropp. Doftäventyr som börjar med dig.",
     content: "Innehåll: Cool Water, Bright Daisy.",
     extra: "Style: Fresh",
-    color: "",
-    size: "",
+    color: [""],
+    size: [""],
   },
   {
     title: "Lotion",
@@ -218,8 +218,8 @@ export const Products: Product[] = [
       "Näring med doft. Snabbt absorberande doftlotion med 24 timmars återfunktande, perfekt för händer och kropp. Doftäventyr som börjar med dig.",
     content: "Innehåll: Körsbärsblom, Färsk Persika.",
     extra: "Style: Fruktig & Blommig",
-    color: "",
-    size: "",
+    color: [""],
+    size: [""],
   },
   {
     title: "Lotion",
@@ -234,7 +234,7 @@ export const Products: Product[] = [
       "Lys hela säsongen. Skimmrande och doftande, denna silkeslena lotion gör så att du glittrar från topp till tå.",
     content: "Innehåll: Prssad Plommon, Krossad Freesia.",
     extra: "Style: Fruktig",
-    color: "",
-    size: "",
+    color: [""],
+    size: [""],
   },
 ];
