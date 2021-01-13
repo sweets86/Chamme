@@ -24,6 +24,11 @@ function ProductCard(props: Props) {
     }
   };
 
+  const closeModal = () => {
+    setOpenModal(false)
+    console.log(openModal)
+  }
+
   return (
     <ProductCardStyled>
       <Link
@@ -48,7 +53,7 @@ function ProductCard(props: Props) {
           <button onClick={() => checkExtras(props.product.title)}>Köp</button>
         </div>
       </div>
-      {openModal ? <Modal /> : null}
+      {openModal ? <Modal closeModal={closeModal} color={props.product.color} size={props.product.size}/> : null}
     </ProductCardStyled>
   );
 }

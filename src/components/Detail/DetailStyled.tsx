@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const DetailStyled = styled.div`
-  margin-top: 4em;
-  margin-bottom: 4em;
+  margin-top: 3em;
 
   .gridColor {
     display: grid;

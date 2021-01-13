@@ -7,12 +7,8 @@ const DetailCompositionStyled = styled.div`
 
   .contain {
     display: flex;
-    /* justify-content: space-evenly;
-    align-items: center; */
-    /* background-color: #201e1e; */
     box-shadow: 0 8px 6px -6px black;
     min-height: 80%;
-    /* padding: 1em; */
     margin-bottom: 5em;
     margin-top: 5em;
   }
@@ -36,6 +32,7 @@ const DetailCompositionStyled = styled.div`
     background-color: white;
     padding-left: 2em;
     margin-left: 3em;
+    margin-bottom: 4em;
   }
 
   h4 {
