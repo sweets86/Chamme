@@ -35,6 +35,7 @@ export class CartProvider extends Component<{}, ProviderState> {
       clonedCart[findProductIndex].quantity++;
     }
     this.setState({ cartItems: clonedCart });
+    console.log(clonedCart)
   };
 
   countCart = () => {

@@ -26,7 +26,7 @@ function ProductCard(props: Props) {
 
   const closeModal = () => {
     setOpenModal(false)
-    console.log(openModal)
+    context.addProductToCart(props.product);
   }
 
   return (

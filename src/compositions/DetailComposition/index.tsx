@@ -28,6 +28,10 @@ function DetailComposition(props: Props) {
     return;
   }, [state]);
 
+  const passingValues = (detailValues: object) => {
+    console.log(detailValues)
+}
+
   return (
     <DetailCompositionStyled>
       {products
@@ -62,7 +66,7 @@ function DetailComposition(props: Props) {
                 <p className="description">{product.description}</p>
                 <p>{product.content}</p>
                 <p>{product.extra}</p>
-                {detailComponent ? <Detail size={product.size} color={product.color} /> : null}
+                {detailComponent ? <Detail size={product.size} color={product.color} passingValues={(detailValues => passingValues(detailValues))} /> : null}
               </div>
             </div>
           );
