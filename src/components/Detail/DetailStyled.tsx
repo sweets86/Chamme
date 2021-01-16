@@ -41,7 +41,19 @@ const DetailStyled = styled.div`
   }
 
   label {
-    color: white;
+    /* color: white; */
+    display: inline-block;
+		background-color: #f5f5f5;
+		padding: 2px 5px;
+		font-family: Sweden Sans;
+		font-size: 16px;
+		border: 2px solid #c4c4c4;
+		border-radius: 3px;
+		margin: 3px;
+  }
+
+  input[type="checkbox"]:checked + label {
+    background-color: grey;
   }
 
   @media screen and (max-width: 1200px) {

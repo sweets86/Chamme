@@ -24,10 +24,15 @@ function ProductCard(props: Props) {
     }
   };
 
-  const closeModal = () => {
-    setOpenModal(false)
-    context.addProductToCart(props.product);
-  }
+  const closeModal = (extrasObj: object) => {
+    if (Object.keys(extrasObj).length === 0) {
+      alert("Välj både färg och storlek, tack.");
+    } else {
+      console.log(extrasObj);
+      setOpenModal(false);
+      context.addProductToCart(props.product);
+    }
+  };
 
   return (
     <ProductCardStyled>
@@ -53,7 +58,13 @@ function ProductCard(props: Props) {
           <button onClick={() => checkExtras(props.product.title)}>Köp</button>
         </div>
       </div>
-      {openModal ? <Modal closeModal={closeModal} color={props.product.color} size={props.product.size}/> : null}
+      {openModal ? (
+        <Modal
+          closeModal={(extrasObj) => closeModal(extrasObj)}
+          color={props.product.color}
+          size={props.product.size}
+        />
+      ) : null}
     </ProductCardStyled>
   );
 }
