@@ -26,7 +26,7 @@ function ProductCard(props: Props) {
 
   const closeModal = (extrasObj: object) => {
     if (Object.keys(extrasObj).length === 0) {
-      alert("Välj både färg och storlek, tack.");
+      alert("Välj både en färg och en storlek, tack.");
     } else {
       console.log(extrasObj);
       setOpenModal(false);

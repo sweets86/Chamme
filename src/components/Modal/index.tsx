@@ -20,7 +20,7 @@ export default function Modal(props: Props) {
   return (
     <ModalStyled>
       <div className="modal-inner">
-        <h3>Välj Färg och Storlek</h3>
+        <h3>Välj en färg och en storlek</h3>
         <Detail color={props.color} size={props.size} passingValues={(detailValues => passingValues(detailValues))} />
         <button onClick={() => props.closeModal(extrasObj)}>Klar</button>
       </div>

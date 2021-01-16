@@ -29,12 +29,11 @@ export default class Detail extends React.Component<Props, State> {
       };
       this.props.passingValues(extraValues);
     } else {
-      alert("Välj både färg och storlek, tack.");
+      alert("Välj både en färg och en storlek, tack.");
     }
   };
 
   handleCheckedColor = (event: React.ChangeEvent<HTMLInputElement>) => {
-    
     let value = event.target.value;
     let checked = event.target.checked;
 
@@ -47,7 +46,7 @@ export default class Detail extends React.Component<Props, State> {
         () => {
           console.log(this.state.color);
           if (this.state.size !== "") {
-            this.saveValues()
+            this.saveValues();
           }
         }
       );
@@ -60,9 +59,9 @@ export default class Detail extends React.Component<Props, State> {
         () => {
           console.log(this.state.color);
           if (this.state.color === "") {
-            console.log(this.state.color)
-            let falseColor = this.state.color
-            this.props.passingValues(falseColor)
+            console.log(this.state.color);
+            let falseColor = this.state.color;
+            this.props.passingValues(falseColor);
           }
         }
       );
@@ -70,12 +69,9 @@ export default class Detail extends React.Component<Props, State> {
   };
 
   handleCheckedSize = (event: React.ChangeEvent<HTMLInputElement>) => {
-    
     let value = event.target.value;
     let checked = event.target.checked;
-    let id = event.target.id
 
-    console.log(id)
     if (checked === true) {
       console.log("checked: " + value + " is " + checked);
       this.setState(
@@ -85,7 +81,7 @@ export default class Detail extends React.Component<Props, State> {
         () => {
           console.log(this.state.size);
           if (this.state.color !== "") {
-            this.saveValues()
+            this.saveValues();
           }
         }
       );
@@ -98,9 +94,9 @@ export default class Detail extends React.Component<Props, State> {
         () => {
           console.log(this.state.size);
           if (this.state.size === "") {
-            console.log(this.state.size)
-            let falseSize = this.state.size
-            this.props.passingValues(falseSize)
+            console.log(this.state.size);
+            let falseSize = this.state.size;
+            this.props.passingValues(falseSize);
           }
         }
       );
