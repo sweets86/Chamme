@@ -34,6 +34,10 @@ function ProductCard(props: Props) {
     }
   };
 
+  const exitModal = () => {
+    setOpenModal(false);
+  };
+
   return (
     <ProductCardStyled>
       <Link
@@ -61,6 +65,7 @@ function ProductCard(props: Props) {
       {openModal ? (
         <Modal
           closeModal={(extrasObj) => closeModal(extrasObj)}
+          exitModal={exitModal}
           color={props.product.color}
           size={props.product.size}
         />

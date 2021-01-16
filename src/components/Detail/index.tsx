@@ -21,30 +21,29 @@ export default class Detail extends React.Component<Props, State> {
       color: "",
       size: "",
       colorIndex: 0,
-      sizeIndex: 0
+      sizeIndex: 0,
     };
   }
 
   saveValues = () => {
-    if (this.state.color && this.state.size !== "") {
-      const extraValues = {
-        color: this.state.color,
-        size: this.state.size,
-      };
-      this.props.passingValues(extraValues);
-    } else {
-      alert("Välj både en färg och en storlek, tack.");
-    }
+    const extraValues = {
+      color: this.state.color,
+      size: this.state.size,
+    };
+    this.props.passingValues(extraValues);
   };
 
-  handleCheckedColor = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+  handleCheckedColor = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
     let value = event.target.value;
     let checked = event.target.checked;
 
     if (checked === true) {
       this.setState({
-        colorIndex: index
-      })
+        colorIndex: index,
+      });
       console.log("checked: " + value + " is " + checked);
       this.setState(
         {
@@ -57,32 +56,21 @@ export default class Detail extends React.Component<Props, State> {
           }
         }
       );
-    } else {
-      console.log("checked: " + value + " is " + checked);
-      this.setState(
-        {
-          color: "",
-        },
-        () => {
-          console.log(this.state.color);
-          if (this.state.color === "") {
-            console.log(this.state.color);
-            let falseColor = this.state.color;
-            this.props.passingValues(falseColor);
-          }
-        }
-      );
     }
   };
 
-  handleCheckedSize = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+  handleCheckedSize = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
     let value = event.target.value;
     let checked = event.target.checked;
 
     if (checked === true) {
-      this.setState(prevState => ({
-        colorIndex: prevState.colorIndex
-      }))
+      this.setState({
+        sizeIndex: index,
+      });
+
       console.log("checked: " + value + " is " + checked);
       this.setState(
         {
@@ -92,24 +80,6 @@ export default class Detail extends React.Component<Props, State> {
           console.log(this.state.size);
           if (this.state.color !== "") {
             this.saveValues();
-          }
-        }
-      );
-    } else {
-      this.setState(prevState => ({
-        colorIndex: prevState.colorIndex
-      }))
-      console.log("checked: " + value + " is " + checked);
-      this.setState(
-        {
-          size: "",
-        },
-        () => {
-          console.log(this.state.size);
-          if (this.state.size === "") {
-            console.log(this.state.size);
-            let falseSize = this.state.size;
-            this.props.passingValues(falseSize);
           }
         }
       );

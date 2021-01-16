@@ -21,5 +21,33 @@ const ModalStyled = styled.div`
     background: white;
     padding: 20px;
   }
+
+  span {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .exitBtnContainer {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+
+  .extBtnDiv {
+    height: 25px;
+    width: 2px;
+    margin-left: 12px;
+    background-color: black;
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+
+  .exitBtn {
+    height: 25px;
+    width: 2px;
+    background-color: black;
+    transform: rotate(90deg);
+    z-index: 2;
+  }
 `;
 export default ModalStyled;
