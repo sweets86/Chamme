@@ -4,6 +4,8 @@ import DetailStyled from "./DetailStyled";
 interface State {
   color: string;
   size: string;
+  colorIndex: number;
+  sizeIndex: number;
 }
 
 interface Props {
@@ -18,6 +20,8 @@ export default class Detail extends React.Component<Props, State> {
     this.state = {
       color: "",
       size: "",
+      colorIndex: 0,
+      sizeIndex: 0
     };
   }
 
@@ -33,11 +37,14 @@ export default class Detail extends React.Component<Props, State> {
     }
   };
 
-  handleCheckedColor = (event: React.ChangeEvent<HTMLInputElement>) => {
+  handleCheckedColor = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
     let value = event.target.value;
     let checked = event.target.checked;
 
     if (checked === true) {
+      this.setState({
+        colorIndex: index
+      })
       console.log("checked: " + value + " is " + checked);
       this.setState(
         {
@@ -68,11 +75,14 @@ export default class Detail extends React.Component<Props, State> {
     }
   };
 
-  handleCheckedSize = (event: React.ChangeEvent<HTMLInputElement>) => {
+  handleCheckedSize = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
     let value = event.target.value;
     let checked = event.target.checked;
 
     if (checked === true) {
+      this.setState(prevState => ({
+        colorIndex: prevState.colorIndex
+      }))
       console.log("checked: " + value + " is " + checked);
       this.setState(
         {
@@ -86,6 +96,9 @@ export default class Detail extends React.Component<Props, State> {
         }
       );
     } else {
+      this.setState(prevState => ({
+        colorIndex: prevState.colorIndex
+      }))
       console.log("checked: " + value + " is " + checked);
       this.setState(
         {
@@ -112,11 +125,12 @@ export default class Detail extends React.Component<Props, State> {
         <div className="gridColor">
           {colors.map((color, index) => {
             return (
-              <form className="sizeCheckbox" key={index}>
+              <form className="sizeRadio" key={index}>
                 <input
-                  type="checkbox"
+                  type="radio"
                   value={color}
-                  onChange={(e) => this.handleCheckedColor(e)}
+                  checked={this.state.colorIndex === index}
+                  onChange={(e) => this.handleCheckedColor(e, index)}
                 />
                 <label htmlFor={color}>{color}</label>
               </form>
@@ -128,11 +142,12 @@ export default class Detail extends React.Component<Props, State> {
         <div className="grid">
           {sizes.map((size, index) => {
             return (
-              <form className="sizeCheckbox" key={index}>
+              <form className="sizeRadio" key={index}>
                 <input
-                  type="checkbox"
+                  type="radio"
                   value={size}
-                  onChange={(e) => this.handleCheckedSize(e)}
+                  checked={this.state.sizeIndex === index}
+                  onChange={(e) => this.handleCheckedSize(e, index)}
                 />
                 <label htmlFor={size}>{size}</label>
               </form>

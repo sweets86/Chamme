@@ -17,7 +17,7 @@ const DetailStyled = styled.div`
     grid-gap: 20px 20px;
   }
 
-  .sizeCheckbox {
+  .sizeRadio {
     width: auto;
     height: 3em;
     background-color: black;
@@ -28,11 +28,11 @@ const DetailStyled = styled.div`
     transition: transform 250ms;
   }
 
-  .sizeCheckbox:hover {
+  .sizeRadio:hover {
     transform: translateY(-3px);
   }
 
-  input[type="checkbox"] {
+  input[type="Radio"] {
     opacity: 0;
     width: 10em;
     height: 3em;
@@ -52,22 +52,22 @@ const DetailStyled = styled.div`
 		margin: 3px;
   }
 
-  input[type="checkbox"]:checked + label {
+  input[type="Radio"]:checked + label {
     background-color: grey;
   }
 
   @media screen and (max-width: 1200px) {
-    input[type="checkbox"] {
+    input[type="Radio"] {
       width: 8em;
     }
   }
   @media screen and (max-width: 1100px) {
-    input[type="checkbox"] {
+    input[type="Radio"] {
       width: 7em;
     }
   }
   @media screen and (max-width: 920px) {
-    input[type="checkbox"] {
+    input[type="Radio"] {
       width: 5em;
     }
   }
