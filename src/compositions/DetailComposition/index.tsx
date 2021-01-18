@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DetailCompositionStyled from "./DetailCompositionStyled";
 import { RouteComponentProps, useLocation, withRouter } from "react-router-dom";
 import { Product, Products } from "../../data/products";
-import { CartConsumer, ContextState } from "../../contexts/cartContext";
+import { CartContext } from "../../contexts/cartContext";
 import Detail from "../../components/Detail";
+import Popup from "../../components/Popup";
 
 interface Params {
   id: string;
@@ -18,8 +19,11 @@ function DetailComposition(props: Props) {
   const numberId = parseFloat(id);
   const location = useLocation();
   const state = location.state as string;
+  const context = useContext(CartContext);
 
   const [detailComponent, setDetailComponent] = useState(false);
+  const [openPopup, setOpenPopup] = useState(false);
+  const [checkExtrasObj, setCheckExtrasObj] = useState({});
 
   useEffect(() => {
     if (state === "T-shirts") {
@@ -29,8 +33,22 @@ function DetailComposition(props: Props) {
   }, [state]);
 
   const passingValues = (detailValues: object) => {
-    console.log(detailValues)
-}
+    console.log(detailValues);
+    setCheckExtrasObj(detailValues);
+  };
+
+  const checkExtras = (product: any) => {
+    if (Object.keys(checkExtrasObj).length === 0) {
+      setOpenPopup(true);
+    } else {
+      console.log(checkExtrasObj);
+      context.addProductToCart(product);
+    }
+  };
+
+  const closePopup = () => {
+    setOpenPopup(false);
+  };
 
   return (
     <DetailCompositionStyled>
@@ -49,28 +67,28 @@ function DetailComposition(props: Props) {
                 <h4>{product.brand}</h4>
                 <h2>{product.name}</h2>
                 <h2>{product.price} kr</h2>
-                <CartConsumer>
-                  {(contextData: ContextState) => {
-                    return (
-                      <button
-                        className="buyBtn"
-                        onClick={() => contextData.addProductToCart(product)}
-                      >
-                        Köp
-                      </button>
-                    );
-                  }}
-                </CartConsumer>
+                <button className="buyBtn" onClick={() => checkExtras(product)}>
+                  Köp
+                </button>
                 <h5>{product.status}</h5>
                 <h5>Leveransstatus {product.deliver}</h5>
                 <p className="description">{product.description}</p>
                 <p>{product.content}</p>
                 <p>{product.extra}</p>
-                {detailComponent ? <Detail size={product.size} color={product.color} passingValues={(detailValues => passingValues(detailValues))} /> : null}
+                {detailComponent ? (
+                  <Detail
+                    size={product.size}
+                    color={product.color}
+                    passingValues={(detailValues) =>
+                      passingValues(detailValues)
+                    }
+                  />
+                ) : null}
               </div>
             </div>
           );
         })}
+      {openPopup ? <Popup closePopup={closePopup} /> : null}
     </DetailCompositionStyled>
   );
 }

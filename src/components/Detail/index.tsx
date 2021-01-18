@@ -11,7 +11,7 @@ interface State {
 interface Props {
   size: string[];
   color: string[];
-  passingValues: (detailValue: any) => void;
+  passingValues: (detailValue: object) => void;
 }
 
 export default class Detail extends React.Component<Props, State> {
