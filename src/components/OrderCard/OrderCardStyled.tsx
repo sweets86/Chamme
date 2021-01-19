@@ -11,8 +11,13 @@ const OrderCardStyled = styled.div`
     width: 25%;
     height: auto;
     margin-right: 0.5em;
-    background-color: black;
-    color: white;
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
   }
 
   .contentDiv {

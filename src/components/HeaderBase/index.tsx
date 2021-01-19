@@ -8,6 +8,10 @@ export default function HeaderBase() {
       <Link to={"/"}>
         <h1 className="titleLink">Chameleone</h1>
       </Link>
+
+      <Link to="/products">
+        <h4>{"<<"} Products</h4>
+      </Link>
     </HeaderBaseStyled>
   );
 }
