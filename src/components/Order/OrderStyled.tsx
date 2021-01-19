@@ -17,13 +17,6 @@ const OrderStyled = styled.div`
     align-items: center;
   }
 
-  .orderDiv {
-    width: 100%;
-    height: auto;
-    padding: 0.5em;
-    box-shadow: 0 8px 6px -6px black;
-  }
-
   .orderTot {
     width: 100%;
     height: auto;
