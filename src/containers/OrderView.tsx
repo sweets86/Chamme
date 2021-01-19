@@ -1,12 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import styled from "styled-components";
+import OrderComposition from "../compositions/OrderComposition";
+
+const Contain = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default function OrderView() {
   return (
-    <div>
-      <Link to={"/detail"}>
-        <h1 style={{display: "inline-block", color: "black"}}>OrderView</h1>
-      </Link>
-    </div>
+    <Contain>
+      <OrderComposition />
+    </Contain>
   );
 }
