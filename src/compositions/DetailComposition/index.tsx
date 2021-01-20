@@ -23,7 +23,8 @@ function DetailComposition(props: Props) {
 
   const [detailComponent, setDetailComponent] = useState(false);
   const [openPopup, setOpenPopup] = useState(false);
-  const [checkExtrasObj, setCheckExtrasObj] = useState({});
+  const [extrasColor, setExtrasColor] = useState("");
+  const [extrasSize, setExtrasSize] = useState("");
 
   useEffect(() => {
     if (state === "T-shirts") {
@@ -32,17 +33,21 @@ function DetailComposition(props: Props) {
     return;
   }, [state]);
 
-  const passingValues = (detailValues: object) => {
-    console.log(detailValues);
-    setCheckExtrasObj(detailValues);
+  const passingValues = (color: string, size: string) => {
+    console.log(color, size);
+    setExtrasColor(color);
+    setExtrasSize(size);
   };
 
   const checkExtras = (product: any) => {
-    if (Object.keys(checkExtrasObj).length === 0) {
+    if (extrasColor === "" || extrasSize === "") {
       setOpenPopup(true);
     } else {
-      console.log(checkExtrasObj);
+      console.log(extrasColor, extrasSize);
       context.addProductToCart(product);
+      context.setExtras(extrasColor, extrasSize);
+      setExtrasColor("");
+      setExtrasSize("");
     }
   };
 
@@ -79,9 +84,7 @@ function DetailComposition(props: Props) {
                   <Detail
                     size={product.size}
                     color={product.color}
-                    passingValues={(detailValues) =>
-                      passingValues(detailValues)
-                    }
+                    passingValues={(color, size) => passingValues(color, size)}
                   />
                 ) : null}
               </div>

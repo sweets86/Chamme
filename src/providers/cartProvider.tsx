@@ -8,8 +8,14 @@ export interface CartItem {
   count: number;
 }
 
+export interface Extras {
+  extrasColor: string;
+  extrasSize: string;
+}
+
 export interface ProviderState {
   cartItems: CartItem[];
+  extras: Extras[];
 }
 
 export class CartProvider extends Component<{}, ProviderState> {
@@ -17,6 +23,7 @@ export class CartProvider extends Component<{}, ProviderState> {
     super(props);
     this.state = {
       cartItems: [],
+      extras: [],
     };
   }
 
@@ -89,6 +96,18 @@ export class CartProvider extends Component<{}, ProviderState> {
     return Math.round(productVAT * 100 + Number.EPSILON) / 100;
   };
 
+  setExtras = (extrasColor: string, extrasSize: string) => {
+    const clonedExtras: Extras[] = Object.assign([], this.state.extras);
+    if (extrasColor !== "" || extrasSize !== "") {
+      clonedExtras.push({ extrasColor, extrasSize});
+      this.setState({ extras: clonedExtras });
+      console.log(clonedExtras);
+    } else {
+      console.log("Ingen färg och storlek vald..")
+    }
+
+  };
+
   render() {
     return (
       <CartContext.Provider
@@ -99,6 +118,7 @@ export class CartProvider extends Component<{}, ProviderState> {
           countCart: this.countCart,
           totalPrice: this.totalPrice,
           getVAT: this.getVAT,
+          setExtras: this.setExtras,
         }}
       >
         {this.props.children}

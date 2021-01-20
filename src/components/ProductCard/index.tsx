@@ -24,14 +24,15 @@ function ProductCard(props: Props) {
     }
   };
 
-  const closeModal = (extrasObj: object) => {
-    if (Object.keys(extrasObj).length === 0) {
+  const closeModal = (extrasColor: string, extrasSize: string) => {
+    if (extrasColor === "" || extrasSize === "") {
       alert("Välj både en färg och en storlek, tack.");
     } else {
-      console.log(extrasObj);
+      console.log(extrasColor, extrasSize);
       setOpenModal(false);
       context.addProductToCart(props.product);
     }
+    context.setExtras(extrasColor, extrasSize);
   };
 
   const exitModal = () => {
@@ -64,7 +65,9 @@ function ProductCard(props: Props) {
       </div>
       {openModal ? (
         <Modal
-          closeModal={(extrasObj) => closeModal(extrasObj)}
+          closeModal={(extrasColor, extrasSize) =>
+            closeModal(extrasColor, extrasSize)
+          }
           exitModal={exitModal}
           color={props.product.color}
           size={props.product.size}

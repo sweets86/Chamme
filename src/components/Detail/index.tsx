@@ -11,7 +11,7 @@ interface State {
 interface Props {
   size: string[];
   color: string[];
-  passingValues: (detailValue: object) => void;
+  passingValues: (color: string, size: string) => void;
 }
 
 export default class Detail extends React.Component<Props, State> {
@@ -26,11 +26,9 @@ export default class Detail extends React.Component<Props, State> {
   }
 
   saveValues = () => {
-    const extraValues = {
-      color: this.state.color,
-      size: this.state.size,
-    };
-    this.props.passingValues(extraValues);
+    let color = this.state.color;
+    let size = this.state.size;
+    this.props.passingValues(color, size);
   };
 
   handleCheckedColor = (

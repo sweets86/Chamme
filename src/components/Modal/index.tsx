@@ -3,18 +3,20 @@ import ModalStyled from "./ModalStyled";
 import Detail from "../Detail";
 
 interface Props {
-  closeModal: (extrasObj: object) => void;
+  closeModal: (extrasColor: string, extrasSize: string) => void;
   exitModal: () => void;
   size: string[];
   color: string[];
 }
 
 export default function Modal(props: Props) {
-  const [extrasObj, setExtrasObj] = useState({});
+  const [extrasColor, setExtrasColor] = useState("");
+  const [extrasSize, setExtrasSize] = useState("");
 
-  const passingValues = (detailValues: object) => {
-    console.log(detailValues);
-    setExtrasObj(detailValues);
+  const passingValues = (color: string, size: string) => {
+    console.log(color, size);
+    setExtrasColor(color)
+    setExtrasSize(size)
   };
 
   return (
@@ -31,9 +33,9 @@ export default function Modal(props: Props) {
         <Detail
           color={props.color}
           size={props.size}
-          passingValues={(detailValues) => passingValues(detailValues)}
+          passingValues={(color, size) => passingValues(color, size)}
         />
-        <button onClick={() => props.closeModal(extrasObj)}>Klar</button>
+        <button onClick={() => props.closeModal(extrasColor, extrasSize)}>Klar</button>
       </div>
     </ModalStyled>
   );

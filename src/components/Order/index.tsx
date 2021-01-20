@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import OrderCard from "../OrderCard";
 import OrderStyled from "./OrderStyled";
 import { CartConsumer, ContextState } from "../../contexts/cartContext";
+import { CartContext } from "../../contexts/cartContext";
 
 export default function Order() {
+  const context = useContext(CartContext);
+
+  useEffect(() => {
+    const checkForExtras = context.extras;
+    checkForExtras.map((extrasObj) => {
+        let extrasObject = extrasObj
+        
+      return console.log(extrasObject.extrasColor)
+    });
+  });
+
   return (
     <CartConsumer>
       {(contextData: ContextState) => {
