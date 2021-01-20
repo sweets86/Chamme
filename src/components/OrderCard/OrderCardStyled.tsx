@@ -55,6 +55,30 @@ const OrderCardStyled = styled.div`
   .bottomDiv {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+
+  .quantityDiv {
+    display: flex;
+    justify-content: space-between;
+    width: 3em;
+    font-weight: bold;
+  }
+
+  .minus {
+    font-family: cursive;
+    margin-top: 2px;
+    cursor: pointer;
+  }
+
+  .plus {
+    font-family: cursive;
+    font-size: large;
+    cursor: pointer;
+  }
+
+  .quantity {
+    margin-top: 5px;
   }
 `;
 export default OrderCardStyled;

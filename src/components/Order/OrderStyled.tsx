@@ -23,6 +23,14 @@ const OrderStyled = styled.div`
     padding: 0.5em;
   }
 
+  .tax {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+  }
+
   .frakt {
     display: flex;
     justify-content: space-between;
@@ -39,6 +47,10 @@ const OrderStyled = styled.div`
   }
 
   h4 {
+    margin: 0;
+  }
+
+  h3 {
     margin: 0;
   }
 
