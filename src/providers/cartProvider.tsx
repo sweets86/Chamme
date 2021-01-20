@@ -11,6 +11,7 @@ export interface CartItem {
 export interface Extras {
   extrasColor: string;
   extrasSize: string;
+  productId: number
 }
 
 export interface ProviderState {
@@ -96,10 +97,10 @@ export class CartProvider extends Component<{}, ProviderState> {
     return Math.round(productVAT * 100 + Number.EPSILON) / 100;
   };
 
-  setExtras = (extrasColor: string, extrasSize: string) => {
+  setExtras = (extrasColor: string, extrasSize: string, productId: number) => {
     const clonedExtras: Extras[] = Object.assign([], this.state.extras);
     if (extrasColor !== "" || extrasSize !== "") {
-      clonedExtras.push({ extrasColor, extrasSize});
+      clonedExtras.push({ extrasColor, extrasSize, productId});
       this.setState({ extras: clonedExtras });
       console.log(clonedExtras);
     } else {

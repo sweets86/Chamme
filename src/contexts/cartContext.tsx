@@ -8,7 +8,7 @@ export interface ContextState extends ProviderState {
   deleteFromCart: (product: Product, index: number) => void;
   totalPrice: () => number;
   getVAT: () => number;
-  setExtras: (extrasColor: string, extrasSize: string) => void;
+  setExtras: (extrasColor: string, extrasSize: string, productId: number) => void;
 }
 
 export const CartContext = createContext<ContextState>({

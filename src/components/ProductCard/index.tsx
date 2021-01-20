@@ -32,7 +32,7 @@ function ProductCard(props: Props) {
       setOpenModal(false);
       context.addProductToCart(props.product);
     }
-    context.setExtras(extrasColor, extrasSize);
+    context.setExtras(extrasColor, extrasSize, props.product.id);
   };
 
   const exitModal = () => {

@@ -10,9 +10,9 @@ export default function Order() {
   useEffect(() => {
     const checkForExtras = context.extras;
     checkForExtras.map((extrasObj) => {
-        let extrasObject = extrasObj
-        
-      return console.log(extrasObject.extrasColor)
+      let extrasObject = extrasObj;
+
+      return console.log(extrasObject);
     });
   });
 
@@ -37,24 +37,26 @@ export default function Order() {
                 />
               );
             })}
-            <div className="orderTot">
-              <div className="totalt">
-                <h2>Summa</h2>
-                <h2>{contextData.totalPrice()} Kr</h2>
+            {contextData.cartItems.length ? (
+              <div className="orderTot">
+                <div className="totalt">
+                  <h2>Summa</h2>
+                  <h2>{contextData.totalPrice()} Kr</h2>
+                </div>
+                <div className="tax">
+                  <h3>varav moms 25%</h3>
+                  <h3>{contextData.getVAT()} Kr</h3>
+                </div>
+                <div className="frakt">
+                  <h3>Frakt</h3>
+                  <h3>49 kr</h3>
+                </div>
+                <div className="totalt">
+                  <h2>Totalt</h2>
+                  <h2>{contextData.totalPrice()} + Frakt Kr</h2>
+                </div>
               </div>
-              <div className="tax">
-                <h3>varav moms 25%</h3>
-                <h3>{contextData.getVAT()} Kr</h3>
-              </div>
-              <div className="frakt">
-                <h3>Frakt</h3>
-                <h3>49 kr</h3>
-              </div>
-              <div className="totalt">
-                <h2>Totalt</h2>
-                <h2>{contextData.totalPrice()} + Frakt Kr</h2>
-              </div>
-            </div>
+            ) : null}
           </OrderStyled>
         );
       }}
