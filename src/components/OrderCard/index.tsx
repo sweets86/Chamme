@@ -73,7 +73,22 @@ export default function OrderCard(props: Props) {
               +
             </span>
           </div>
-          <div className="if-t-shirts"></div>
+          {context.extras
+            ? context.extras
+                .filter(
+                  (extra) =>
+                    extra.productId === props.product.id &&
+                    context.extras.length === 1
+                )
+                .map((extra, index) => {
+                  return (
+                    <div key={index} className="if-t-shirts">
+                      <h4>{extra.extrasColor}</h4>
+                      <h4>{extra.extrasSize}</h4>
+                    </div>
+                  );
+                })
+            : null}
           <div className="priceDiv">{props.product.price} Kr</div>
         </div>
       </div>

@@ -80,5 +80,19 @@ const OrderCardStyled = styled.div`
   .quantity {
     margin-top: 5px;
   }
+
+  .if-t-shirts {
+    width: 5em;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .copy-of-styled {
+    width: 100%;
+    height: auto;
+    padding: 0.5em;
+    box-shadow: 0 8px 6px -6px black;
+    display: flex;
+  }
 `;
 export default OrderCardStyled;
