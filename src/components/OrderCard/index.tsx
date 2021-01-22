@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState} from "react";
 import OrderCardStyled from "./OrderCardStyled";
 import { CartContext } from "../../contexts/cartContext";
 
@@ -16,7 +16,7 @@ export default function OrderCard(props: Props) {
     setQuantityHandler(function (quantity) {
       return quantity + 1;
     });
-    context.addProductToCart(product);
+    /* context.addProductToCart(product); */
   }
 
   function decreaseCountHandler(product: any, index: number) {
@@ -73,22 +73,6 @@ export default function OrderCard(props: Props) {
               +
             </span>
           </div>
-          {context.extras
-            ? context.extras
-                .filter(
-                  (extra) =>
-                    extra.productId === props.product.id &&
-                    context.extras.length === 1
-                )
-                .map((extra, index) => {
-                  return (
-                    <div key={index} className="if-t-shirts">
-                      <h4>{extra.extrasColor}</h4>
-                      <h4>{extra.extrasSize}</h4>
-                    </div>
-                  );
-                })
-            : null}
           <div className="priceDiv">{props.product.price} Kr</div>
         </div>
       </div>

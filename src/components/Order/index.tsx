@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import OrderCard from "../OrderCard";
+import OrderCardExtra from "../OrderCardExtra";
 import OrderStyled from "./OrderStyled";
 import { CartConsumer, ContextState } from "../../contexts/cartContext";
 import { CartContext } from "../../contexts/cartContext";
@@ -12,7 +13,7 @@ export default function Order() {
     checkForExtras.map((extrasObj) => {
       let extrasObject = extrasObj;
 
-      return console.log(extrasObject);
+      return console.log(extrasObject)
     });
   });
 
@@ -24,19 +25,38 @@ export default function Order() {
             <div className="orderNav">
               <h2>Dina Varor</h2>
             </div>
-            {contextData.cartItems.map((cartItem, index) => {
-              let product = cartItem.product;
-              let quantity = cartItem.quantity;
-              let key = cartItem.product.id;
-              return (
-                <OrderCard
-                  product={product}
-                  key={key}
-                  index={index}
-                  quantity={quantity}
-                />
-              );
-            })}
+            {contextData.cartItems
+              .filter((category) => category.product.title === "T-shirts")
+              .map((cartItem, index) => {
+                let product = cartItem.product;
+                let quantity = cartItem.quantity;
+                let key = cartItem.product.id;
+                let count = cartItem.count
+                return (
+                  <OrderCardExtra
+                    product={product}
+                    key={key}
+                    index={index}
+                    quantity={quantity}
+                    count={count}
+                  />
+                );
+              })}{" "}
+            {contextData.cartItems
+              .filter((catergory) => catergory.product.title !== "T-shirts")
+              .map((cartItem, index) => {
+                let product = cartItem.product;
+                let quantity = cartItem.quantity;
+                let key = cartItem.product.id;
+                return (
+                  <OrderCard
+                    product={product}
+                    key={key}
+                    index={index}
+                    quantity={quantity}
+                  />
+                );
+              })}
             {contextData.cartItems.length ? (
               <div className="orderTot">
                 <div className="totalt">

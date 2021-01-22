@@ -6,12 +6,13 @@ export interface CartItem {
   product: Product;
   quantity: number;
   count: number;
+  extras: {};
 }
 
 export interface Extras {
   extrasColor: string;
   extrasSize: string;
-  productId: number
+  productId: number;
 }
 
 export interface ProviderState {
@@ -28,8 +29,14 @@ export class CartProvider extends Component<{}, ProviderState> {
     };
   }
 
-  addProductToCart = (product: Product) => {
+  addProductToCart = (
+    product: Product,
+    extrasColor: string,
+    extrasSize: string,
+    productId: number
+  ) => {
     const clonedCart: CartItem[] = Object.assign([], this.state.cartItems);
+    const clonedExtras: Extras[] = Object.assign([], this.state.extras);
 
     const findProductIndex: number = this.state.cartItems.findIndex(
       (foundProduct) => {
@@ -37,11 +44,85 @@ export class CartProvider extends Component<{}, ProviderState> {
       }
     );
 
+    // Den lägger bara till ny extras när det är ett produktid som inte är vald. Så för varje produktid en gång så lägger den till ett objectet till listan.
+    // Jag vill att den lägger till flera object till listan där produktid är samma.
+    // Tydligen för varje gång man lägger till ett nytt id så uppdateras listan? Det är denna som styr det: findProductIndex === -1
+
+    clonedExtras.push({ extrasColor, extrasSize, productId });
+    this.setState({ extras: clonedExtras });
+    console.log(clonedExtras);
+
+    const idArray: any = [];
+
+    clonedExtras
+      .filter((obj) => obj.productId === product.id)
+      .map((object) => {
+        if (clonedExtras.includes(object)) {
+          console.log(object);
+          idArray.push(object);
+        }
+        return clonedCart;
+      });
+    console.log(idArray);
+
     if (findProductIndex === -1) {
-      clonedCart.push({ product: product, quantity: 1, count: 1 });
+      console.log(findProductIndex);
+      /* if (extrasColor && extrasSize !== "" && productId === product.id) { */
+      clonedCart.push({
+        product: product,
+        quantity: 1,
+        count: 1,
+        extras: idArray,
+      });
+      /* clonedExtras
+          .filter((obj) => obj.productId === product.id)
+          .map((object) => {
+            if (clonedExtras.includes(object)) {
+              
+            }
+            return clonedCart;
+          }); */
+
+      /* clonedExtras
+          .filter((object) => object.productId === product.id)
+          .map((object) => {
+            const extrasObj = object;
+            return clonedCart.push({
+              product: product,
+              quantity: 1,
+              count: 1,
+              extras: extrasObj,
+            });
+          }); */
+      /* } else {
+        console.log("Ingen färg och storlek vald..");
+      }  */
+    } else if (productId === product.id) {
+      /* clonedCart.push({
+        product: product,
+        quantity: 1,
+        count: 1,
+        extras: idArray
+      }); */
+      clonedCart.splice(findProductIndex, 1, {
+        product: product,
+        quantity: 1,
+        count: 1,
+        extras: idArray,
+      });
+      clonedCart[findProductIndex].quantity++;
+
+      if (idArray.length > 2) {
+        clonedCart[findProductIndex].quantity++;
+        console.log(idArray.length);
+      }
     } else {
       clonedCart[findProductIndex].quantity++;
+
+      console.log(findProductIndex);
+      console.log(idArray);
     }
+
     this.setState({ cartItems: clonedCart });
     console.log(clonedCart);
   };
@@ -61,6 +142,7 @@ export class CartProvider extends Component<{}, ProviderState> {
         product: product,
         quantity: -1,
         count: -1,
+        extras: {},
       });
       clonedCart.splice(index, 1);
     } else {
@@ -97,16 +179,49 @@ export class CartProvider extends Component<{}, ProviderState> {
     return Math.round(productVAT * 100 + Number.EPSILON) / 100;
   };
 
-  setExtras = (extrasColor: string, extrasSize: string, productId: number) => {
+  /* setExtras = (
+    extrasColor: string,
+    extrasSize: string,
+    productId: number,
+  ) => {
     const clonedExtras: Extras[] = Object.assign([], this.state.extras);
     if (extrasColor !== "" || extrasSize !== "") {
-      clonedExtras.push({ extrasColor, extrasSize, productId});
+      clonedExtras.push({ extrasColor, extrasSize, productId });
       this.setState({ extras: clonedExtras });
       console.log(clonedExtras);
     } else {
-      console.log("Ingen färg och storlek vald..")
+      console.log("Ingen färg och storlek vald..");
     }
 
+    const clonedCart: CartItem[] = Object.assign([], this.state.cartItems);
+    this.state.cartItems.map((productId) => {
+      const getID = productId.product.id
+      return productId.product.id
+    })
+    clonedExtras
+      .filter((object) => productId === getID
+      .map((object) => {
+        const extrasObj = object;
+
+        clonedCart.push({
+          product: this.state.cartItems,
+          quantity: 1,
+          count: 1,
+          extras: extrasObj,
+        });
+        this.setState({ cartItems: clonedCart });
+        return console.log(clonedCart);
+      });
+  }; */
+
+  countOrders = () => {
+    let individualCount: number = 0;
+    this.state.cartItems
+      .filter((cartItem) => cartItem.product.id === cartItem.count)
+      .map((cartItem) => {
+        return (individualCount += cartItem.count * cartItem.quantity);
+      });
+    return individualCount;
   };
 
   render() {
@@ -119,7 +234,8 @@ export class CartProvider extends Component<{}, ProviderState> {
           countCart: this.countCart,
           totalPrice: this.totalPrice,
           getVAT: this.getVAT,
-          setExtras: this.setExtras,
+          /* setExtras: this.setExtras, */
+          countOrders: this.countOrders,
         }}
       >
         {this.props.children}

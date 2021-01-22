@@ -14,13 +14,15 @@ function ProductCard(props: Props) {
   const context = useContext(CartContext);
 
   const [openModal, setOpenModal] = useState(false);
+  const [extrasColor, setExtrasColor] = useState("");
+  const [extrasSize, setExtrasSize] = useState("");
 
   const checkExtras = (product: string) => {
     if (product === "T-shirts") {
       setOpenModal(true);
     } else {
       setOpenModal(false);
-      context.addProductToCart(props.product);
+      context.addProductToCart(props.product, extrasColor, extrasSize, props.product.id);
     }
   };
 
@@ -30,9 +32,11 @@ function ProductCard(props: Props) {
     } else {
       console.log(extrasColor, extrasSize);
       setOpenModal(false);
-      context.addProductToCart(props.product);
+      setExtrasColor(extrasColor)
+      setExtrasSize(extrasSize)
+      context.addProductToCart(props.product, extrasColor, extrasSize, props.product.id);
     }
-    context.setExtras(extrasColor, extrasSize, props.product.id);
+    /* context.setExtras(extrasColor, extrasSize, props.product.id, props.product); */
   };
 
   const exitModal = () => {

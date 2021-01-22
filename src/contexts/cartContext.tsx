@@ -3,12 +3,13 @@ import { ProviderState } from "../providers/cartProvider";
 import { Product } from "./../data/products";
 
 export interface ContextState extends ProviderState {
-  addProductToCart: (product: Product) => void;
+  addProductToCart: (product: Product, extrasColor: string, extrasSize: string, productId: number) => void;
   countCart: () => number;
   deleteFromCart: (product: Product, index: number) => void;
   totalPrice: () => number;
   getVAT: () => number;
-  setExtras: (extrasColor: string, extrasSize: string, productId: number) => void;
+  /* setExtras: (extrasColor: string, extrasSize: string, productId: number) => void; */
+  countOrders: () => number;
 }
 
 export const CartContext = createContext<ContextState>({
@@ -27,7 +28,8 @@ export const CartContext = createContext<ContextState>({
   },
   totalPrice: () => 0,
   getVAT: () => 0,
-  setExtras: () => {},
+  /* setExtras: () => {}, */
+  countOrders: () => 0
 });
 
 export const CartConsumer = CartContext.Consumer;
