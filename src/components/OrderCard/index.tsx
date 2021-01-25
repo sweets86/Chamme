@@ -30,7 +30,8 @@ export default function OrderCard(props: Props) {
   }
 
   const deleteProduct = (product: any, index: number) => {
-    context.deleteFromCart(product, index);
+    /* context.deleteFromCart(product, index); */
+    decreaseCountHandler(product, index)
     console.log(context.cartItems);
   };
 
