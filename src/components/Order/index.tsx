@@ -26,24 +26,6 @@ export default function Order() {
               <h2>Dina Varor</h2>
             </div>
             {contextData.cartItems
-              .filter((category) => category.product.title === "T-shirts")
-              .map((cartItem, index) => {
-                let product = cartItem.product;
-                let quantity = cartItem.quantity;
-                let key = cartItem.product.id;
-                let count = cartItem.count
-                return (
-                  <OrderCardExtra
-                    product={product}
-                    key={key}
-                    index={index}
-                    quantity={quantity}
-                    count={count}
-                  />
-                );
-              })}{" "}
-            {contextData.cartItems
-              .filter((catergory) => catergory.product.title !== "T-shirts")
               .map((cartItem, index) => {
                 let product = cartItem.product;
                 let quantity = cartItem.quantity;
