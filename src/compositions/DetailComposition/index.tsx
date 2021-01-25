@@ -39,12 +39,12 @@ function DetailComposition(props: Props) {
     setExtrasSize(size);
   };
 
-  const checkExtras = (product: any) => {
+  const checkExtras = (product: any, index: number) => {
     if (extrasColor === "" || extrasSize === "") {
       setOpenPopup(true);
     } else {
       console.log(extrasColor, extrasSize);
-      context.addProductToCart(product, extrasColor, extrasSize, numberId);
+      context.addProductToCart(product, extrasColor, extrasSize, numberId, index);
       /* context.setExtras(extrasColor, extrasSize, numberId, product); */
       setExtrasColor("");
       setExtrasSize("");
@@ -59,7 +59,7 @@ function DetailComposition(props: Props) {
     <DetailCompositionStyled>
       {products
         .filter((product) => product.id === numberId)
-        .map((product) => {
+        .map((product, index) => {
           return (
             <div className="contain" key={product.id}>
               <div className="imgDiv">
@@ -72,7 +72,7 @@ function DetailComposition(props: Props) {
                 <h4>{product.brand}</h4>
                 <h2>{product.name}</h2>
                 <h2>{product.price} kr</h2>
-                <button className="buyBtn" onClick={() => checkExtras(product)}>
+                <button className="buyBtn" onClick={() => checkExtras(product, index)}>
                   Köp
                 </button>
                 <h5>{product.status}</h5>

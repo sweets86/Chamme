@@ -4,16 +4,18 @@ import { CartContext } from "../../contexts/cartContext";
 
 interface Props {
   product: any;
+  category: any;
   index: number;
   quantity: number;
 }
 
 export default function OrderCard(props: Props) {
   const context = useContext(CartContext);
+  const [showQuantityHandler, setShowQuantityHandler] = useState(false);
   const [quantityHandler, setQuantityHandler] = useState(props.quantity);
   const [extrasColor, setExtrasColor] = useState("");
   const [extrasSize, setExtrasSize] = useState("");
-  
+
   useEffect(() => {
     context.extras
       .filter((extra) => extra.productId === props.product.id)
@@ -21,19 +23,29 @@ export default function OrderCard(props: Props) {
         let color = extra.extrasColor;
         let size = extra.extrasSize;
 
-        setExtrasColor(color)
-        setExtrasSize(size)
-        return console.log(index)
+        setExtrasColor(color);
+        setExtrasSize(size);
+        return console.log(index);
       });
-  })
+
+    if (props.category !== "T-shirts") {
+      setShowQuantityHandler(true);
+    }
+  }, [context.extras, props.category, props.product.id]);
 
   function increaseCountHandler(product: any, index: number) {
-    console.log(index)
+    console.log(index);
     setQuantityHandler(function (quantity) {
       return quantity + 1;
     });
-      return context.addProductToCart(product, extrasColor, extrasSize, product.id);
-    }
+    return context.addProductToCart(
+      product,
+      extrasColor,
+      extrasSize,
+      product.id,
+      index
+    );
+  }
 
   function decreaseCountHandler(product: any, index: number) {
     setQuantityHandler((quantity) => {
@@ -74,21 +86,23 @@ export default function OrderCard(props: Props) {
         </div>
         <div className="titleDiv">{<h3>{props.product.name}</h3>}</div>
         <div className="bottomDiv">
-          <div className="quantityDiv">
-            <span
-              className="minus"
-              onClick={() => decreaseCountHandler(props.product, props.index)}
-            >
-              -
-            </span>
-            <span className="quantity">{quantityHandler}</span>
-            <span
-              className="plus"
-              onClick={() => increaseCountHandler(props.product, props.index)}
-            >
-              +
-            </span>
-          </div>
+          {showQuantityHandler ? (
+            <div className="quantityDiv">
+              <span
+                className="minus"
+                onClick={() => decreaseCountHandler(props.product, props.index)}
+              >
+                -
+              </span>
+              <span className="quantity">{quantityHandler}</span>
+              <span
+                className="plus"
+                onClick={() => increaseCountHandler(props.product, props.index)}
+              >
+                +
+              </span>
+            </div>
+          ) : null}
 
           <div className="priceDiv">{props.product.price} Kr</div>
         </div>

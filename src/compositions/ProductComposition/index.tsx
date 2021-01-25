@@ -14,7 +14,7 @@ export default function ProductComposition(props: Props) {
       <div className="contain">
         {Products.filter((product) => product.title === props.category).map(
           (product, index) => {
-            return <ProductCard product={product} key={index}  category={props.category}/>;
+            return <ProductCard product={product} key={index} index={index}  category={props.category}/>;
           }
         )}
       </div>

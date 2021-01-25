@@ -7,6 +7,7 @@ import Modal from "../Modal";
 interface Props {
   product: any;
   category: string;
+  index: number;
 }
 
 function ProductCard(props: Props) {
@@ -17,16 +18,16 @@ function ProductCard(props: Props) {
   const [extrasColor, setExtrasColor] = useState("");
   const [extrasSize, setExtrasSize] = useState("");
 
-  const checkExtras = (product: string) => {
+  const checkExtras = (product: string, index: number) => {
     if (product === "T-shirts") {
       setOpenModal(true);
     } else {
       setOpenModal(false);
-      context.addProductToCart(props.product, extrasColor, extrasSize, props.product.id);
+      context.addProductToCart(props.product, extrasColor, extrasSize, props.product.id, index);
     }
   };
 
-  const closeModal = (extrasColor: string, extrasSize: string) => {
+  const closeModal = (extrasColor: string, extrasSize: string, index: number) => {
     if (extrasColor === "" || extrasSize === "") {
       alert("Välj både en färg och en storlek, tack.");
     } else {
@@ -34,7 +35,7 @@ function ProductCard(props: Props) {
       setOpenModal(false);
       setExtrasColor(extrasColor)
       setExtrasSize(extrasSize)
-      context.addProductToCart(props.product, extrasColor, extrasSize, props.product.id);
+      context.addProductToCart(props.product, extrasColor, extrasSize, props.product.id, index);
     }
     /* context.setExtras(extrasColor, extrasSize, props.product.id, props.product); */
   };
@@ -64,13 +65,13 @@ function ProductCard(props: Props) {
         <h3>{props.product.name}</h3>
         <div className="price-and-btn-div">
           <h3>{props.product.price} Kr</h3>
-          <button onClick={() => checkExtras(props.product.title)}>Köp</button>
+          <button onClick={() => checkExtras(props.product.title, props.index)}>Köp</button>
         </div>
       </div>
       {openModal ? (
         <Modal
           closeModal={(extrasColor, extrasSize) =>
-            closeModal(extrasColor, extrasSize)
+            closeModal(extrasColor, extrasSize, props.index)
           }
           exitModal={exitModal}
           color={props.product.color}

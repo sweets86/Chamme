@@ -3,7 +3,7 @@ import { ProviderState } from "../providers/cartProvider";
 import { Product } from "./../data/products";
 
 export interface ContextState extends ProviderState {
-  addProductToCart: (product: Product, extrasColor: string, extrasSize: string, productId: number) => void;
+  addProductToCart: (product: Product, extrasColor: string, extrasSize: string, productId: number, productIndex: number) => void;
   countCart: () => number;
   deleteFromCart: (product: Product, index: number) => void;
   totalPrice: () => number;

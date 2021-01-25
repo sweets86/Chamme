@@ -19,12 +19,14 @@ export default function Order() {
                 let product = cartItem.product;
                 let quantity = cartItem.quantity;
                 let key = cartItem.product.id;
+                let category = cartItem.product.title
                 return (
                   <OrderCard
                     product={product}
                     key={key}
                     index={index}
                     quantity={quantity}
+                    category={category}
                   />
                 );
               })}
