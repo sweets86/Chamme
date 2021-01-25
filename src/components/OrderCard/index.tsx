@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import OrderCardStyled from "./OrderCardStyled";
 import { CartContext } from "../../contexts/cartContext";
 
@@ -11,13 +11,29 @@ interface Props {
 export default function OrderCard(props: Props) {
   const context = useContext(CartContext);
   const [quantityHandler, setQuantityHandler] = useState(props.quantity);
+  const [extrasColor, setExtrasColor] = useState("");
+  const [extrasSize, setExtrasSize] = useState("");
+  
+  useEffect(() => {
+    context.extras
+      .filter((extra) => extra.productId === props.product.id)
+      .map((extra: any, index: number) => {
+        let color = extra.extrasColor;
+        let size = extra.extrasSize;
 
-  function increaseCountHandler(product: any) {
+        setExtrasColor(color)
+        setExtrasSize(size)
+        return console.log(index)
+      });
+  })
+
+  function increaseCountHandler(product: any, index: number) {
+    console.log(index)
     setQuantityHandler(function (quantity) {
       return quantity + 1;
     });
-    /* context.addProductToCart(product); */
-  }
+      return context.addProductToCart(product, extrasColor, extrasSize, product.id);
+    }
 
   function decreaseCountHandler(product: any, index: number) {
     setQuantityHandler((quantity) => {
@@ -30,7 +46,7 @@ export default function OrderCard(props: Props) {
   }
 
   const deleteProduct = (product: any, index: number) => {
-    decreaseCountHandler(product, index)
+    decreaseCountHandler(product, index);
     console.log(context.cartItems);
   };
 
@@ -68,12 +84,28 @@ export default function OrderCard(props: Props) {
             <span className="quantity">{quantityHandler}</span>
             <span
               className="plus"
-              onClick={() => increaseCountHandler(props.product)}
+              onClick={() => increaseCountHandler(props.product, props.index)}
             >
               +
             </span>
           </div>
+
           <div className="priceDiv">{props.product.price} Kr</div>
+        </div>
+        <div className="if-t-shirts">
+          {context.extras
+            .filter((extra) => extra.productId === props.product.id)
+            .map((extra, index) => {
+              let color = extra.extrasColor;
+              let size = extra.extrasSize;
+              return (
+                <div key={index}>
+                  <h4>{color}</h4>
+                  <h4>{size}</h4>
+                  <h4>{index}</h4>
+                </div>
+              );
+            })}
         </div>
       </div>
     </OrderCardStyled>
