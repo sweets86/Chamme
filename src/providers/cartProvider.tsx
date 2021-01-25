@@ -48,16 +48,19 @@ export class CartProvider extends Component<{}, ProviderState> {
     // Jag vill att den lägger till flera object till listan där produktid är samma.
     // Tydligen för varje gång man lägger till ett nytt id så uppdateras listan? Det är denna som styr det: findProductIndex === -1
 
-    clonedExtras.push({ extrasColor, extrasSize, productId });
-    this.setState({ extras: clonedExtras });
-    console.log(clonedExtras);
+    if (extrasColor !== "") {
+      clonedExtras.push({ extrasColor, extrasSize, productId });
+      this.setState({ extras: clonedExtras });
+    } else {
+      console.log(clonedExtras);
+    }
 
     const idArray: any = [];
 
     clonedExtras
       .filter((obj) => obj.productId === product.id)
       .map((object) => {
-        if (clonedExtras.includes(object)) {
+        if (clonedExtras.includes(object) && object.extrasColor !== "") {
           console.log(object);
           idArray.push(object);
         }

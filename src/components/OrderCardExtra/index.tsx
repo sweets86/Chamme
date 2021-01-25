@@ -11,18 +11,18 @@ interface Props {
 
 export default function OrderCardExtra(props: Props) {
   /* const count = props.count; */
-  const quantity = props.quantity;
+  /* const quantity = props.quantity; */
 
   /* const individualCount = (count * quantity) / quantity */
   
   const context = useContext(CartContext);
-  const [quantityHandler, setQuantityHandler] = useState(quantity);
+  /* const [quantityHandler, setQuantityHandler] = useState(quantity);
 
   function increaseCountHandler(product: any) {
     setQuantityHandler(function (quantity) {
       return quantity + 1;
     });
-    /* context.addProductToCart(product); */
+    context.addProductToCart(product);
   }
 
   function decreaseCountHandler(product: any, index: number) {
@@ -33,7 +33,7 @@ export default function OrderCardExtra(props: Props) {
       return 0;
     });
     context.deleteFromCart(product, index);
-  }
+  } */
 
   const deleteProduct = (product: any, index: number) => {
     context.deleteFromCart(product, index);
@@ -75,7 +75,7 @@ export default function OrderCardExtra(props: Props) {
                 <div className="titleDiv">{<h3>{props.product.name}</h3>}</div>
 
                 <div className="bottomDiv">
-                  <div className="quantityDiv">
+                  {/* <div className="quantityDiv">
                     <span
                       className="minus"
                       onClick={() =>
@@ -91,7 +91,7 @@ export default function OrderCardExtra(props: Props) {
                     >
                       +
                     </span>
-                  </div>
+                  </div> */}
                   <div className="if-t-shirts">
                     <h4>{extra.extrasColor}</h4>
                     <h4>{extra.extrasSize}</h4>
