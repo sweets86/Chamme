@@ -11,10 +11,12 @@ interface Props {
 
 export default function OrderCard(props: Props) {
   const context = useContext(CartContext);
-  const [showQuantityHandler, setShowQuantityHandler] = useState(false);
+  /* const [showQuantityHandler, setShowQuantityHandler] = useState(false); */
+  const [listEveryProductId, setListEveryProductId] = useState(false);
   const [quantityHandler, setQuantityHandler] = useState(props.quantity);
   const [extrasColor, setExtrasColor] = useState("");
   const [extrasSize, setExtrasSize] = useState("");
+  const [extraIndex, setExtraIndex] = useState(0);
 
   useEffect(() => {
     context.extras
@@ -22,14 +24,17 @@ export default function OrderCard(props: Props) {
       .map((extra: any, index: number) => {
         let color = extra.extrasColor;
         let size = extra.extrasSize;
+        let extraIndex = index;
 
         setExtrasColor(color);
         setExtrasSize(size);
-        return console.log(index);
+        setExtraIndex(extraIndex);
+        return console.log(extraIndex);
       });
 
     if (props.category !== "T-shirts") {
-      setShowQuantityHandler(true);
+      /* setShowQuantityHandler(true); */
+      setListEveryProductId(true);
     }
   }, [context.extras, props.category, props.product.id]);
 
@@ -42,8 +47,7 @@ export default function OrderCard(props: Props) {
       product,
       extrasColor,
       extrasSize,
-      product.id,
-      index
+      product.id
     );
   }
 
@@ -62,66 +66,143 @@ export default function OrderCard(props: Props) {
     console.log(context.cartItems);
   };
 
-  return (
-    <OrderCardStyled>
-      <div className="imgDiv">
-        {
-          <img
-            src={require("../../assets/Products/" + props.product.img).default}
-            alt="product img"
-          />
-        }
-      </div>
-      <div className="contentDiv">
-        <div className="topDiv">
-          {<h4>{props.product.brand}</h4>}
-          <div className="deleteDiv">
-            <div className="deleteBtnDiv">
-              <div
-                className="deleteBtn"
-                onClick={() => deleteProduct(props.product, props.index)}
-              ></div>
-            </div>
-          </div>
-        </div>
-        <div className="titleDiv">{<h3>{props.product.name}</h3>}</div>
-        <div className="bottomDiv">
-          {showQuantityHandler ? (
-            <div className="quantityDiv">
-              <span
-                className="minus"
-                onClick={() => decreaseCountHandler(props.product, props.index)}
-              >
-                -
-              </span>
-              <span className="quantity">{quantityHandler}</span>
-              <span
-                className="plus"
-                onClick={() => increaseCountHandler(props.product, props.index)}
-              >
-                +
-              </span>
-            </div>
-          ) : null}
+  const deleteTshirtProducts = (product: any, index: number) => {
+    context.deleteExtrasFromExtras(
+      extraIndex,
+      extrasColor,
+      extrasSize,
+      product.id,
+      product
+    );
+    context.extras.length
+      ? context.deleteFromCart(product, index)
+      : console.log(context.extras.length);
+  };
 
-          <div className="priceDiv">{props.product.price} Kr</div>
-        </div>
-        <div className="if-t-shirts">
-          {context.extras
-            .filter((extra) => extra.productId === props.product.id)
-            .map((extra, index) => {
-              let color = extra.extrasColor;
-              let size = extra.extrasSize;
-              return (
-                <div key={index}>
-                  <h4>{color}</h4>
-                  <h4>{size}</h4>
-                  <h4>{index}</h4>
+  return (
+    <>
+      {listEveryProductId ? (
+        <OrderCardStyled>
+          <div className="imgDiv">
+            {
+              <img
+                src={
+                  require("../../assets/Products/" + props.product.img).default
+                }
+                alt="product img"
+              />
+            }
+          </div>
+          <div className="contentDiv">
+            <div className="topDiv">
+              {<h4>{props.product.brand}</h4>}
+              <div className="deleteDiv">
+                <div className="deleteBtnDiv">
+                  <div
+                    className="deleteBtn"
+                    onClick={() => deleteProduct(props.product, props.index)}
+                  ></div>
                 </div>
-              );
-            })}
-        </div>
-      </div>
-    </OrderCardStyled>
+              </div>
+            </div>
+            <div className="titleDiv">{<h3>{props.product.name}</h3>}</div>
+            <div className="bottomDiv">
+              {/* {showQuantityHandler ? (
+                
+                
+              ) : null} */}
+
+              <div className="quantityDiv">
+                <span
+                  className="minus"
+                  onClick={() =>
+                    decreaseCountHandler(props.product, props.index)
+                  }
+                >
+                  -
+                </span>
+                <span className="quantity">{quantityHandler}</span>
+                <span
+                  className="plus"
+                  onClick={() =>
+                    increaseCountHandler(props.product, props.index)
+                  }
+                >
+                  +
+                </span>
+              </div>
+              {props.index}
+              <div className="priceDiv">{props.product.price} Kr</div>
+            </div>
+            {/* <div className="if-t-shirts">
+              {context.extras
+                .filter((extra) => extra.productId === props.product.id)
+                .map((extra, index) => {
+                  let color = extra.extrasColor;
+                  let size = extra.extrasSize;
+                  return (
+                    <div key={index}>
+                      <h4>{color}</h4>
+                      <h4>{size}</h4>
+                      <h4>{index}</h4>
+                    </div>
+                  );
+                })}
+            </div> */}
+          </div>
+        </OrderCardStyled>
+      ) : (
+        context.extras
+          .filter((extra) => extra.productId === props.product.id)
+          .map((extra, index) => {
+            return (
+              <OrderCardStyled key={index}>
+                <div className="imgDiv">
+                  {
+                    <img
+                      src={
+                        require("../../assets/Products/" + props.product.img)
+                          .default
+                      }
+                      alt="product img"
+                    />
+                  }
+                </div>
+                <div className="contentDiv">
+                  <div className="topDiv">
+                    {<h4>{props.product.brand}</h4>}
+                    <div className="deleteDiv">
+                      <div className="deleteBtnDiv">
+                        <div
+                          className="deleteBtn"
+                          onClick={() =>
+                            deleteTshirtProducts(props.product, index)
+                          }
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="titleDiv">
+                    {<h3>{props.product.name}</h3>}
+                  </div>
+                  <div className="bottomDiv">
+                    <div className="if-t-shirts">
+                      <h4>{extra.extrasColor}</h4>
+                      <h4>{extra.extrasSize}</h4>
+                      <h4>{index}</h4>
+                    </div>
+                    <div className="priceDiv">{props.product.price} Kr</div>
+                  </div>
+                </div>
+              </OrderCardStyled>
+            );
+          })
+      )}
+    </>
   );
 }
+
+/* {props.extras.map((extra: any, index: number) => {
+  return (
+    );
+      })} */

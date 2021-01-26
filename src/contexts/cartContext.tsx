@@ -3,9 +3,21 @@ import { ProviderState } from "../providers/cartProvider";
 import { Product } from "./../data/products";
 
 export interface ContextState extends ProviderState {
-  addProductToCart: (product: Product, extrasColor: string, extrasSize: string, productId: number, productIndex: number) => void;
+  addProductToCart: (
+    product: Product,
+    extrasColor: string,
+    extrasSize: string,
+    productId: number
+  ) => void;
   countCart: () => number;
   deleteFromCart: (product: Product, index: number) => void;
+  deleteExtrasFromExtras: (
+    extraIndex: number,
+    extrasColor: string,
+    extrasSize: string,
+    productId: number,
+    product: Product
+  ) => void;
   totalPrice: () => number;
   getVAT: () => number;
   countOrders: () => number;
@@ -25,9 +37,10 @@ export const CartContext = createContext<ContextState>({
       "Something went wrong while deleting" + product.name + "to cart."
     );
   },
+  deleteExtrasFromExtras: () => {},
   totalPrice: () => 0,
   getVAT: () => 0,
-  countOrders: () => 0
+  countOrders: () => 0,
 });
 
 export const CartConsumer = CartContext.Consumer;

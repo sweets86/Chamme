@@ -35,10 +35,10 @@ export default function OrderCardExtra(props: Props) {
     context.deleteFromCart(product, index);
   } */
 
-  const deleteProduct = (product: any, index: number) => {
+  /* const deleteProduct = (product: any, index: number) => {
     context.deleteFromCart(product, index);
     console.log(context.cartItems);
-  };
+  }; */
 
   return (
     <div>
@@ -65,9 +65,9 @@ export default function OrderCardExtra(props: Props) {
                     <div className="deleteBtnDiv">
                       <div
                         className="deleteBtn"
-                        onClick={() =>
+                        /* onClick={() =>
                           deleteProduct(props.product, props.index)
-                        }
+                        } */
                       ></div>
                     </div>
                   </div>
@@ -105,3 +105,4 @@ export default function OrderCardExtra(props: Props) {
     </div>
   );
 }
+

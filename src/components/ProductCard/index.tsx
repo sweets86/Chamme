@@ -23,7 +23,7 @@ function ProductCard(props: Props) {
       setOpenModal(true);
     } else {
       setOpenModal(false);
-      context.addProductToCart(props.product, extrasColor, extrasSize, props.product.id, index);
+      context.addProductToCart(props.product, extrasColor, extrasSize, props.product.id);
     }
   };
 
@@ -35,7 +35,7 @@ function ProductCard(props: Props) {
       setOpenModal(false);
       setExtrasColor(extrasColor)
       setExtrasSize(extrasSize)
-      context.addProductToCart(props.product, extrasColor, extrasSize, props.product.id, index);
+      context.addProductToCart(props.product, extrasColor, extrasSize, props.product.id);
     }
     /* context.setExtras(extrasColor, extrasSize, props.product.id, props.product); */
   };

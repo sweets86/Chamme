@@ -20,6 +20,7 @@ export default function Order() {
                 let quantity = cartItem.quantity;
                 let key = cartItem.product.id;
                 let category = cartItem.product.title
+                
                 return (
                   <OrderCard
                     product={product}

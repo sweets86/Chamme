@@ -44,7 +44,7 @@ function DetailComposition(props: Props) {
       setOpenPopup(true);
     } else {
       console.log(extrasColor, extrasSize);
-      context.addProductToCart(product, extrasColor, extrasSize, numberId, index);
+      context.addProductToCart(product, extrasColor, extrasSize, numberId);
       /* context.setExtras(extrasColor, extrasSize, numberId, product); */
       setExtrasColor("");
       setExtrasSize("");
