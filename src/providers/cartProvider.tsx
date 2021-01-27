@@ -105,7 +105,7 @@ export class CartProvider extends Component<{}, ProviderState> {
       }
     );
 
-    console.log(findProductIndex)
+    console.log(findProductIndex);
 
     if (findProductIndex === -1 || clonedCart[findProductIndex].quantity <= 1) {
       clonedCart.splice(index, 1, {
@@ -135,31 +135,30 @@ export class CartProvider extends Component<{}, ProviderState> {
   ) => {
     const clonedExtras: Extras[] = Object.assign([], this.state.extras);
 
-    let findExtrasIndex: number = this.state.extras.findIndex(
+    const findExtrasIndex: number = this.state.extras.findIndex(
       (foundExtra) => {
-        return product.id === foundExtra.productId
+        return product.id === foundExtra.productId;
       }
     );
 
     /* clonedExtras.filter((object) => object.productId === productId ? (
       findExtrasIndex++
     ): findExtrasIndex) */
-    
 
-    console.log(findExtrasIndex, extraIndex)
+    console.log(findExtrasIndex, extraIndex);
 
-    if (findExtrasIndex <= 1 || findExtrasIndex === extraIndex) {
+    if (findExtrasIndex <= 1 || findExtrasIndex > 1) {
       clonedExtras.splice(extraIndex, 1, {
         extrasColor: extrasColor,
         extrasSize: extrasSize,
-        productId: productId
+        productId: productId,
       });
       clonedExtras.splice(extraIndex, 1);
     } else {
       console.log(productId, product.id);
     }
     this.setState({ extras: clonedExtras }, () => {
-      console.log(this.state)
+      console.log(this.state);
     });
   };
 

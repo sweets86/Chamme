@@ -19,23 +19,21 @@ export default function OrderCard(props: Props) {
   const [extraIndex, setExtraIndex] = useState(0);
 
   useEffect(() => {
-    let findExtrasIndex: number = context.extras.findIndex((foundExtra) => {
-      return props.product.id === foundExtra.productId
-    });
-  
-    
+    /* let findExtrasIndex: number = context.extras.findIndex((foundExtra) => {
+      return props.product.id === foundExtra.productId;
+    }); */
 
     context.extras
       .filter((extra) => extra.productId === props.product.id)
       .map((extra: any, index: number) => {
         let color = extra.extrasColor;
         let size = extra.extrasSize;
-        let extraIndex = findExtrasIndex
+        let extraIndex = index;
 
         setExtrasColor(color);
         setExtrasSize(size);
         setExtraIndex(extraIndex);
-        return extraIndex
+        return extraIndex;
       });
 
     if (props.category !== "T-shirts") {
@@ -80,9 +78,9 @@ export default function OrderCard(props: Props) {
       product.id,
       product
     );
-    /* context.extras.length
+    context.extras.length
       ? context.deleteFromCart(product, index)
-      : console.log(context.extras.length); */
+      : console.log(context.extras.length);
   };
 
   return (
