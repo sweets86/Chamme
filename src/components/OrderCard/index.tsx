@@ -19,17 +19,23 @@ export default function OrderCard(props: Props) {
   const [extraIndex, setExtraIndex] = useState(0);
 
   useEffect(() => {
+    let findExtrasIndex: number = context.extras.findIndex((foundExtra) => {
+      return props.product.id === foundExtra.productId
+    });
+  
+    
+
     context.extras
       .filter((extra) => extra.productId === props.product.id)
       .map((extra: any, index: number) => {
         let color = extra.extrasColor;
         let size = extra.extrasSize;
-        let extraIndex = index;
+        let extraIndex = findExtrasIndex
 
         setExtrasColor(color);
         setExtrasSize(size);
         setExtraIndex(extraIndex);
-        return console.log(extraIndex);
+        return extraIndex
       });
 
     if (props.category !== "T-shirts") {
@@ -74,9 +80,9 @@ export default function OrderCard(props: Props) {
       product.id,
       product
     );
-    context.extras.length
+    /* context.extras.length
       ? context.deleteFromCart(product, index)
-      : console.log(context.extras.length);
+      : console.log(context.extras.length); */
   };
 
   return (
@@ -189,7 +195,7 @@ export default function OrderCard(props: Props) {
                     <div className="if-t-shirts">
                       <h4>{extra.extrasColor}</h4>
                       <h4>{extra.extrasSize}</h4>
-                      <h4>{index}</h4>
+                      <h4>{extraIndex}</h4>
                     </div>
                     <div className="priceDiv">{props.product.price} Kr</div>
                   </div>

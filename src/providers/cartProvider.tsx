@@ -135,19 +135,24 @@ export class CartProvider extends Component<{}, ProviderState> {
   ) => {
     const clonedExtras: Extras[] = Object.assign([], this.state.extras);
 
-    const findExtrasIndex: number = this.state.extras.findIndex(
+    let findExtrasIndex: number = this.state.extras.findIndex(
       (foundExtra) => {
         return product.id === foundExtra.productId
       }
     );
 
+    /* clonedExtras.filter((object) => object.productId === productId ? (
+      findExtrasIndex++
+    ): findExtrasIndex) */
+    
+
     console.log(findExtrasIndex, extraIndex)
 
-    if (findExtrasIndex <= 1 || findExtrasIndex > 1) {
+    if (findExtrasIndex <= 1 || findExtrasIndex === extraIndex) {
       clonedExtras.splice(extraIndex, 1, {
-        extrasColor,
-        extrasSize,
-        productId,
+        extrasColor: extrasColor,
+        extrasSize: extrasSize,
+        productId: productId
       });
       clonedExtras.splice(extraIndex, 1);
     } else {
