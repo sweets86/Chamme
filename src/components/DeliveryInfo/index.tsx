@@ -4,7 +4,7 @@ import Leverans from "../Leverans";
 import DeliveryInfoStyled from "./DeliveryInfoStyled";
 
 interface Props {
-  saveOrderInfo: () => void
+  saveBuyerInfo: () => void
 }
 
 export default function DeliveryInfo(props: Props) {
@@ -23,7 +23,7 @@ export default function DeliveryInfo(props: Props) {
         </div>
       </div>
       <ContactInfo />
-      <Leverans saveOrderInfo={props.saveOrderInfo} />
+      <Leverans saveBuyerInfo={props.saveBuyerInfo} />
     </DeliveryInfoStyled>
   );
 }

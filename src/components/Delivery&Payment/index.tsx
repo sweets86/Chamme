@@ -7,14 +7,14 @@ export default function DeliveryAndPayment() {
 
     const [showBuyerInfo, setShowBuyerInfo] = useState(false)
 
- const saveOrderInfo = () => {
+ const saveBuyerInfo = () => {
         setShowBuyerInfo(true)
     }
 
     return (
         <DeliveryAndPaymentStyled>
             <div className="nav"><h2>Frakt & Betalsätt</h2></div>
-            <DeliveryInfo saveOrderInfo={saveOrderInfo} />
+            <DeliveryInfo saveBuyerInfo={saveBuyerInfo} />
             {showBuyerInfo ? (
                 <Payment />
             ) : null}

@@ -7,16 +7,16 @@ const LeveransStyled = styled.div`
   margin-top: 2em;
   padding-bottom: 1em;
 
-  .adressContainer {
+  .deliverContainer {
     width: 100%;
     height: auto;
     box-shadow: 0 8px 6px -10px black;
     margin-top: 5px;
   }
 
-  .name {
+  .deliver-option {
     width: 100%;
-    height: 2em;
+    height: 5em;
     background-color: white;
     box-shadow: 0 -8px 6px -10px black;
     display: flex;
@@ -24,7 +24,7 @@ const LeveransStyled = styled.div`
     padding-top: 2px;
   }
 
-  .adress {
+  .save-div {
     width: 100%;
     height: 5em;
     background-color: white;
