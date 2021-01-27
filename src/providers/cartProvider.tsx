@@ -107,7 +107,7 @@ export class CartProvider extends Component<{}, ProviderState> {
 
     console.log(findProductIndex);
 
-    if (findProductIndex === -1 || clonedCart[findProductIndex].quantity <= 1) {
+    if (findProductIndex === -1 || clonedCart[findProductIndex].quantity <= 1) { // annars tänkte jag testa ifall man kan kolla här om extras array length?
       clonedCart.splice(index, 1, {
         product: product,
         quantity: -1,
