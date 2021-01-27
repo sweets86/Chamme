@@ -37,7 +37,6 @@ function ProductCard(props: Props) {
       setExtrasSize(extrasSize)
       context.addProductToCart(props.product, extrasColor, extrasSize, props.product.id);
     }
-    /* context.setExtras(extrasColor, extrasSize, props.product.id, props.product); */
   };
 
   const exitModal = () => {

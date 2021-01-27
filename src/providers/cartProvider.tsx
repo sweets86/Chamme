@@ -44,12 +44,6 @@ export class CartProvider extends Component<{}, ProviderState> {
       }
     );
 
-    /* const findExtrasIndex: number = this.state.extras.findIndex(
-      (foundIndex) => {
-        return productIndex === foundIndex.productIndex
-      }
-    ) */
-
     if (extrasColor !== "") {
       clonedExtras.push({ extrasColor, extrasSize, productId });
       this.setState({ extras: clonedExtras });
@@ -57,37 +51,13 @@ export class CartProvider extends Component<{}, ProviderState> {
       console.log(clonedExtras);
     }
 
-    /* const idArray: any = [];
-
-    clonedExtras
-      .filter((obj) => obj.productId === product.id)
-      .map((object, index) => {
-        if (clonedExtras.includes(object) && object.extrasColor !== "") {
-          idArray.push(object, index++);
-        }
-        return console.log(index)
-      });  */
-
     if (findProductIndex === -1) {
       clonedCart.push({
         product: product,
         quantity: 1,
         count: 1,
-        /* extras: idArray, */
       });
-    } /* else if (productId === product.id) {
-      clonedCart.splice(findExtrasIndex, 1, {
-        product: product,
-        quantity: 1,
-        count: 1,
-        extras: idArray,
-      });
-      clonedCart[findProductIndex].quantity++;
-
-      if (idArray.length > 2) {
-        clonedCart[findProductIndex].quantity++;
-      }
-    }  */ else {
+    } else {
       clonedCart[findProductIndex].quantity++;
     }
 
@@ -140,10 +110,6 @@ export class CartProvider extends Component<{}, ProviderState> {
         return product.id === foundExtra.product.id;
       }
     );
-
-    /* clonedExtras.filter((object) => object.productId === productId ? (
-      findExtrasIndex++
-    ): findExtrasIndex) */
 
     console.log(findExtrasIndex, extraIndex);
 

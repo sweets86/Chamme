@@ -11,7 +11,7 @@ interface Props {
 
 export default function OrderCard(props: Props) {
   const context = useContext(CartContext);
-  /* const [showQuantityHandler, setShowQuantityHandler] = useState(false); */
+
   const [listEveryProductId, setListEveryProductId] = useState(false);
   const [quantityHandler, setQuantityHandler] = useState(props.quantity);
   const [extrasColor, setExtrasColor] = useState("");
@@ -37,10 +37,9 @@ export default function OrderCard(props: Props) {
       });
 
     if (props.category !== "T-shirts") {
-      /* setShowQuantityHandler(true); */
       setListEveryProductId(true);
     }
-  }, [context.extras, props.category, props.product.id]);
+  }, [context.extras, context.cartItems, props.category, props.product.id]);
 
   function increaseCountHandler(product: any, index: number) {
     console.log(index);
@@ -78,7 +77,7 @@ export default function OrderCard(props: Props) {
       product.id,
       product
     );
-    
+
     context.extras.length
       ? context.deleteFromCart(product, extraIndex)
       : console.log(context.extras.length);
@@ -112,11 +111,6 @@ export default function OrderCard(props: Props) {
             </div>
             <div className="titleDiv">{<h3>{props.product.name}</h3>}</div>
             <div className="bottomDiv">
-              {/* {showQuantityHandler ? (
-                
-                
-              ) : null} */}
-
               <div className="quantityDiv">
                 <span
                   className="minus"
@@ -139,21 +133,6 @@ export default function OrderCard(props: Props) {
               {props.index}
               <div className="priceDiv">{props.product.price} Kr</div>
             </div>
-            {/* <div className="if-t-shirts">
-              {context.extras
-                .filter((extra) => extra.productId === props.product.id)
-                .map((extra, index) => {
-                  let color = extra.extrasColor;
-                  let size = extra.extrasSize;
-                  return (
-                    <div key={index}>
-                      <h4>{color}</h4>
-                      <h4>{size}</h4>
-                      <h4>{index}</h4>
-                    </div>
-                  );
-                })}
-            </div> */}
           </div>
         </OrderCardStyled>
       ) : (
@@ -194,9 +173,9 @@ export default function OrderCard(props: Props) {
                     <div className="if-t-shirts">
                       <h4>{extra.extrasColor}</h4>
                       <h4>{extra.extrasSize}</h4>
-                      <h4>{extraIndex}</h4>
+                      {/* <h4>{extraIndex}</h4>
                       <h4>{index}</h4>
-                      <h4>{props.index}</h4>
+                      <h4>{props.index}</h4> */}
                     </div>
                     <div className="priceDiv">{props.product.price} Kr</div>
                   </div>
@@ -208,8 +187,3 @@ export default function OrderCard(props: Props) {
     </>
   );
 }
-
-/* {props.extras.map((extra: any, index: number) => {
-  return (
-    );
-      })} */
