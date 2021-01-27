@@ -19,16 +19,16 @@ export default function OrderCard(props: Props) {
   const [extraIndex, setExtraIndex] = useState(0);
 
   useEffect(() => {
-    /* let findExtrasIndex: number = context.extras.findIndex((foundExtra) => {
-      return props.product.id === foundExtra.productId;
-    }); */
+    let findExtrasIndex: number = context.cartItems.findIndex((foundExtra) => {
+      return props.product.id === foundExtra.product.id;
+    });
 
     context.extras
       .filter((extra) => extra.productId === props.product.id)
       .map((extra: any, index: number) => {
         let color = extra.extrasColor;
         let size = extra.extrasSize;
-        let extraIndex = index;
+        let extraIndex = findExtrasIndex;
 
         setExtrasColor(color);
         setExtrasSize(size);
@@ -78,8 +78,9 @@ export default function OrderCard(props: Props) {
       product.id,
       product
     );
+    
     context.extras.length
-      ? context.deleteFromCart(product, index)
+      ? context.deleteFromCart(product, extraIndex)
       : console.log(context.extras.length);
   };
 
@@ -194,6 +195,8 @@ export default function OrderCard(props: Props) {
                       <h4>{extra.extrasColor}</h4>
                       <h4>{extra.extrasSize}</h4>
                       <h4>{extraIndex}</h4>
+                      <h4>{index}</h4>
+                      <h4>{props.index}</h4>
                     </div>
                     <div className="priceDiv">{props.product.price} Kr</div>
                   </div>
