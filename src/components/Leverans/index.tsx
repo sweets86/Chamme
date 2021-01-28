@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LeveransStyled from "./LeveransStyled";
 
 interface Props {
-  saveBuyerInfo: () => void;
+  printBuyerInfoBtn: () => void;
+  deliveryOptionForm: (deliveryOption: any) => void;
 }
 
 export default function Leverans(props: Props) {
+  useEffect(() => {
+    props.deliveryOptionForm(toggle);
+  });
+
+  const deliveryOptions = {
+    home: 99,
+    market: 49,
+  };
+
+  const [toggle, setToggle] = useState(["49"]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setToggle([value]);
+  };
+
   return (
     <LeveransStyled>
       <h2>Välj leveransalternativ</h2>
@@ -15,33 +32,32 @@ export default function Leverans(props: Props) {
             <p>
               PostNord hemleverans - direkt hem till dörren
               <br />
-              99 Kr
+              {deliveryOptions.home} Kr
             </p>
             <input
               name="homeDelivery"
               type="radio"
-              value="homeDelivery"
-              checked
-              /* onChange={this.handleChange} */
+              value={deliveryOptions.home}
+              checked={toggle === ["99"]}
+              onChange={(e) => handleChange(e)}
             />
           </label>
           <label className="largeLabel" htmlFor="market">
             <p>
               PostNord - paket till närmaste postombud <br />
-              49 Kr
+              {deliveryOptions.market} Kr
             </p>
             <input
               name="market"
               type="radio"
-              value="market"
-              checked
-              /* onChange={this.handleChange} */
-             
+              value={deliveryOptions.market}
+              checked={toggle === ["49"]}
+              onChange={(e) => handleChange(e)}
             />
           </label>
         </div>
         <div className="save-div">
-          <button onClick={props.saveBuyerInfo} className="btn-save">
+          <button onClick={props.printBuyerInfoBtn} className="btn-save">
             Spara
           </button>
         </div>

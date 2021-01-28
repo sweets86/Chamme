@@ -9,7 +9,7 @@ const LeveransStyled = styled.div`
   .deliverContainer {
     width: 100%;
     height: auto;
-    box-shadow: 0 8px 6px -10px black;
+    /* box-shadow: 0 8px 6px -10px black; */
     margin-top: 5px;
   }
 
@@ -26,22 +26,29 @@ const LeveransStyled = styled.div`
   .largeLabel {
     width: 50%;
     height: 100%;
-    padding: 5px;
     display: flex;
     justify-content: center;
     text-align: center;
   }
 
-  input[type="Radio"] {
-    opacity: 0;
+  .textDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50%;
+  }
+
+  input[type="radio"] {
+    opacity: 0;
+    width: 18%;
     height: 5em;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    border: none;
-    padding-left: 5px;
     position: absolute;
     cursor: pointer;
+  }
+
+  .largeLabel:active {
+    box-shadow: 0 0px 10px -4px black;
+    color: gray;
   }
 
   .save-div {
@@ -52,12 +59,28 @@ const LeveransStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 -8px 6px -10px black;
+    /* box-shadow: 0 -8px 6px -10px black; */
   }
 
   .btn-save {
-    width: 4em;
-    height: 2em;
+    width: 10em;
+    height: 3em;
+    background-color: white;
+    border: none;
+    box-shadow: 0 0px 15px -8px black;
+    cursor: pointer;
+    margin-top: 1em;
+  }
+
+  @media screen and (max-width: 1600px) {
+    .largeLabel {
+      padding: 2em;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .largeLabel {
+      padding: 0;
+    }
   }
 `;
 export default LeveransStyled;

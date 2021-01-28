@@ -13,9 +13,11 @@ const validLastNameRegex = RegExp(
 
 const validAddressRegex = RegExp(/^[#.0-9a-öA-Ö\s,-]+$/);
 
-const validPostNumberRegex = RegExp(/^(\+\d{1,3}[- ]?)?\d{5}$/);
+const validPostNumberRegex = RegExp(/^\d{3} \d{2}$/);
 
-const validPostRegex = RegExp(/^[#.0-9a-öA-Ö\s,-]+$/);
+const validPostRegex = RegExp(/^(.*[a-öA-Ö]\s*){4}/i);   /* (/^(\+\d{1,3}[- ]?)?\d{10}$/); */
+
+
 
 const validateForm = (errors: any) => {
   let valid = true;
@@ -26,8 +28,10 @@ const validateForm = (errors: any) => {
 };
 
 interface Props {
-  saveBuyerInfo: () => void;
-  form: (printBuyerInfo: any) => void;
+  printBuyerInfoBtn: () => void;
+  buyerInfoForm: (buyerInfo: any) => void;
+  contactInfoForm: (buyerContactInfo: any) => void;
+  deliveryOptionForm: (deliveryOption: any) => void;
 }
 
 interface State {
@@ -68,7 +72,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
   }
 
   saveForm = () => {
-    const printBuyerInfo = [
+    const buyerInfo = [
       {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -77,8 +81,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
         postAddress: this.state.postAddress,
       },
     ];
-    this.props.form(printBuyerInfo);
-    console.log(printBuyerInfo);
+    this.props.buyerInfoForm(buyerInfo);
   };
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,7 +128,11 @@ export default class DeliveryInfo extends React.Component<Props, State> {
       this.state.postNumber &&
       this.state.postAddress
     ) {
-      this.saveForm();
+      if (this.state.postAddress !== " ") {
+        this.saveForm();
+      } else {
+        console.error("Invalid Form");
+      }
     } else {
       console.error("Invalid Form");
     }
@@ -144,7 +151,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                 type="firstName"
                 onChange={this.handleChange}
                 placeholder="Förnamn"
-                autoComplete="on"
+                autoComplete="off"
               />
               {errors.firstName.length > 0 && (
                 <span style={{ color: "red" }}>{errors.firstName}</span>
@@ -156,7 +163,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                 type="lastName"
                 onChange={this.handleChange}
                 placeholder="Efternamn"
-                autoComplete="on"
+                autoComplete="off"
               />
               {errors.firstName.length > 0 && (
                 <span style={{ color: "red" }}>{errors.firstName}</span>
@@ -170,7 +177,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                 type="address"
                 onChange={this.handleChange}
                 placeholder="Adress"
-                autoComplete="on"
+                autoComplete="off"
               />
               {errors.address.length > 0 && (
                 <span style={{ color: "red" }}>{errors.address}</span>
@@ -184,7 +191,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                 type="postNumber"
                 onChange={this.handleChange}
                 placeholder="Postnummer"
-                autoComplete="on"
+                autoComplete="off"
               />
               {errors.postNumber.length > 0 && (
                 <span style={{ color: "red" }}>{errors.postNumber}</span>
@@ -196,7 +203,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                 type="postAddress"
                 onChange={this.handleChange}
                 placeholder="Ort"
-                autoComplete="on"
+                autoComplete="off"
               />
               {errors.postAddress.length > 0 && (
                 <span style={{ color: "red" }}>{errors.postAddress}</span>
@@ -204,8 +211,11 @@ export default class DeliveryInfo extends React.Component<Props, State> {
             </label>
           </div>
         </div>
-        <ContactInfo form={this.props.form} />
-        <Leverans saveBuyerInfo={this.props.saveBuyerInfo} />
+        <ContactInfo contactInfoForm={this.props.contactInfoForm} />
+        <Leverans
+          printBuyerInfoBtn={this.props.printBuyerInfoBtn}
+          deliveryOptionForm={this.props.deliveryOptionForm}
+        />
       </DeliveryInfoStyled>
     );
   }

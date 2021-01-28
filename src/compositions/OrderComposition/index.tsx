@@ -1,7 +1,7 @@
 import React from "react";
 import OrderCompositionStyled from "./OrderCompositionStyled";
 import Order from "../../components/Order";
-import DeliveryAndPayment from "../../components/Delivery&Payment";
+import DeliveryAndPayment from "../../components/DeliveryAndPayment";
 
 export default function OrderComposition() {
   return (

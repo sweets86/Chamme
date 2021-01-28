@@ -15,7 +15,7 @@ const validateForm = (errors: any) => {
 };
 
 interface Props {
-  form: (printBuyerInfo: any) => void;
+  contactInfoForm: (buyerContactInfo: any) => void;
 }
 
 interface State {
@@ -44,14 +44,13 @@ export default class ContactInfo extends React.Component<Props, State> {
   }
 
   saveForm = () => {
-    const printBuyerInfo = [
+    const buyerContactInfo = [
       {
         email: this.state.email,
         mobile: this.state.mobile,
       },
     ];
-    this.props.form(printBuyerInfo);
-    console.log(printBuyerInfo);
+    this.props.contactInfoForm(buyerContactInfo);
   };
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,7 +99,7 @@ export default class ContactInfo extends React.Component<Props, State> {
               type="email"
               onChange={this.handleChange}
               placeholder="Mail"
-              autoComplete="on"
+              /* autoComplete="on" */
             />
             {errors.email.length > 0 && (
               <span style={{ color: "red" }}>{errors.email}</span>
@@ -112,7 +111,7 @@ export default class ContactInfo extends React.Component<Props, State> {
               type="mobile"
               onChange={this.handleChange}
               placeholder="Mobil"
-              autoComplete="on"
+              /* autoComplete="on" */
             />
             {errors.mobile.length > 0 && (
               <span style={{ color: "red" }}>{errors.mobile}</span>

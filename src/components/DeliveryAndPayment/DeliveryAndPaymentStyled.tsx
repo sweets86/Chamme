@@ -6,7 +6,7 @@ const DeliveryAndPaymentStyled = styled.div`
   box-shadow: 0 8px 6px -6px black;
   margin-left: 1em;
 
-  .nav {
+  .title {
     width: 100%;
     height: 3em;
     padding: 0.5em;
