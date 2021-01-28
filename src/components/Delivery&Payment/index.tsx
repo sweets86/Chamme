@@ -1,23 +1,30 @@
-import React, { useState } from 'react'
-import DeliveryInfo from '../DeliveryInfo'
-import DeliveryAndPaymentStyled from './Delivery&PaymentStyled'
-import Payment from '../Payment'
+import React, { useState } from "react";
+import DeliveryInfo from "../DeliveryInfo";
+import DeliveryAndPaymentStyled from "./Delivery&PaymentStyled";
+import Payment from "../Payment";
 
 export default function DeliveryAndPayment() {
+  const [showBuyerInfo, setShowBuyerInfo] = useState(false);
+  const [forms, setForms] = useState([]);
 
-    const [showBuyerInfo, setShowBuyerInfo] = useState(false)
+  const saveBuyerInfo = () => {
+    setShowBuyerInfo(true);
+  };
 
- const saveBuyerInfo = () => {
-        setShowBuyerInfo(true)
-    }
+  const form = (printBuyerInfo: any) => {
+    setForms(printBuyerInfo)
+  };
 
-    return (
-        <DeliveryAndPaymentStyled>
-            <div className="nav"><h2>Frakt & Betalsätt</h2></div>
-            <DeliveryInfo saveBuyerInfo={saveBuyerInfo} />
-            {showBuyerInfo ? (
-                <Payment />
-            ) : null}
-        </DeliveryAndPaymentStyled>
-    )
+  return (
+    <DeliveryAndPaymentStyled>
+      <div className="nav">
+        <h2>Frakt & Betalsätt</h2>
+      </div>
+      <DeliveryInfo
+        saveBuyerInfo={saveBuyerInfo}
+        form={(printBuyerInfo) => form(printBuyerInfo)}
+      />
+      {showBuyerInfo ? <Payment forms={forms} /> : null}
+    </DeliveryAndPaymentStyled>
+  );
 }

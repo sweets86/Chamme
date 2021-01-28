@@ -17,16 +17,17 @@ const validPostNumberRegex = RegExp(/^(\+\d{1,3}[- ]?)?\d{5}$/);
 
 const validPostRegex = RegExp(/^[#.0-9a-öA-Ö\s,-]+$/);
 
-/* const validateForm = (errors: any) => {
+const validateForm = (errors: any) => {
   let valid = true;
   Object.values(errors).map(
     (value: any) => value.length > 0 && (valid = false)
   );
   return valid;
-}; */
+};
 
 interface Props {
   saveBuyerInfo: () => void;
+  form: (printBuyerInfo: any) => void;
 }
 
 interface State {
@@ -35,7 +36,6 @@ interface State {
   address: string;
   postNumber: number;
   postAddress: string;
-  form: [];
 
   errors: {
     firstName: any;
@@ -56,7 +56,6 @@ export default class DeliveryInfo extends React.Component<Props, State> {
       address: "",
       postNumber: parseInt(""),
       postAddress: "",
-      form: [],
 
       errors: {
         firstName: "",
@@ -67,6 +66,20 @@ export default class DeliveryInfo extends React.Component<Props, State> {
       },
     };
   }
+
+  saveForm = () => {
+    const printBuyerInfo = [
+      {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        address: this.state.address,
+        postNumber: this.state.postNumber,
+        postAddress: this.state.postAddress,
+      },
+    ];
+    this.props.form(printBuyerInfo);
+    console.log(printBuyerInfo);
+  };
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -103,6 +116,19 @@ export default class DeliveryInfo extends React.Component<Props, State> {
       errors,
       [name]: value,
     }));
+
+    if (
+      validateForm(this.state.errors) &&
+      this.state.firstName &&
+      this.state.lastName &&
+      this.state.address &&
+      this.state.postNumber &&
+      this.state.postAddress
+    ) {
+      this.saveForm();
+    } else {
+      console.error("Invalid Form");
+    }
   };
 
   render() {
@@ -178,7 +204,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
             </label>
           </div>
         </div>
-        <ContactInfo />
+        <ContactInfo form={this.props.form} />
         <Leverans saveBuyerInfo={this.props.saveBuyerInfo} />
       </DeliveryInfoStyled>
     );

@@ -23,6 +23,27 @@ const LeveransStyled = styled.div`
     padding-top: 2px;
   }
 
+  .largeLabel {
+    width: 50%;
+    height: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  input[type="Radio"] {
+    opacity: 0;
+    width: 50%;
+    height: 5em;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border: none;
+    padding-left: 5px;
+    position: absolute;
+    cursor: pointer;
+  }
+
   .save-div {
     width: 100%;
     height: 5em;

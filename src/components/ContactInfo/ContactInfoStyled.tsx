@@ -9,16 +9,15 @@ const ContactInfoStyled = styled.div`
   .contactContainer {
     width: 100%;
     height: auto;
-    background-color: blanchedalmond;
     margin-top: 5px;
   }
 
-  .contact {
+  /* .contact {
     width: 100%;
     height: 2em;
     background-color: white;
     box-shadow: 0 -8px 6px -10px black;
     padding-top: 2px;
-  }
+  } */
 `;
 export default ContactInfoStyled;

@@ -51,6 +51,7 @@ const DeliveryInfoStyled = styled.div`
     margin-bottom: 5px;
     margin-top: 5px;
     border: none;
+    padding-left: 5px;
   }
 
 `;

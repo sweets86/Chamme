@@ -2,14 +2,15 @@ import React from "react";
 import PaymentStyled from "./PaymentStyled";
 
 interface Props {
-    forms: () => void
+    forms: any;
 }
 
 export default function Payment(props: Props) {
   return (
     <PaymentStyled>
       {console.log(props.forms)}
-      <div></div>
+      <div>
+      </div>
     </PaymentStyled>
   );
 }
