@@ -7,38 +7,51 @@ const DeliveryInfoStyled = styled.div`
   margin-top: 2em;
   padding-bottom: 1em;
 
-  .adressContainer {
+  .addressContainer {
     width: 100%;
     height: auto;
-    box-shadow: 0 8px 6px -10px black;
+    /* box-shadow: 0 8px 6px -10px black; */
     margin-top: 5px;
   }
 
-  .name {
+  .names {
     width: 100%;
-    height: 2em;
-    background-color: white;
-    box-shadow: 0 -8px 6px -10px black;
+    height: auto;
     display: flex;
     justify-content: space-between;
     padding-top: 2px;
   }
 
-  .adress {
+  .address {
     width: 100%;
-    height: 2em;
-    background-color: white;
-    box-shadow: 0 -8px 6px -10px black;
+    height: auto;
     padding-top: 2px;
   }
 
   .position {
     width: 100%;
-    height: 2em;
-    background-color: white;
-    box-shadow: 0 -8px 6px -10px black;
+    height: auto;
+    /* box-shadow: 0 -8px 6px -10px black; */
     display: flex;
     justify-content: space-between;
   }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0px 15px -8px black;
+  }
+
+  .smallLabel {
+    width: 50%;
+  }
+
+  input {
+    height: 3em;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border: none;
+  }
+
 `;
 export default DeliveryInfoStyled;
