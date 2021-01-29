@@ -10,7 +10,7 @@ interface State {
   forms: [];
   infoForm: [];
   contactForm: [];
-  deliveryForm: [];
+  deliveryForm: {};
 }
 
 export default class DeliveryAndPayment extends React.Component<Props, State> {
@@ -22,7 +22,7 @@ export default class DeliveryAndPayment extends React.Component<Props, State> {
       forms: [],
       infoForm: [],
       contactForm: [],
-      deliveryForm: [],
+      deliveryForm: {},
     };
   }
 
@@ -62,6 +62,7 @@ export default class DeliveryAndPayment extends React.Component<Props, State> {
 
   deliveryOptionForm = (deliveryOption: any) => {
     if (deliveryOption.length !== 0) {
+      this.setState({ deliveryForm: deliveryOption });
       let setForm = this.state.forms as any;
       setForm.push(deliveryOption);
       this.setState(

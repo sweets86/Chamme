@@ -44,12 +44,11 @@ export default class ContactInfo extends React.Component<Props, State> {
   }
 
   saveForm = () => {
-    const buyerContactInfo = [
+    const buyerContactInfo = 
       {
         email: this.state.email,
         mobile: this.state.mobile,
-      },
-    ];
+      };
     this.props.contactInfoForm(buyerContactInfo);
   };
 

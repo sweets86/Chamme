@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import LeveransStyled from "./LeveransStyled";
 
 interface Props {
@@ -7,20 +7,17 @@ interface Props {
 }
 
 export default function Leverans(props: Props) {
-  /* useEffect(() => {
-    props.deliveryOptionForm(toggle);
-  }); */
 
   const deliveryOptions = {
     home: 99,
     market: 49,
   };
 
-  const [toggle, setToggle] = useState(["49"]);
+  const [toggle, setToggle] = useState("49");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    setToggle([value]);
+    setToggle(value);
 
     props.deliveryOptionForm(toggle)
   };
@@ -40,7 +37,7 @@ export default function Leverans(props: Props) {
               name="homeDelivery"
               type="radio"
               value={deliveryOptions.home}
-              checked={toggle === ["99"]}
+              checked={toggle === "99"}
               onChange={(e) => handleChange(e)}
             />
           </label>
@@ -53,7 +50,7 @@ export default function Leverans(props: Props) {
               name="market"
               type="radio"
               value={deliveryOptions.market}
-              checked={toggle === ["49"]}
+              checked={toggle === "49"}
               onChange={(e) => handleChange(e)}
             />
           </label>

@@ -15,9 +15,9 @@ const validAddressRegex = RegExp(/^[#.0-9a-öA-Ö\s,-]+$/);
 
 const validPostNumberRegex = RegExp(/^\d{3} \d{2}$/);
 
-const validPostRegex = RegExp(/^(.*[a-öA-Ö]\s*){4}/i);   /* (/^(\+\d{1,3}[- ]?)?\d{10}$/); */
-
-
+const validPostRegex = RegExp(
+  /^(.*[a-öA-Ö]\s*){4}/i
+); /* (/^(\+\d{1,3}[- ]?)?\d{10}$/); */
 
 const validateForm = (errors: any) => {
   let valid = true;
@@ -72,15 +72,13 @@ export default class DeliveryInfo extends React.Component<Props, State> {
   }
 
   saveForm = () => {
-    const buyerInfo = [
-      {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        address: this.state.address,
-        postNumber: this.state.postNumber,
-        postAddress: this.state.postAddress,
-      },
-    ];
+    const buyerInfo = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      address: this.state.address,
+      postNumber: this.state.postNumber,
+      postAddress: this.state.postAddress,
+    };
     this.props.buyerInfoForm(buyerInfo);
   };
 
