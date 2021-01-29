@@ -21,6 +21,7 @@ export interface ContextState extends ProviderState {
   totalPrice: () => number;
   getVAT: () => number;
   countOrders: () => number;
+  deliveryOption: (value: any) => string
 }
 
 export const CartContext = createContext<ContextState>({
@@ -41,6 +42,7 @@ export const CartContext = createContext<ContextState>({
   totalPrice: () => 0,
   getVAT: () => 0,
   countOrders: () => 0,
+  deliveryOption: () => ""
 });
 
 export const CartConsumer = CartContext.Consumer;

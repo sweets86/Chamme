@@ -2,14 +2,14 @@ import React from "react";
 import DeliveryInfo from "../DeliveryInfo";
 import DeliveryAndPaymentStyled from "./DeliveryAndPaymentStyled";
 import Payment from "../Payment";
+import { CartConsumer, ContextState } from "../../contexts/cartContext";
 
-interface Props {
-
-}
+interface Props {}
 
 interface State {
   showBuyerInfo: boolean;
   forms: [];
+  delivery: string
 }
 
 export default class DeliveryAndPayment extends React.Component<Props, State> {
@@ -19,6 +19,7 @@ export default class DeliveryAndPayment extends React.Component<Props, State> {
     this.state = {
       showBuyerInfo: false,
       forms: [],
+      delivery: ""
     };
   }
 
@@ -39,15 +40,28 @@ export default class DeliveryAndPayment extends React.Component<Props, State> {
     }
   };
 
+  deliveryOption = (option: any) => {
+    this.setState({delivery: option})
+  }
+
   render() {
     return (
-      <DeliveryAndPaymentStyled>
-        <div className="title">
-          <h2>Frakt & Betalsätt</h2>
-        </div>
-        <DeliveryInfo printBuyerInfoBtn={this.printBuyerInfoBtn} />
-        {this.state.showBuyerInfo ? <Payment forms={this.state.forms} /> : null}
-      </DeliveryAndPaymentStyled>
+      <CartConsumer>
+        {(contextData: ContextState) => {
+          return (
+            <DeliveryAndPaymentStyled>
+              <div className="title">
+                <h2>Frakt & Betalsätt</h2>
+              </div>
+              {contextData.deliveryOption(this.state.delivery)}
+              <DeliveryInfo printBuyerInfoBtn={this.printBuyerInfoBtn} deliveryOption={(option) => this.deliveryOption(option)}/>
+              {this.state.showBuyerInfo ? (
+                <Payment forms={this.state.forms} />
+              ) : null}
+            </DeliveryAndPaymentStyled>
+          );
+        }}
+      </CartConsumer>
     );
   }
 }

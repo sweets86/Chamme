@@ -77,7 +77,8 @@ export class CartProvider extends Component<{}, ProviderState> {
 
     console.log(findProductIndex);
 
-    if (findProductIndex === -1 || clonedCart[findProductIndex].quantity <= 1) { // annars tänkte jag testa ifall man kan kolla här om extras array length?
+    if (findProductIndex === -1 || clonedCart[findProductIndex].quantity <= 1) {
+      // annars tänkte jag testa ifall man kan kolla här om extras array length?
       clonedCart.splice(index, 1, {
         product: product,
         quantity: -1,
@@ -137,6 +138,10 @@ export class CartProvider extends Component<{}, ProviderState> {
     return totQuantity;
   };
 
+  deliveryOption = (value: any) => {
+    return value;
+  };
+
   totalPrice = () => {
     let totPrice: number = 0;
     this.state.cartItems.map((cartItem) => {
@@ -175,6 +180,7 @@ export class CartProvider extends Component<{}, ProviderState> {
           totalPrice: this.totalPrice,
           getVAT: this.getVAT,
           countOrders: this.countOrders,
+          deliveryOption: this.deliveryOption
         }}
       >
         {this.props.children}
