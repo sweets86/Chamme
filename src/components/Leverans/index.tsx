@@ -7,9 +7,9 @@ interface Props {
 }
 
 export default function Leverans(props: Props) {
-  useEffect(() => {
+  /* useEffect(() => {
     props.deliveryOptionForm(toggle);
-  });
+  }); */
 
   const deliveryOptions = {
     home: 99,
@@ -21,6 +21,8 @@ export default function Leverans(props: Props) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setToggle([value]);
+
+    props.deliveryOptionForm(toggle)
   };
 
   return (

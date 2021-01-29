@@ -9,6 +9,8 @@ interface State {
   showBuyerInfo: boolean;
   forms: [];
   infoForm: [];
+  contactForm: [];
+  deliveryForm: [];
 }
 
 export default class DeliveryAndPayment extends React.Component<Props, State> {
@@ -18,40 +20,67 @@ export default class DeliveryAndPayment extends React.Component<Props, State> {
     this.state = {
       showBuyerInfo: false,
       forms: [],
-      infoForm: []
+      infoForm: [],
+      contactForm: [],
+      deliveryForm: [],
     };
   }
 
   buyerInfoForm = (buyerInfo: any) => {
-    this.setState({infoForm: buyerInfo})
-    console.log(buyerInfo)
+    if (buyerInfo.length !== 0) {
+      let setForm = this.state.forms as any;
+      setForm.push(buyerInfo);
+      this.setState(
+        {
+          forms: setForm,
+        },
+        () => {
+          console.log(this.state.forms);
+        }
+      );
+    } else {
+      console.log(buyerInfo);
+    }
   };
-  
+
   contactInfoForm = (buyerContactInfo: any) => {
-    console.log(buyerContactInfo)
+    if (buyerContactInfo.length !== 0) {
+      let setForm = this.state.forms as any;
+      setForm.push(buyerContactInfo);
+      this.setState(
+        {
+          forms: setForm,
+        },
+        () => {
+          console.log(this.state.forms);
+        }
+      );
+    } else {
+      console.log(buyerContactInfo);
+    }
   };
 
   deliveryOptionForm = (deliveryOption: any) => {
-    /* console.log(printBuyerInfo) */
-  };
-  
-  form = (printBuyerInfo: any) => {
-    let setForm = this.state.forms as any;
-    setForm.push(printBuyerInfo);
-    this.setState(
-      {
-        forms: setForm,
-      },
-      () => {
-        console.log(this.state.forms);
-      }
+    if (deliveryOption.length !== 0) {
+      let setForm = this.state.forms as any;
+      setForm.push(deliveryOption);
+      this.setState(
+        {
+          forms: setForm,
+        },
+        () => {
+          console.log(this.state.forms);
+        }
       );
-    };
+    } else {
+      console.log(deliveryOption);
+    }
+  };
 
-    printBuyerInfoBtn = () => {
-      // if ... måste kolla om form har buyerinfo, contactinfo och deliveryoption, om den har det så kör om inte så är det inte validerat rätt.
-      this.setState({ showBuyerInfo: true });
-    };
+  printBuyerInfoBtn = () => {
+    // if ... måste kolla om form har buyerinfo, contactinfo och deliveryoption, om den har det så kör om inte så är det inte validerat rätt.
+    this.setState({ showBuyerInfo: true });
+  };
 
   render() {
     return (

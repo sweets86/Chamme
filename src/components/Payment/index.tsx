@@ -8,8 +8,9 @@ interface Props {
 export default function Payment(props: Props) {
   return (
     <PaymentStyled>
-      {console.log(props.forms)}
-      <div></div>
+      {props.forms.map((array: any) => {
+        return console.log(array)
+      })}
     </PaymentStyled>
   );
 }
