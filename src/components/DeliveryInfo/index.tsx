@@ -1,6 +1,4 @@
 import React from "react";
-import ContactInfo from "../ContactInfo";
-import Leverans from "../Leverans";
 import DeliveryInfoStyled from "./DeliveryInfoStyled";
 
 const validFirstNameRegex = RegExp(
@@ -15,9 +13,12 @@ const validAddressRegex = RegExp(/^[#.0-9a-öA-Ö\s,-]+$/);
 
 const validPostNumberRegex = RegExp(/^\d{3} \d{2}$/);
 
-const validPostRegex = RegExp(
-  /^(.*[a-öA-Ö]\s*){4}/i
-); /* (/^(\+\d{1,3}[- ]?)?\d{10}$/); */
+const validPostRegex = RegExp(/^(.*[a-öA-Ö]\s*){4}/i);
+
+const validEmailRegex = RegExp(
+  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+);
+const validMobileRegex = RegExp(/^(\+\d{1,3}[- ]?)?\d{10}$/);
 
 const validateForm = (errors: any) => {
   let valid = true;
@@ -27,11 +28,23 @@ const validateForm = (errors: any) => {
   return valid;
 };
 
+interface Delivery {
+  title: string;
+  price: number;
+}
+export const deliveryOptions: Delivery[] = [
+  {
+    title: "PostNord hemleverans - direkt hem till dörren",
+    price: 49,
+  },
+  {
+    title: "PostNord - paket till närmaste postombud",
+    price: 99,
+  },
+];
+
 interface Props {
-  printBuyerInfoBtn: () => void;
-  buyerInfoForm: (buyerInfo: any) => void;
-  contactInfoForm: (buyerContactInfo: any) => void;
-  deliveryOptionForm: (deliveryOption: any) => void;
+  printBuyerInfoBtn: (buyerInfo: any) => void;
 }
 
 interface State {
@@ -40,6 +53,10 @@ interface State {
   address: string;
   postNumber: number;
   postAddress: string;
+  email: string;
+  mobile: number;
+  toggle: number;
+  deliveryOption: string;
 
   errors: {
     firstName: any;
@@ -47,6 +64,8 @@ interface State {
     address: any;
     postNumber: any;
     postAddress: any;
+    email: any;
+    mobile: any;
   };
 }
 
@@ -60,6 +79,10 @@ export default class DeliveryInfo extends React.Component<Props, State> {
       address: "",
       postNumber: parseInt(""),
       postAddress: "",
+      email: "",
+      mobile: parseInt(""),
+      toggle: 0,
+      deliveryOption: "49",
 
       errors: {
         firstName: "",
@@ -67,19 +90,47 @@ export default class DeliveryInfo extends React.Component<Props, State> {
         address: "",
         postNumber: "",
         postAddress: "",
+        email: "",
+        mobile: "",
       },
     };
   }
 
-  saveForm = () => {
-    const buyerInfo = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      address: this.state.address,
-      postNumber: this.state.postNumber,
-      postAddress: this.state.postAddress,
-    };
-    this.props.buyerInfoForm(buyerInfo);
+  /*   deliveryOption = (deliveryOption: any) => {
+    console.log(this.state.deliveryOption);
+    if (deliveryOption !== "") {
+      this.setState({ deliveryOption: deliveryOption }, () => {
+        console.log(this.state.deliveryOption);
+      });
+    }
+  }; */
+
+  handleSubmit = () => {
+    if (
+      validateForm(this.state.errors) &&
+      this.state.firstName &&
+      this.state.lastName &&
+      this.state.address &&
+      this.state.postNumber &&
+      this.state.postAddress &&
+      this.state.email &&
+      this.state.mobile
+    ) {
+      const buyerInfo = {
+        deliveryOption: this.state.deliveryOption,
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        address: this.state.address,
+        postNumber: this.state.postNumber,
+        postAddress: this.state.postAddress,
+        email: this.state.email,
+        mobile: this.state.mobile,
+      };
+      /* this.props.printBuyerInfoBtn(buyerInfo); */
+      console.log(buyerInfo);
+    } else {
+      console.error("Invalid Form");
+    }
   };
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -109,6 +160,14 @@ export default class DeliveryInfo extends React.Component<Props, State> {
       case "postAddress":
         errors.postAddress = validPostRegex.test(value) ? "" : "Fyll i ort";
         break;
+      case "email":
+        errors.email = validEmailRegex.test(value) ? "" : "Fyll i email";
+        break;
+      case "mobile":
+        errors.mobile = validMobileRegex.test(value)
+          ? ""
+          : "Fyll i mobilnummer";
+        break;
       default:
         break;
     }
@@ -117,23 +176,21 @@ export default class DeliveryInfo extends React.Component<Props, State> {
       errors,
       [name]: value,
     }));
+  };
 
-    if (
-      validateForm(this.state.errors) &&
-      this.state.firstName &&
-      this.state.lastName &&
-      this.state.address &&
-      this.state.postNumber &&
-      this.state.postAddress
-    ) {
-      if (this.state.postAddress !== " ") {
-        this.saveForm();
-      } else {
-        console.error("Invalid Form");
-      }
-    } else {
-      console.error("Invalid Form");
-    }
+  handleOption = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    event.preventDefault();
+    const value = event.target.value;
+    const checked = event.target.checked;
+    this.setState({ toggle: index }, () => {});
+
+    if (checked === true)
+      this.setState({ deliveryOption: value }, () => {
+        console.log(this.state.deliveryOption);
+      });
   };
 
   render() {
@@ -149,7 +206,6 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                 type="firstName"
                 onChange={this.handleChange}
                 placeholder="Förnamn"
-                autoComplete="off"
               />
               {errors.firstName.length > 0 && (
                 <span style={{ color: "red" }}>{errors.firstName}</span>
@@ -161,7 +217,6 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                 type="lastName"
                 onChange={this.handleChange}
                 placeholder="Efternamn"
-                autoComplete="off"
               />
               {errors.firstName.length > 0 && (
                 <span style={{ color: "red" }}>{errors.firstName}</span>
@@ -175,7 +230,6 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                 type="address"
                 onChange={this.handleChange}
                 placeholder="Adress"
-                autoComplete="off"
               />
               {errors.address.length > 0 && (
                 <span style={{ color: "red" }}>{errors.address}</span>
@@ -189,7 +243,6 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                 type="postNumber"
                 onChange={this.handleChange}
                 placeholder="Postnummer"
-                autoComplete="off"
               />
               {errors.postNumber.length > 0 && (
                 <span style={{ color: "red" }}>{errors.postNumber}</span>
@@ -201,7 +254,6 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                 type="postAddress"
                 onChange={this.handleChange}
                 placeholder="Ort"
-                autoComplete="off"
               />
               {errors.postAddress.length > 0 && (
                 <span style={{ color: "red" }}>{errors.postAddress}</span>
@@ -209,11 +261,59 @@ export default class DeliveryInfo extends React.Component<Props, State> {
             </label>
           </div>
         </div>
-        <ContactInfo contactInfoForm={this.props.contactInfoForm} />
-        <Leverans
-          printBuyerInfoBtn={this.props.printBuyerInfoBtn}
-          deliveryOptionForm={this.props.deliveryOptionForm}
-        />
+        <h2>Dina Kontaktuppgifter</h2>
+        <div className="adressContainer">
+          <label htmlFor="email">
+            <input
+              name="email"
+              type="email"
+              onChange={this.handleChange}
+              placeholder="Mail"
+            />
+            {errors.email.length > 0 && (
+              <span style={{ color: "red" }}>{errors.email}</span>
+            )}
+          </label>
+          <label htmlFor="mobile">
+            <input
+              name="mobile"
+              type="mobile"
+              onChange={this.handleChange}
+              placeholder="Mobil"
+            />
+            {errors.mobile.length > 0 && (
+              <span style={{ color: "red" }}>{errors.mobile}</span>
+            )}
+          </label>
+        </div>
+        <h2>Välj leveransalternativ</h2>
+        <div className="deliverContainer">
+          <div className="deliver-option">
+            {deliveryOptions.map((option, index) => {
+              return (
+                <label className="largeLabel" htmlFor="delivery" key={index}>
+                  <p>
+                    {option.title}
+                    <br />
+                    {option.price} Kr
+                  </p>
+                  <input
+                    name="delivery"
+                    type="radio"
+                    value={option.price}
+                    checked={this.state.toggle === index}
+                    onChange={(e) => this.handleOption(e, index)}
+                  />
+                </label>
+              );
+            })}
+          </div>
+        </div>
+        <div className="save-div">
+          <button onClick={this.handleSubmit} className="btn-save">
+            Spara
+          </button>
+        </div>
       </DeliveryInfoStyled>
     );
   }

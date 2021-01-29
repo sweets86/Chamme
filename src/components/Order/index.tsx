@@ -3,14 +3,19 @@ import OrderCard from "../OrderCard";
 import OrderStyled from "./OrderStyled";
 import { CartConsumer, ContextState } from "../../contexts/cartContext";
 
+interface Props {
 
-export default function Order() {
+}
+
+
+export default function Order(props: Props) {
 
   return (
     <CartConsumer>
       {(contextData: ContextState) => {
         return (
           <OrderStyled>
+
             <div className="orderNav">
               <h2>Dina Varor</h2>
             </div>

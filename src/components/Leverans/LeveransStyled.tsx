@@ -51,27 +51,6 @@ const LeveransStyled = styled.div`
     color: gray;
   }
 
-  .save-div {
-    width: 100%;
-    height: 5em;
-    background-color: white;
-    padding-top: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* box-shadow: 0 -8px 6px -10px black; */
-  }
-
-  .btn-save {
-    width: 10em;
-    height: 3em;
-    background-color: white;
-    border: none;
-    box-shadow: 0 0px 15px -8px black;
-    cursor: pointer;
-    margin-top: 1em;
-  }
-
   @media screen and (max-width: 1600px) {
     .largeLabel {
       padding: 2em;

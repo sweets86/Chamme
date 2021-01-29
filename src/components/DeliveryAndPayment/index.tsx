@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import DeliveryInfo from "../DeliveryInfo";
 import DeliveryAndPaymentStyled from "./DeliveryAndPaymentStyled";
 import Payment from "../Payment";
 
-interface Props {}
+interface Props {
+
+}
 
 interface State {
   showBuyerInfo: boolean;
   forms: [];
-  infoForm: [];
-  contactForm: [];
-  deliveryForm: {};
 }
 
 export default class DeliveryAndPayment extends React.Component<Props, State> {
@@ -20,67 +19,24 @@ export default class DeliveryAndPayment extends React.Component<Props, State> {
     this.state = {
       showBuyerInfo: false,
       forms: [],
-      infoForm: [],
-      contactForm: [],
-      deliveryForm: {},
     };
   }
 
-  buyerInfoForm = (buyerInfo: any) => {
-    if (buyerInfo.length !== 0) {
-      let setForm = this.state.forms as any;
-      setForm.push(buyerInfo);
+  printBuyerInfoBtn = (buyerInfo: any) => {
+    if (Object.keys(buyerInfo).length !== 0) {
+      let buyerInfoToConfirm = this.state.forms as any;
+      buyerInfoToConfirm.push(buyerInfo);
       this.setState(
         {
-          forms: setForm,
+          forms: buyerInfoToConfirm,
         },
         () => {
-          console.log(this.state.forms);
+          this.setState({ showBuyerInfo: true });
         }
       );
     } else {
-      console.log(buyerInfo);
+      console.log(this.state.forms);
     }
-  };
-
-  contactInfoForm = (buyerContactInfo: any) => {
-    if (buyerContactInfo.length !== 0) {
-      let setForm = this.state.forms as any;
-      setForm.push(buyerContactInfo);
-      this.setState(
-        {
-          forms: setForm,
-        },
-        () => {
-          console.log(this.state.forms);
-        }
-      );
-    } else {
-      console.log(buyerContactInfo);
-    }
-  };
-
-  deliveryOptionForm = (deliveryOption: any) => {
-    if (deliveryOption.length !== 0) {
-      this.setState({ deliveryForm: deliveryOption });
-      let setForm = this.state.forms as any;
-      setForm.push(deliveryOption);
-      this.setState(
-        {
-          forms: setForm,
-        },
-        () => {
-          console.log(this.state.forms);
-        }
-      );
-    } else {
-      console.log(deliveryOption);
-    }
-  };
-
-  printBuyerInfoBtn = () => {
-    // if ... måste kolla om form har buyerinfo, contactinfo och deliveryoption, om den har det så kör om inte så är det inte validerat rätt.
-    this.setState({ showBuyerInfo: true });
   };
 
   render() {
@@ -89,16 +45,7 @@ export default class DeliveryAndPayment extends React.Component<Props, State> {
         <div className="title">
           <h2>Frakt & Betalsätt</h2>
         </div>
-        <DeliveryInfo
-          buyerInfoForm={(buyerInfo) => this.buyerInfoForm(buyerInfo)}
-          contactInfoForm={(buyerContactInfo) =>
-            this.contactInfoForm(buyerContactInfo)
-          }
-          deliveryOptionForm={(deliveryOption) =>
-            this.deliveryOptionForm(deliveryOption)
-          }
-          printBuyerInfoBtn={this.printBuyerInfoBtn}
-        />
+        <DeliveryInfo printBuyerInfoBtn={this.printBuyerInfoBtn}/>
         {this.state.showBuyerInfo ? <Payment forms={this.state.forms} /> : null}
       </DeliveryAndPaymentStyled>
     );
