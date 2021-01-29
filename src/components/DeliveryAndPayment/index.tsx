@@ -45,7 +45,7 @@ export default class DeliveryAndPayment extends React.Component<Props, State> {
         <div className="title">
           <h2>Frakt & Betalsätt</h2>
         </div>
-        <DeliveryInfo printBuyerInfoBtn={this.printBuyerInfoBtn}/>
+        <DeliveryInfo printBuyerInfoBtn={this.printBuyerInfoBtn} />
         {this.state.showBuyerInfo ? <Payment forms={this.state.forms} /> : null}
       </DeliveryAndPaymentStyled>
     );

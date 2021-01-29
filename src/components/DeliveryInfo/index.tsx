@@ -96,15 +96,6 @@ export default class DeliveryInfo extends React.Component<Props, State> {
     };
   }
 
-  /*   deliveryOption = (deliveryOption: any) => {
-    console.log(this.state.deliveryOption);
-    if (deliveryOption !== "") {
-      this.setState({ deliveryOption: deliveryOption }, () => {
-        console.log(this.state.deliveryOption);
-      });
-    }
-  }; */
-
   handleSubmit = () => {
     if (
       validateForm(this.state.errors) &&
@@ -126,7 +117,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
         email: this.state.email,
         mobile: this.state.mobile,
       };
-      /* this.props.printBuyerInfoBtn(buyerInfo); */
+      this.props.printBuyerInfoBtn(buyerInfo);
       console.log(buyerInfo);
     } else {
       console.error("Invalid Form");
@@ -198,7 +189,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
     return (
       <DeliveryInfoStyled>
         <h2>Din leveransadress</h2>
-        <div className="addressContainer">
+        <div className="container">
           <div className="names">
             <label className="smallLabel" htmlFor="firstName">
               <input
@@ -262,7 +253,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
           </div>
         </div>
         <h2>Dina Kontaktuppgifter</h2>
-        <div className="adressContainer">
+        <div className="container">
           <label htmlFor="email">
             <input
               name="email"

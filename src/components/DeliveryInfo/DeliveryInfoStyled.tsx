@@ -7,20 +7,15 @@ const DeliveryInfoStyled = styled.div`
   margin-top: 2em;
   padding-bottom: 1em;
 
-/*   width: 100%; // leverans
-  height: auto;
-  margin-top: 2em;
-  padding-bottom: 1em; */
+  .container {
+    width: 100%;
+    height: 12em;
+    margin-top: 5px;
+  }
 
-  /* width: 100%;
-  height: auto;
-  margin-top: 2em;
-  box-shadow: 0 8px 6px -10px black; */
-
-  .addressContainer {
+  .contactContainer {
     width: 100%;
     height: auto;
-    /* box-shadow: 0 8px 6px -10px black; */
     margin-top: 5px;
   }
 
@@ -41,7 +36,6 @@ const DeliveryInfoStyled = styled.div`
   .position {
     width: 100%;
     height: auto;
-    /* box-shadow: 0 -8px 6px -10px black; */
     display: flex;
     justify-content: space-between;
   }
@@ -72,7 +66,6 @@ const DeliveryInfoStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* box-shadow: 0 -8px 6px -10px black; */
   }
 
   .btn-save {
@@ -88,7 +81,6 @@ const DeliveryInfoStyled = styled.div`
   .deliverContainer {
     width: 100%;
     height: auto;
-    /* box-shadow: 0 8px 6px -10px black; */
     margin-top: 5px;
   }
 

@@ -4,6 +4,7 @@ import Order from "../../components/Order";
 import DeliveryAndPayment from "../../components/DeliveryAndPayment";
 
 export default function OrderComposition() {
+
   return (
     <OrderCompositionStyled>
       <div className="contain">
