@@ -18,7 +18,6 @@ export interface ProviderState {
   cartItems: CartItem[];
   extras: Extras[];
   option: string[];
-  optionValue: string;
 }
 
 export class CartProvider extends Component<{}, ProviderState> {
@@ -28,7 +27,6 @@ export class CartProvider extends Component<{}, ProviderState> {
       cartItems: [],
       extras: [],
       option: [],
-      optionValue: "",
     };
   }
 
@@ -147,11 +145,7 @@ export class CartProvider extends Component<{}, ProviderState> {
     if (!clonedOption.includes(value)) {
       clonedOption.splice(0, 1);
       clonedOption.push(value);
-    } else {
-      /* clonedOption.splice(0, 1); */
     }
-
-    console.log(clonedOption);
 
     this.setState({ option: clonedOption}, () => {
       console.log(this.state.option);
@@ -190,16 +184,6 @@ export class CartProvider extends Component<{}, ProviderState> {
     return Math.round(productVAT * 100 + Number.EPSILON) / 100;
   };
 
-  countOrders = () => {
-    let individualCount: number = 0;
-    this.state.cartItems
-      .filter((cartItem) => cartItem.product.id === cartItem.count)
-      .map((cartItem) => {
-        return (individualCount += cartItem.count * cartItem.quantity);
-      });
-    return individualCount;
-  };
-
   render() {
     return (
       <CartContext.Provider
@@ -211,7 +195,6 @@ export class CartProvider extends Component<{}, ProviderState> {
           countCart: this.countCart,
           totalPrice: this.totalPrice,
           getVAT: this.getVAT,
-          countOrders: this.countOrders,
           deliveryOption: this.deliveryOption,
           getDeliveryOption: this.getDeliveryOption
         }}

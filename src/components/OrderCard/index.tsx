@@ -130,8 +130,7 @@ export default function OrderCard(props: Props) {
                   +
                 </span>
               </div>
-              {props.index}
-              <div className="priceDiv">{props.product.price} Kr</div>
+              <div className="priceDiv">{props.product.price} kr</div>
             </div>
           </div>
         </OrderCardStyled>
@@ -173,9 +172,6 @@ export default function OrderCard(props: Props) {
                     <div className="if-t-shirts">
                       <h4>{extra.extrasColor}</h4>
                       <h4>{extra.extrasSize}</h4>
-                      {/* <h4>{extraIndex}</h4>
-                      <h4>{index}</h4>
-                      <h4>{props.index}</h4> */}
                     </div>
                     <div className="priceDiv">{props.product.price} Kr</div>
                   </div>

@@ -35,20 +35,20 @@ export default function Order() {
               <div className="orderTot">
                 <div className="totalt">
                   <h2>Summa</h2>
-                  <h2>{contextData.totalPrice()} Kr</h2>
+                  <h2>{contextData.totalPrice()} kr</h2>
                 </div>
                 <div className="tax">
                   <h3>varav moms 25%</h3>
-                  <h3>{contextData.getVAT()} Kr</h3>
+                  <h3>{contextData.getVAT()} kr</h3>
                 </div>
                 <div className="frakt">
                   <h3>Frakt</h3>
-                 <h3>{contextData.getDeliveryOption()}</h3>
+                 <h3>{contextData.getDeliveryOption()} kr</h3>
                 
                 </div>
                 <div className="totalt">
                   <h2>Totalt</h2>
-                  <h2>{contextData.totalPrice()} + Frakt Kr</h2>
+                  <h2>{contextData.totalPrice() + contextData.getDeliveryOption()} kr</h2>
                 </div>
               </div>
             ) : null}
