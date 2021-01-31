@@ -27,6 +27,11 @@ const PaymentStyled = styled.div`
     margin-right: 10px;
   }
 
+  .total-text {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+
   .payment-options-container {
     width: 100%;
     height: auto;
@@ -69,7 +74,7 @@ const PaymentStyled = styled.div`
 
   .policy-checkbox {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 1em;
   }
 
@@ -77,6 +82,7 @@ const PaymentStyled = styled.div`
     margin: 0;
     display: inline-block;
     color: black;
+    margin-right: 3px;
   }
 
   .finish-btn-div {

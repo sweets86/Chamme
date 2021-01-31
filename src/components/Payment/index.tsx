@@ -1,6 +1,7 @@
 import React from "react";
 import PaymentStyled from "./PaymentStyled";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../contexts/cartContext";
 
 interface PayOption {
   title: string;
@@ -22,9 +23,11 @@ interface State {
   toggle: number;
   paymentOption: string;
   showPayBtn: boolean;
+  total: number;
 }
 
 export default class Payment extends React.Component<Props, State> {
+  static contextType = CartContext;
   constructor(props: Props) {
     super(props);
 
@@ -32,6 +35,7 @@ export default class Payment extends React.Component<Props, State> {
       toggle: 0,
       paymentOption: "VISA",
       showPayBtn: false,
+      total: 0
     };
   }
 
@@ -72,6 +76,7 @@ export default class Payment extends React.Component<Props, State> {
           let email = content.email;
           let mobile = content.mobile;
           let delivery = content.deliveryOption;
+          let numberDelivery = parseInt(delivery)
           return (
             <PaymentStyled key={index}>
               <span className="double">
@@ -90,6 +95,10 @@ export default class Payment extends React.Component<Props, State> {
               <span className="delivery-span">
                 <p className="delivery-text">Frakt </p>
                 {delivery} kr
+              </span>
+              <span className="delivery-span">
+                <p className="total-text">Totalt</p>
+                {numberDelivery + this.context.totalPrice()} kr
               </span>
             </PaymentStyled>
           );
