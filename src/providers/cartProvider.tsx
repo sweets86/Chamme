@@ -6,7 +6,6 @@ export interface CartItem {
   product: Product;
   quantity: number;
   count: number;
-  /* extras: {}; */
 }
 
 export interface Extras {
@@ -18,6 +17,8 @@ export interface Extras {
 export interface ProviderState {
   cartItems: CartItem[];
   extras: Extras[];
+  option: string[];
+  optionValue: string;
 }
 
 export class CartProvider extends Component<{}, ProviderState> {
@@ -26,6 +27,8 @@ export class CartProvider extends Component<{}, ProviderState> {
     this.state = {
       cartItems: [],
       extras: [],
+      option: [],
+      optionValue: "",
     };
   }
 
@@ -138,9 +141,38 @@ export class CartProvider extends Component<{}, ProviderState> {
     return totQuantity;
   };
 
-  deliveryOption = (value: any) => {
+  deliveryOption = (value: string) => {
+    const clonedOption = this.state.option;
+
+    if (!clonedOption.includes(value)) {
+      clonedOption.splice(0, 1);
+      clonedOption.push(value);
+    } else {
+      /* clonedOption.splice(0, 1); */
+    }
+
+    console.log(clonedOption);
+
+    this.setState({ option: clonedOption}, () => {
+      console.log(this.state.option);
+    });
+
     return value;
   };
+
+  getDeliveryOption = () => {
+    let option: number = 0;
+    this.state.option.map((value) => {
+    let newValue = parseInt(value)
+      return (option += newValue);
+    });
+
+    if (option === 0) {
+      return 49
+    }
+
+    return option;
+  }
 
   totalPrice = () => {
     let totPrice: number = 0;
@@ -180,7 +212,8 @@ export class CartProvider extends Component<{}, ProviderState> {
           totalPrice: this.totalPrice,
           getVAT: this.getVAT,
           countOrders: this.countOrders,
-          deliveryOption: this.deliveryOption
+          deliveryOption: this.deliveryOption,
+          getDeliveryOption: this.getDeliveryOption
         }}
       >
         {this.props.children}

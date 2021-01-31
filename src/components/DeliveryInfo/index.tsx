@@ -1,5 +1,7 @@
 import React from "react";
 import DeliveryInfoStyled from "./DeliveryInfoStyled";
+import { CartConsumer, ContextState } from "../../contexts/cartContext";
+import {CartContext} from '../../contexts/cartContext'
 
 const validFirstNameRegex = RegExp(
   /^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z])))*$/
@@ -70,7 +72,11 @@ interface State {
   };
 }
 
+
+
 export default class DeliveryInfo extends React.Component<Props, State> {
+  static contextType = CartContext
+
   constructor(props: Props) {
     super(props);
 
@@ -96,6 +102,9 @@ export default class DeliveryInfo extends React.Component<Props, State> {
       },
     };
   }
+
+
+  
 
   handleSubmit = () => {
     let option = this.state.deliveryOption
@@ -183,15 +192,20 @@ export default class DeliveryInfo extends React.Component<Props, State> {
 
     if (checked === true)
       this.setState({ deliveryOption: value }, () => {
-        console.log(this.state.deliveryOption);
+        const test = this.context.deliveryOption(this.state.deliveryOption)
+        console.log(test);
       });
   };
 
   render() {
     const { errors } = this.state;
-
+  
     return (
-      
+      <CartConsumer>
+        {(contextData: ContextState) => {
+        
+        /* contextData.deliveryOption(this.state.deliveryOption) */
+          return (
             <DeliveryInfoStyled>
              
               <h2>Din leveransadress</h2>
@@ -305,6 +319,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                           checked={this.state.toggle === index}
                           onChange={(e) => this.handleOption(e, index)}
                           />
+                         
                       </label>
                     );
                   })}
@@ -316,7 +331,9 @@ export default class DeliveryInfo extends React.Component<Props, State> {
                 </button>
               </div>
             </DeliveryInfoStyled>
-          
+           );
+          }}
+        </CartConsumer>
     );
   }
 }

@@ -21,12 +21,15 @@ export interface ContextState extends ProviderState {
   totalPrice: () => number;
   getVAT: () => number;
   countOrders: () => number;
-  deliveryOption: (value: any) => string
+  deliveryOption: (value: string) => void;
+  getDeliveryOption: () => number;
 }
 
 export const CartContext = createContext<ContextState>({
   cartItems: [],
   extras: [],
+  option: [],
+  optionValue: "",
   addProductToCart: (product: Product) => {
     console.log(
       "Something went wrong with adding " + product.name + " to the cart..."
@@ -42,7 +45,8 @@ export const CartContext = createContext<ContextState>({
   totalPrice: () => 0,
   getVAT: () => 0,
   countOrders: () => 0,
-  deliveryOption: () => ""
+  deliveryOption: () => "",
+  getDeliveryOption: () => 0,
 });
 
 export const CartConsumer = CartContext.Consumer;

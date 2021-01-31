@@ -2,7 +2,7 @@ import React from "react";
 import DeliveryInfo from "../DeliveryInfo";
 import DeliveryAndPaymentStyled from "./DeliveryAndPaymentStyled";
 import Payment from "../Payment";
-import { CartConsumer, ContextState } from "../../contexts/cartContext";
+
 
 interface Props {}
 
@@ -46,22 +46,17 @@ export default class DeliveryAndPayment extends React.Component<Props, State> {
 
   render() {
     return (
-      <CartConsumer>
-        {(contextData: ContextState) => {
-          return (
+      
             <DeliveryAndPaymentStyled>
               <div className="title">
                 <h2>Frakt & Betalsätt</h2>
               </div>
-              {contextData.deliveryOption(this.state.delivery)}
               <DeliveryInfo printBuyerInfoBtn={this.printBuyerInfoBtn} deliveryOption={(option) => this.deliveryOption(option)}/>
               {this.state.showBuyerInfo ? (
                 <Payment forms={this.state.forms} />
               ) : null}
             </DeliveryAndPaymentStyled>
-          );
-        }}
-      </CartConsumer>
+         
     );
   }
 }

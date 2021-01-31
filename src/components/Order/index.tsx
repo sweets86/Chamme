@@ -3,11 +3,6 @@ import OrderCard from "../OrderCard";
 import OrderStyled from "./OrderStyled";
 import { CartConsumer, ContextState } from "../../contexts/cartContext";
 
-/* interface Props {
-  deliveryOption: (deliveryOption: any) => void;
-}
- */
-
 export default function Order() {
 
   return (
@@ -15,7 +10,6 @@ export default function Order() {
       {(contextData: ContextState) => {
         return (
           <OrderStyled>
-            {console.log()}
 
             <div className="orderNav">
               <h2>Dina Varor</h2>
@@ -49,7 +43,8 @@ export default function Order() {
                 </div>
                 <div className="frakt">
                   <h3>Frakt</h3>
-                  <h3>{}</h3>
+                 <h3>{contextData.getDeliveryOption()}</h3>
+                
                 </div>
                 <div className="totalt">
                   <h2>Totalt</h2>
