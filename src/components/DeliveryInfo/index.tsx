@@ -260,7 +260,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
           </div>
         </div>
         <h2>Dina Kontaktuppgifter</h2>
-        <div className="container">
+        <div className="contactContainer">
           <label htmlFor="email">
             <input
               name="email"

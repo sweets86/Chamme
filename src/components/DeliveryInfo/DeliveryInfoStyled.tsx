@@ -10,12 +10,12 @@ const DeliveryInfoStyled = styled.div`
   .container {
     width: 100%;
     height: 12em;
-    margin-top: 5px;
+    margin-top: 10px;
   }
 
   .contactContainer {
     width: 100%;
-    height: auto;
+    height: 8.5em;
     margin-top: 5px;
   }
 
@@ -61,7 +61,6 @@ const DeliveryInfoStyled = styled.div`
   .save-div {
     width: 100%;
     height: 5em;
-    background-color: white;
     padding-top: 2px;
     display: flex;
     justify-content: center;
@@ -81,13 +80,12 @@ const DeliveryInfoStyled = styled.div`
   .deliverContainer {
     width: 100%;
     height: auto;
-    margin-top: 5px;
+    margin-top: 10px;
   }
 
   .deliver-option {
     width: 100%;
     height: 5em;
-    background-color: white;
     box-shadow: 0 -8px 6px -10px black;
     display: flex;
     justify-content: space-between;
