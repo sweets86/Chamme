@@ -45,7 +45,7 @@ export const deliveryOptions: Delivery[] = [
 ];
 
 interface Props {
-  deliveryOption: (option: any) => void;
+/*   deliveryOption: (option: any) => void; */
   printBuyerInfoBtn: (buyerInfo: any) => void;
 }
 
@@ -101,7 +101,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
   }
 
   handleSubmit = () => {
-    let option = this.state.deliveryOption;
+    /* let option = this.state.deliveryOption; */
     if (
       validateForm(this.state.errors) &&
       this.state.firstName &&
@@ -123,7 +123,7 @@ export default class DeliveryInfo extends React.Component<Props, State> {
         mobile: this.state.mobile,
       };
       this.props.printBuyerInfoBtn(buyerInfo);
-      this.props.deliveryOption(option);
+      /* this.props.deliveryOption(option); */
       console.log(buyerInfo);
     } else {
       console.error("Invalid Form");

@@ -2,6 +2,7 @@ import React from "react";
 import PaymentStyled from "./PaymentStyled";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/cartContext";
+import PrivacyPolicyCheckbox from "../PrivacyPolicyCheckbox";
 
 interface PayOption {
   title: string;
@@ -35,7 +36,7 @@ export default class Payment extends React.Component<Props, State> {
       toggle: 0,
       paymentOption: "VISA",
       showPayBtn: false,
-      total: 0
+      total: 0,
     };
   }
 
@@ -76,7 +77,7 @@ export default class Payment extends React.Component<Props, State> {
           let email = content.email;
           let mobile = content.mobile;
           let delivery = content.deliveryOption;
-          let numberDelivery = parseInt(delivery)
+          let numberDelivery = parseInt(delivery);
           return (
             <PaymentStyled key={index}>
               <span className="double">
@@ -123,13 +124,7 @@ export default class Payment extends React.Component<Props, State> {
               })}
             </div>
           </div>
-          <div className="policy-checkbox">
-            <input type="checkbox" onChange={(e) => this.handlePrivacy(e)} />
-
-            <Link to={"/privacy"}>
-              <p className="privacy">Jag har läst och samtycker med privacy policy.</p>
-            </Link>
-          </div>
+          <PrivacyPolicyCheckbox handlePrivacy={(e) => this.handlePrivacy(e)} />
           <div className="finish-btn-div">
             {this.state.showPayBtn ? (
               <button className="finish-btn">Slutför köp</button>

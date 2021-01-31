@@ -72,19 +72,6 @@ const PaymentStyled = styled.div`
     color: gray;
   }
 
-  .policy-checkbox {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 1em;
-  }
-
-  .privacy {
-    margin: 0;
-    display: inline-block;
-    color: black;
-    margin-right: 3px;
-  }
-
   .finish-btn-div {
     width: 100%;
     height: 5em;

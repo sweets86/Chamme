@@ -25,6 +25,13 @@ const PrivacyCompositionStyled = styled.div`
     padding: 0.5em;
   }
 
+  h4 {
+    display: inline-block;
+    color: black;
+    margin: 0;
+    margin-right: 5em;
+  }
+
   @media screen and (max-width: 400px) {
 
     .contain {

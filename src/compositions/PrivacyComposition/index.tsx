@@ -1,10 +1,27 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import PrivacyCompositionStyled from "./PrivacyCompositionStyled";
+import { Link, useLocation } from "react-router-dom";
 
 export default function PrivacyComposition() {
+
+  const location = useLocation();
+  const state = location.state as string;
+  const [showBacktoPreviousPage, setShowBacktoPreviousPage] = useState(false)
+
+  useEffect(() => {
+    if (state === "http://localhost:3000/order") {
+      setShowBacktoPreviousPage(true);
+    } else setShowBacktoPreviousPage(false);
+    return;
+  }, [state]);
+
   return (
     <PrivacyCompositionStyled>
       <h1>Privacy Policy</h1>
+      {showBacktoPreviousPage ? (
+        <Link to={"./order"}><h4>{"<<"} Back to order..</h4></Link>
+      ) : null}
+      
       <div className="contain">
         <div className="contentBox">
           What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
