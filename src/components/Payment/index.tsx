@@ -2,7 +2,7 @@ import React from "react";
 import PaymentStyled from "./PaymentStyled";
 import { CartContext } from "../../contexts/cartContext";
 import PrivacyPolicyCheckbox from "../PrivacyPolicyCheckbox";
-import { Redirect } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js";
 
 interface PayOption {
   title: string;
@@ -64,12 +64,56 @@ export default class Payment extends React.Component<Props, State> {
     }
   };
 
+  async proceedToCheckout(body: any) {
+    const PUBLIC_KEY = "pk_test_8asbHZHZoVp2kblhfCEUUGIr006fit3Srr";
+    const stripePromise = loadStripe(PUBLIC_KEY);
+
+    try {
+      console.log("Starting...");
+      const response = await fetch("/api/checkout-session", {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify(body),
+      });
+
+      const session = await response.json();
+      console.log(session.id);
+      const stripe = await stripePromise;
+      const result = await stripe?.redirectToCheckout({
+        sessionId: session.id,
+      });
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   visaPayment = () => {
     console.log(this.state.paymentOption);
     if (this.state.paymentOption === "VISA") {
-      const getCart = this.context.cartItems;
+      /*  const getCart = this.context.cartItems; */
       this.context.handleOrderInformation(this.props.forms);
-      this.props.history.push("/confirmation");
+      const sumPrice = this.context.totalPrice();
+      const deliveryPrice = this.context.getDeliveryOption();
+      const totalPrice = sumPrice + deliveryPrice;
+
+      /* this.props.history.push("/confirmation"); */
+
+      this.proceedToCheckout({
+        line_items: [
+          {
+            price_data: {
+              currency: "sek",
+              product_data: {
+                name: "Din beställning",
+              },
+              unit_amount: totalPrice * 100,
+            },
+            quantity: 1,
+          },
+        ],
+        mode: "payment",
+      });
     }
   };
 
