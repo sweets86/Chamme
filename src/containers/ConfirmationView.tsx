@@ -1,13 +1,15 @@
-import React, { useContext } from 'react'
-import {CartContext} from '../contexts/cartContext'
+import styled from "styled-components";
+import ConfirmationComposition from '../compositions/ConfirmationComposition.tsx'
+
+const Contain = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default function ConfirmationView() {
-
-    const context = useContext(CartContext)
-    return (
-        <div>
-            {console.log(context.cartItems, context.orderInfo)}
-            <h1>ConfirmationView</h1>
-        </div>
-    )
+  return (
+    <Contain>
+      <ConfirmationComposition />
+    </Contain>
+  );
 }

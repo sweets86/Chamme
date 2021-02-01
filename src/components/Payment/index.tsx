@@ -91,7 +91,7 @@ export default class Payment extends React.Component<Props, State> {
   visaPayment = () => {
     console.log(this.state.paymentOption);
     if (this.state.paymentOption === "VISA") {
-      /*  const getCart = this.context.cartItems; */
+       /* const getCart = this.context.cartItems; */
       this.context.handleOrderInformation(this.props.forms);
       const sumPrice = this.context.totalPrice();
       const deliveryPrice = this.context.getDeliveryOption();

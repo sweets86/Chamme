@@ -35,11 +35,11 @@ interface Delivery {
 }
 export const deliveryOptions: Delivery[] = [
   {
-    title: "PostNord hemleverans - direkt hem till dörren",
+    title: "PostNord - paket till närmaste postombud",
     price: 49,
   },
   {
-    title: "PostNord - paket till närmaste postombud",
+    title: "PostNord hemleverans - direkt hem till dörren",
     price: 99,
   },
 ];
