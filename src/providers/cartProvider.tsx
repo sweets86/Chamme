@@ -18,6 +18,7 @@ export interface ProviderState {
   cartItems: CartItem[];
   extras: Extras[];
   option: string[];
+  orderInfo: []
 }
 
 export class CartProvider extends Component<{}, ProviderState> {
@@ -27,6 +28,7 @@ export class CartProvider extends Component<{}, ProviderState> {
       cartItems: [],
       extras: [],
       option: [],
+      orderInfo: []
     };
   }
 
@@ -139,6 +141,22 @@ export class CartProvider extends Component<{}, ProviderState> {
     return totQuantity;
   };
 
+  totalPrice = () => {
+    let totPrice: number = 0;
+    this.state.cartItems.map((cartItem) => {
+      return (totPrice += cartItem.quantity * cartItem.product.price);
+    });
+    return totPrice;
+  };
+
+  getVAT = () => {
+    let productVAT: number = 0;
+    this.state.cartItems.map((VAT) => {
+      return (productVAT = productVAT + VAT.product.price * 0.2 * VAT.quantity);
+    });
+    return Math.round(productVAT * 100 + Number.EPSILON) / 100;
+  };
+
   deliveryOption = (value: string) => {
     const clonedOption = this.state.option;
 
@@ -168,21 +186,18 @@ export class CartProvider extends Component<{}, ProviderState> {
     return option;
   }
 
-  totalPrice = () => {
-    let totPrice: number = 0;
-    this.state.cartItems.map((cartItem) => {
-      return (totPrice += cartItem.quantity * cartItem.product.price);
-    });
-    return totPrice;
-  };
+ handleOrderInformation = (order: []) => {
+   const getOrder = this.state.orderInfo as any;
+  if (Object.keys(order).length !== 0) {
+    getOrder.push(order)
+  }
 
-  getVAT = () => {
-    let productVAT: number = 0;
-    this.state.cartItems.map((VAT) => {
-      return (productVAT = productVAT + VAT.product.price * 0.2 * VAT.quantity);
-    });
-    return Math.round(productVAT * 100 + Number.EPSILON) / 100;
-  };
+  this.setState({orderInfo: getOrder}, () => {
+    console.log(this.state.orderInfo)
+  })
+ }
+
+ 
 
   render() {
     return (
@@ -196,7 +211,8 @@ export class CartProvider extends Component<{}, ProviderState> {
           totalPrice: this.totalPrice,
           getVAT: this.getVAT,
           deliveryOption: this.deliveryOption,
-          getDeliveryOption: this.getDeliveryOption
+          getDeliveryOption: this.getDeliveryOption,
+          handleOrderInformation: this.handleOrderInformation
         }}
       >
         {this.props.children}

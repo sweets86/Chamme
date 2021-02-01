@@ -4,7 +4,9 @@ import DeliveryAndPaymentStyled from "./DeliveryAndPaymentStyled";
 import Payment from "../Payment";
 import { CartContext } from "../../contexts/cartContext";
 
-interface Props {}
+interface Props {
+  history: any
+}
 
 interface State {
   showBuyerInfo: boolean;
@@ -22,10 +24,6 @@ export default class DeliveryAndPayment extends React.Component<Props, State> {
       forms: [],
       /* delivery: "", */
     };
-  }
-
-  componentDidMount() {
-    console.log(this.state.forms);
   }
 
   printBuyerInfoBtn = (buyerInfo: any) => {
@@ -61,7 +59,7 @@ export default class DeliveryAndPayment extends React.Component<Props, State> {
           printBuyerInfoBtn={(buyerInfo) => this.printBuyerInfoBtn(buyerInfo)}
           /* deliveryOption={(option) => this.deliveryOption(option)} */
         />
-        {this.state.showBuyerInfo ? <Payment forms={this.state.forms} /> : null}
+        {this.state.showBuyerInfo ? <Payment forms={this.state.forms} history={this.props.history} /> : null}
       </DeliveryAndPaymentStyled>
     );
   }

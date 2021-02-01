@@ -1,8 +1,8 @@
 import React from "react";
 import PaymentStyled from "./PaymentStyled";
-import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/cartContext";
 import PrivacyPolicyCheckbox from "../PrivacyPolicyCheckbox";
+import { Redirect } from "react-router-dom";
 
 interface PayOption {
   title: string;
@@ -18,6 +18,7 @@ export const paymentOptions: PayOption[] = [
 
 interface Props {
   forms: any;
+  history: any;
 }
 
 interface State {
@@ -46,22 +47,29 @@ export default class Payment extends React.Component<Props, State> {
   ) => {
     event.preventDefault();
     const value = event.target.value;
-    const checked = event.target.checked;
     this.setState({ toggle: index }, () => {});
 
-    if (checked === true)
-      this.setState({ paymentOption: value }, () => {
-        console.log(this.state.paymentOption);
-      });
+    this.setState({ paymentOption: value }, () => {
+      console.log(this.state.paymentOption);
+    });
   };
 
   handlePrivacy = (event: React.ChangeEvent<HTMLInputElement>) => {
     const checked = event.target.checked;
 
-    if (checked === true) {
+    if (checked === true && this.state.paymentOption === "VISA") {
       this.setState({ showPayBtn: true });
     } else {
       this.setState({ showPayBtn: false });
+    }
+  };
+
+  visaPayment = () => {
+    console.log(this.state.paymentOption);
+    if (this.state.paymentOption === "VISA") {
+      const getCart = this.context.cartItems;
+      this.context.handleOrderInformation(this.props.forms);
+      this.props.history.push("/confirmation");
     }
   };
 
@@ -69,29 +77,22 @@ export default class Payment extends React.Component<Props, State> {
     return (
       <div>
         {this.props.forms.map((content: any, index: number) => {
-          let firstName = content.firstName;
-          let lastName = content.lastName;
-          let address = content.address;
-          let postNumber = content.postNumber;
-          let postAddress = content.postAddress;
-          let email = content.email;
-          let mobile = content.mobile;
           let delivery = content.deliveryOption;
           let numberDelivery = parseInt(delivery);
           return (
             <PaymentStyled key={index}>
               <span className="double">
-                <p>{firstName}</p>
-                <p>{lastName}</p>
+                <p>{content.firstName}</p>
+                <p>{content.lastName}</p>
               </span>
-              <p>{address}</p>
+              <p>{content.address}</p>
               <span className="double">
-                <p>{postNumber}</p>
-                <p>{postAddress}</p>
+                <p>{content.postNumber}</p>
+                <p>{content.postAddress}</p>
               </span>
               <br />
-              <p>{email}</p>
-              <p>{mobile}</p>
+              <p>{content.email}</p>
+              <p>{content.mobile}</p>
               <br />
               <span className="delivery-span">
                 <p className="delivery-text">Frakt </p>
@@ -127,7 +128,9 @@ export default class Payment extends React.Component<Props, State> {
           <PrivacyPolicyCheckbox handlePrivacy={(e) => this.handlePrivacy(e)} />
           <div className="finish-btn-div">
             {this.state.showPayBtn ? (
-              <button className="finish-btn">Slutför köp</button>
+              <button className="finish-btn" onClick={this.visaPayment}>
+                Slutför köp
+              </button>
             ) : null}
           </div>
         </PaymentStyled>
