@@ -195,9 +195,7 @@ export class CartProvider extends Component<{}, ProviderState> {
     console.log(this.state.orderInfo)
   })
  }
-
  
-
   render() {
     return (
       <CartContext.Provider
