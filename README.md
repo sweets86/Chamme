@@ -25,11 +25,11 @@ För att uppdatera dina validerade kontaktuppgifter, vänligen tryck på spara.
 * Backend: I servern vid uppkoppling till Stripe API valideras köpet och orderbekäftesle kan skickas.
 
 * Länk till Github-repo Frontend
-https://github.com/sweets86/Stripe-Integration-Movieline
+https://github.com/sweets86/Chamme
 
 
 * Länk till Github-repo Backend
-https://github.com/sweets86/Todo-Express
+https://github.com/sweets86/Chamme-backend
 
 # För att köra applikationen
 Ladda ner filerna från länkarna ovan från Github.
@@ -39,13 +39,13 @@ För frontend:
 Kopiera innehållet från frontend mappen i en ny egen frontend mapp och öppna mappen i VSC.
 Öppna terminalen och skriv in npm install. Du kommer se att node_modules mappen läggs till.
 Gå sedan in i mappen components och öppna Payment, i index.tsx filen hitta funktionen: proceedToCheckout()
-Ersätt och klistra in din "public-key" från ditt Stripe konto mellan situationstecken och spara filen.
+Ersätt och klistra in din STRIPE_PUBLIC_KEY från ditt Stripe konto mellan situationstecken och spara filen.
 Därefter skriver du in npm start i terminalen. Nu bör du fått igång applikationen till port localhost:3000.
 
 För backend:
 Kopiera innehållet från backend mappen i en ny egen backend mapp och öppna mappen i VSC.
 Öppna terminalen och skriv in npm install. Du kommer se att node_modules mappen läggs till.
-Skapa en .env fil och klistra in din "secret-key" från ditt Stripe konto och spara filen.
+Skapa en .env fil och klistra in din STRIPE_SECRET_KEY från ditt Stripe konto och spara filen.
 Därefter skriver du in node app.js i terminalen.
 Nu bör du fått igång applikationen till port localhost:5000.
 
