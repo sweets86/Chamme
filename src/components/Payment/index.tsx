@@ -99,6 +99,7 @@ export default class Payment extends React.Component<Props, State> {
       const totalPrice = sumPrice + deliveryPrice;
       const vat = this.context.getVAT();
       /* this.props.history.push("/confirmation"); */
+      const extras = this.context.extras
 
       const cartItem = getCart.map((product: any) => {
         return {
@@ -129,6 +130,7 @@ export default class Payment extends React.Component<Props, State> {
         VAT: vat,
         info: orderInfo,
         cart: cartItem,
+        extras: extras
       };
 
       fetch("/sending-data", {
