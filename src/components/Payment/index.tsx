@@ -103,6 +103,7 @@ export default class Payment extends React.Component<Props, State> {
 
       const cartItem = getCart.map((product: any) => {
         return {
+          id: product.product.id,
           name: product.product.name,
           title: product.product.title,
           price: product.product.price,
