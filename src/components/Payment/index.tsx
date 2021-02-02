@@ -70,7 +70,7 @@ export default class Payment extends React.Component<Props, State> {
 
     try {
       console.log("Starting...");
-      const response = await fetch("/api/checkout-session", {
+      const response = await fetch("/checkout-session", {
         headers: { "Content-Type": "application/json" },
         method: "POST",
         body: JSON.stringify(body),
@@ -91,13 +91,57 @@ export default class Payment extends React.Component<Props, State> {
   visaPayment = () => {
     console.log(this.state.paymentOption);
     if (this.state.paymentOption === "VISA") {
-       /* const getCart = this.context.cartItems; */
+      const getCart = this.context.cartItems;
       this.context.handleOrderInformation(this.props.forms);
       const sumPrice = this.context.totalPrice();
       const deliveryPrice = this.context.getDeliveryOption();
+      const quantity = this.context.countCart();
       const totalPrice = sumPrice + deliveryPrice;
-
+      const vat = this.context.getVAT();
       /* this.props.history.push("/confirmation"); */
+
+      const cartItem = getCart.map((product: any) => {
+        return {
+          name: product.product.name,
+          title: product.product.title,
+          price: product.product.price,
+          quantity: product.quantity,
+        };
+      });
+
+      const orderInfo = this.props.forms.map((content: any) => {
+        return {
+          firstName: content.firstName,
+          lastName: content.lastName,
+          address: content.address,
+          postNumber: content.postNumber,
+          postAddress: content.postAddress,
+          email: content.email,
+          mobile: content.mobile,
+        };
+      });
+
+      const buyerInfo = {
+        totalQuantity: quantity,
+        totalPriceProducts: sumPrice,
+        deliveryPrice: deliveryPrice,
+        totalAmount: totalPrice,
+        VAT: vat,
+        info: orderInfo,
+        cart: cartItem,
+      };
+
+      fetch("/sending-data", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(buyerInfo),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res) {
+            console.log(res);
+          }
+        });
 
       this.proceedToCheckout({
         line_items: [
