@@ -94,6 +94,7 @@ export class CartProvider extends Component<{}, ProviderState> {
     this.setState({ cartItems: clonedCart });
     console.log(clonedCart);
     console.log(findProductIndex);
+    console.log(clonedExtras);
   };
 
   deleteFromCart = (product: Product, index: number) => {
