@@ -140,26 +140,32 @@ export default class ConfirmationComposition extends React.Component<
           <div className="container">
             <h3>Produkt</h3>
             <h3>Antal</h3>
-            <h3>Pris</h3>
+            <h3 className="price-h3">Pris</h3>
           </div>
           {this.state.cartList.map((product: any, index: number) => {
             return (
-              <div className="container" key={index}>
-                <div className="product">
-                  <h4>{product.title}</h4>
-                  <h4>{product.name}</h4>
+              <div className="container-products" key={index}>
+                <div className="left-container">
+                  <div className="product">
+                    <h4>{product.brand}</h4>
+                    <h4>{product.name}</h4>
+                  </div>
+                  {this.state.extrasList
+                    .filter((extra: any) => extra.productId === product.id)
+                    .map((extra: any, index: number) => {
+                      return (
+                        <div key={index} className="extras">
+                          <h4>{extra.extrasColor}</h4>
+                          <h4>{extra.extrasSize}</h4>
+                        </div>
+                      );
+                    })}
                 </div>
-                {this.state.extrasList.map((extra: any, index: number) => {
-                  return (
-                    <div key={index} className="product">
-                      <h4>{extra.extrasColor}</h4>
-                      <h4>{extra.extrasSize}</h4>
-                    </div>
-                  );
-                })}
 
-                <h3>{product.quantity}</h3>
-                <h3>{product.price},00 kr</h3>
+                <div className="right-container">
+                  <h3>{product.quantity}</h3>
+                  <h3>{product.price},00 kr</h3>
+                </div>
               </div>
             );
           })}
@@ -188,15 +194,15 @@ export default class ConfirmationComposition extends React.Component<
             return (
               <div key={index} className="buyerInfo">
                 <div className="name">
-                  <h3>{info.firstName}</h3>
-                  <h3>{info.lastName}</h3>
+                  <h4>{info.firstName}</h4>
+                  <h4>{info.lastName}</h4>
                 </div>
-                <div className="container">
-                  <h3>{info.address}</h3>
-                </div>
+
+                <h4>{info.address}</h4>
+
                 <div className="name">
-                  <h3>{info.postNumber}</h3>
-                  <h3>{info.postAddress}</h3>
+                  <h4>{info.postNumber}</h4>
+                  <h4>{info.postAddress}</h4>
                 </div>
               </div>
             );

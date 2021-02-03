@@ -106,6 +106,7 @@ export default class Payment extends React.Component<Props, State> {
           id: product.product.id,
           name: product.product.name,
           title: product.product.title,
+          brand: product.product.brand,
           price: product.product.price,
           quantity: product.quantity,
         };
