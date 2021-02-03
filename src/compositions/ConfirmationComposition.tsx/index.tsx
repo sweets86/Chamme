@@ -1,89 +1,208 @@
 import React from "react";
-import ConfirmationCompositionStyled from './ConfirmationCompositionStyled'
-import { CartContext } from '../../contexts/cartContext'
+import ConfirmationCompositionStyled from "./ConfirmationCompositionStyled";
+import { CartContext } from "../../contexts/cartContext";
 
 interface Props {}
 
-interface State {}
+interface State {
+  infoList: [];
+  cartList: [];
+  extrasList: [];
+  showExtra: boolean;
 
-export default class ConfirmationComposition extends React.Component<Props, State>  {
-    static context = CartContext
+  color: string;
+  size: string;
+  title: string;
 
-    constructor(props: Props) {
-        super(props)
+  deliveryPrice: number;
+  VAT: number;
+  totalAmount: number;
+  totalQuantity: number;
+  totalSumProducts: number;
 
-        this.state = {
+  orderNumber: string;
+}
 
+export default class ConfirmationComposition extends React.Component<
+  Props,
+  State
+> {
+  static context = CartContext;
+
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      infoList: [],
+      cartList: [],
+      extrasList: [],
+      showExtra: false,
+
+      size: "",
+      color: "",
+      title: "",
+
+      deliveryPrice: 0,
+      VAT: 0,
+      totalAmount: 0,
+      totalQuantity: 0,
+      totalSumProducts: 0.0,
+
+      orderNumber: "",
+    };
+  }
+
+  async componentDidMount() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = urlParams.get("session_id");
+    try {
+      if (sessionId) {
+        const response = await fetch("/verify-checkout-session", {
+          headers: { "Content-Type": "application/json" },
+          method: "POST",
+          body: JSON.stringify({ sessionId }),
+        });
+        const session = await response.json();
+
+        if (session.isVerified) {
+          /* this.setState({ showSuccess: true }) */
+          this.makeOrderRequest(sessionId);
+        } else {
+          alert("Du måste genomföra betalningen innan din order kan skickas.");
         }
+      }
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-    async componentDidMount() {
-        const urlParams = new URLSearchParams(window.location.search)
-        const sessionId = urlParams.get('session_id')
-        try {
-            if (sessionId) {
-                const response = await fetch('/verify-checkout-session', {
-                    headers: { "Content-Type": "application/json" },
-                    method: "POST",
-                    body: JSON.stringify({ sessionId })
-                })
-                const session = await response.json()
+  async makeOrderRequest(sessionId: any) {
+    try {
+      const response = await fetch("/order/" + sessionId, {
+        headers: { "Content-Type": "application/json" },
+        method: "GET",
+      });
+      console.log(response);
+      const orders = await response.json();
+      console.log(orders);
+      console.log(orders.data[0]);
 
-                if (session.isVerified) {
-                    /* this.setState({ showSuccess: true }) */
-                    this.makeOrderRequest(sessionId)
-                } else {
-                    alert('Du måste genomföra betalningen innan din order kan skickas.')
-                }
-            }
+      let info = orders.data[0].info;
+      let cart = orders.data[0].cart;
+      let extras = orders.data[0].extras;
+      let totalSumProducts = orders.data[0].totalSumProducts;
+      let VAT = orders.data[0].VAT;
+      let deliveryPrice = orders.data[0].deliveryPrice;
+      let amount = orders.data[0].totalAmount;
+      let quantity = orders.data[0].totalQuantity;
+      let orderNumber = orders.data[1].orderNumber;
 
-        } catch (error) {
-            console.log(error)
-        }
+      this.setState({ infoList: info });
+      this.setState({ cartList: cart });
+      this.setState({ extrasList: extras });
+
+      this.setState({ totalSumProducts: totalSumProducts });
+      this.setState({ VAT: VAT });
+      this.setState({ deliveryPrice: deliveryPrice });
+      this.setState({ totalAmount: amount });
+      this.setState({ totalQuantity: quantity });
+
+      this.setState({ orderNumber: orderNumber });
+
+      /* this.state.extrasList.map((extra: any) => {
+        this.setState({ color: extra.extrasColor });
+        this.setState({ size: extra.extrasSize });
+
+        return this.setState({ showExtra: true });
+      }); */
+
+      /*info: req.body.info,
+    cart: req.body.cart,
+    extras: req.body.extras,
+    totalSumProducts: req.body.totalPriceProducts,
+    VAT: req.body.VAT,
+    deliveryPrice: req.body.deliveryPrice,
+    totalAmount: req.body.totalAmount,
+    totalQuantity: req.body.totalQuantity, */
+    } catch (err) {
+      console.log(err);
     }
+  }
 
-    async makeOrderRequest(sessionId: any) {
-        try {
-            const response = await fetch('/order/' + sessionId, {
-                headers: { "Content-Type": "application/json" },
-                method: "GET",
-            })
-            console.log(response)
-            const orders = await response.json()
-            console.log(orders)
-            
-           /*  let id = orders.sessionId
-            this.setState({ orderId: id })
-
-            let items = orders.items
-            
-            items.map((data: any) => {
-
-                let name = data.description
-                let amount = data.price_data.unit_amount / 100
-                let quantity = data.quantity
-
-                this.setState({ name: name })
-                this.setState({ amount: amount })
-                this.setState({ quantity: quantity })
-
-            })
-
-            this.setState({ showOrder: true }) */
-            
-        } catch (err) {
-            console.log(err)
-        }
-    }
-    
-    render() {
-        return (
-            <ConfirmationCompositionStyled>
-                <h1>Confirmation</h1>
-                <div className="contain">
-                    <h1>Confirmation</h1>
+  render() {
+    return (
+      <ConfirmationCompositionStyled>
+        <h1>Din beställning</h1>
+        <div className="contain">
+          <div className="top-container">
+            <h3>Ordernummer: {this.state.orderNumber}</h3>
+          </div>
+          <div className="container">
+            <h3>Produkt</h3>
+            <h3>Antal</h3>
+            <h3>Pris</h3>
+          </div>
+          {this.state.cartList.map((product: any, index: number) => {
+            return (
+              <div className="container" key={index}>
+                <div className="product">
+                  <h4>{product.title}</h4>
+                  <h4>{product.name}</h4>
                 </div>
-            </ConfirmationCompositionStyled>
-        )
-    }
+                {this.state.extrasList.map((extra: any, index: number) => {
+                  return (
+                    <div key={index} className="product">
+                      <h4>{extra.extrasColor}</h4>
+                      <h4>{extra.extrasSize}</h4>
+                    </div>
+                  );
+                })}
+
+                <h3>{product.quantity}</h3>
+                <h3>{product.price},00 kr</h3>
+              </div>
+            );
+          })}
+
+          <div className="pay-container">
+            <h3>Summa</h3>
+            <h3>{this.state.totalSumProducts},00 kr</h3>
+          </div>
+          <div className="pay-container">
+            <h3>Frakt</h3>
+            <h3>{this.state.deliveryPrice},00 kr</h3>
+          </div>
+          <div className="pay-container">
+            <h3>Moms 25%</h3>
+            <h3>{this.state.VAT}0 kr</h3>
+          </div>
+          <div className="pay-container">
+            <h3>Total inkl. moms</h3>
+            <h3>{this.state.totalAmount},00 kr</h3>
+          </div>
+        </div>
+        <div className="contain-bottom">
+          <h1 className="bottom-h1">Dina uppgifter</h1>
+          <h3>Beställd av</h3>
+          {this.state.infoList.map((info: any, index: number) => {
+            return (
+              <div key={index} className="buyerInfo">
+                <div className="name">
+                  <h3>{info.firstName}</h3>
+                  <h3>{info.lastName}</h3>
+                </div>
+                <div className="container">
+                  <h3>{info.address}</h3>
+                </div>
+                <div className="name">
+                  <h3>{info.postNumber}</h3>
+                  <h3>{info.postAddress}</h3>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </ConfirmationCompositionStyled>
+    );
+  }
 }
