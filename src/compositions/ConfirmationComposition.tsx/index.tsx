@@ -57,7 +57,7 @@ export default class ConfirmationComposition extends React.Component<
     const sessionId = urlParams.get("session_id");
     try {
       if (sessionId) {
-        const response = await fetch("/verify-checkout-session", {
+        const response = await fetch("/y3ss.netlify.app/verify-checkout-session", {
           headers: { "Content-Type": "application/json" },
           method: "POST",
           body: JSON.stringify({ sessionId }),
@@ -78,7 +78,7 @@ export default class ConfirmationComposition extends React.Component<
 
   async makeOrderRequest(sessionId: any) {
     try {
-      const response = await fetch("/order/" + sessionId, {
+      const response = await fetch("/y3ss.netlify.app/order/" + sessionId, {
         headers: { "Content-Type": "application/json" },
         method: "GET",
       });
