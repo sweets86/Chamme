@@ -40,7 +40,7 @@ function DetailComposition(props: Props) {
   };
 
   const checkExtras = (product: any, index: number) => {
-    if (extrasColor === "" || extrasSize === "") {
+    if (state === "T-shirts" && extrasColor === "" && extrasSize === "") {
       setOpenPopup(true);
     } else {
       console.log(extrasColor, extrasSize);

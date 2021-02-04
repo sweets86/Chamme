@@ -21,6 +21,7 @@ const OrderStyled = styled.div`
     width: 100%;
     height: auto;
     padding: 0.5em;
+    margin-top: 2em;
   }
 
   .tax {
@@ -56,6 +57,18 @@ const OrderStyled = styled.div`
 
   h2 {
     margin: 0;
+  }
+
+  @media screen and (max-width: 840px) {
+    width: 100%;
+    margin-bottom: 2em;
+    margin-right: 0;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    margin-bottom: 2em;
+    margin-right: 0;
   }
 `;
 

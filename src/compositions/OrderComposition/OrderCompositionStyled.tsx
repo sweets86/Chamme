@@ -26,6 +26,21 @@ const OrderCompositionStyled = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
   }
+
+  @media screen and (max-width: 840px) {
+    .contain {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    margin-top: 7em;
+
+    .contain {
+      flex-wrap: wrap;
+    }
+  }
+  
 `;
 
 export default OrderCompositionStyled;

@@ -17,7 +17,7 @@ const BurgerStyled = styled.div<Props>`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ open }) => (open ? "#ffff" : "#333")};
+    background-color: ${({ open }) => (open ? "#ffff" : "#ffff")};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;

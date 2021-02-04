@@ -20,6 +20,18 @@ const DeliveryAndPaymentStyled = styled.div`
   h2 {
     margin: 0;
   }
+
+  @media screen and (max-width: 840px) {
+    width: 100%;
+    margin-bottom: 2em;
+    margin-right: 0;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    margin-bottom: 2em;
+    margin-left: 0;
+  }
 `;
 
 export default DeliveryAndPaymentStyled;

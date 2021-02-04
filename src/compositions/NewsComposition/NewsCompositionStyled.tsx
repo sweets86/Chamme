@@ -3,18 +3,26 @@ import styled from "styled-components";
 const NewsCompositionStyled = styled.div`
   width: 85%;
   height: auto;
-  margin-top: 5em;
+  margin-top: 10em;
+  margin-bottom: 5em;
+  background-color: white;
+
+  h1 {
+    margin-left: 1em;
+  }
+
+  h3 {
+    margin-left: 1.8em;
+  }
 
   .contain {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color: #201e1e;
     box-shadow: 0 8px 6px -6px black;
     min-height: 80%;
-    padding: 1em;
-    margin-bottom: 5em;
+    padding: 2em;
   }
 
   .videoDiv {

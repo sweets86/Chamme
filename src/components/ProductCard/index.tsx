@@ -63,7 +63,7 @@ function ProductCard(props: Props) {
       <div className="contentDiv">
         <h3>{props.product.name}</h3>
         <div className="price-and-btn-div">
-          <h3>{props.product.price} Kr</h3>
+          <h3>{props.product.price},00 kr</h3>
           <button onClick={() => checkExtras(props.product.title, props.index)}>Köp</button>
         </div>
       </div>

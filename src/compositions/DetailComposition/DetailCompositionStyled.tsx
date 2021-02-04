@@ -3,14 +3,15 @@ import styled from "styled-components";
 const DetailCompositionStyled = styled.div`
   width: 85%;
   height: auto;
-  margin-top: 5em;
+  margin-top: 10em;
+  margin-bottom: 5em;
+  background-color: white;
 
   .contain {
     display: flex;
     box-shadow: 0 8px 6px -6px black;
     min-height: 80%;
-    margin-bottom: 5em;
-    margin-top: 5em;
+    padding: 3em;
   }
 
   .imgDiv {

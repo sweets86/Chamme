@@ -16,7 +16,7 @@ const DeliveryInfoStyled = styled.div`
   .contactContainer {
     width: 100%;
     height: 8.5em;
-    margin-top: 5px;
+    margin-top: 10px;
   }
 
   .names {
@@ -121,15 +121,28 @@ const DeliveryInfoStyled = styled.div`
   }
 
   @media screen and (max-width: 1600px) {
+    input[type="radio"] {
+      width: 30%;
+    }
+
     .largeLabel {
       padding: 2em;
     }
   }
   @media screen and (max-width: 1200px) {
+    input[type="radio"] {
+      width: 30%;
+    }
+
     .largeLabel {
       padding: 0;
     }
-  }
 
+    p {
+      font-size: small;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
 `;
 export default DeliveryInfoStyled;

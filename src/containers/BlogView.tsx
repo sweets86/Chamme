@@ -8,7 +8,7 @@ const Contain = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-    
+  background-color: #f5f3f7;
 `;
 
 export default function BlogView() {

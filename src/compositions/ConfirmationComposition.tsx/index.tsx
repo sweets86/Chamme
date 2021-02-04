@@ -132,7 +132,7 @@ export default class ConfirmationComposition extends React.Component<
   render() {
     return (
       <ConfirmationCompositionStyled>
-        <h1>Din beställning</h1>
+        <h2>Orderbekräftelse</h2>
         <div className="contain">
           <div className="top-container">
             <h3>Ordernummer: {this.state.orderNumber}</h3>
@@ -163,8 +163,8 @@ export default class ConfirmationComposition extends React.Component<
                 </div>
 
                 <div className="right-container">
-                  <h3>{product.quantity}</h3>
-                  <h3>{product.price},00 kr</h3>
+                  <h4>{product.quantity}</h4>
+                  <h4>{product.price},00 kr</h4>
                 </div>
               </div>
             );
@@ -172,35 +172,35 @@ export default class ConfirmationComposition extends React.Component<
 
           <div className="pay-container">
             <h3>Summa</h3>
-            <h3>{this.state.totalSumProducts},00 kr</h3>
+            <h4>{this.state.totalSumProducts},00 kr</h4>
           </div>
           <div className="pay-container">
             <h3>Frakt</h3>
-            <h3>{this.state.deliveryPrice},00 kr</h3>
+            <h4>{this.state.deliveryPrice},00 kr</h4>
           </div>
           <div className="pay-container">
             <h3>Moms 25%</h3>
-            <h3>{this.state.VAT}0 kr</h3>
+            <h4>{this.state.VAT}0 kr</h4>
           </div>
           <div className="pay-container">
             <h3>Total inkl. moms</h3>
-            <h3>{this.state.totalAmount},00 kr</h3>
+            <h4>{this.state.totalAmount},00 kr</h4>
           </div>
         </div>
         <div className="contain-bottom">
-          <h1 className="bottom-h1">Dina uppgifter</h1>
+          <h2 className="bottom-h2">Dina uppgifter</h2>
           <h3>Beställd av</h3>
           {this.state.infoList.map((info: any, index: number) => {
             return (
-              <div key={index} className="buyerInfo">
-                <div className="name">
+              <div key={index}>
+                <div className="information">
                   <h4>{info.firstName}</h4>
                   <h4>{info.lastName}</h4>
                 </div>
 
                 <h4>{info.address}</h4>
 
-                <div className="name">
+                <div className="information">
                   <h4>{info.postNumber}</h4>
                   <h4>{info.postAddress}</h4>
                 </div>

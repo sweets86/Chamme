@@ -3,9 +3,10 @@ import styled from "styled-components";
 const OrderCardStyled = styled.div`
   width: 100%;
   height: auto;
-  padding: 0.5em;
+  padding: 1em;
   box-shadow: 0 8px 6px -6px black;
   display: flex;
+  margin-top: 1em;
 
   .imgDiv {
     width: 25%;
@@ -22,6 +23,7 @@ const OrderCardStyled = styled.div`
 
   .contentDiv {
     width: 75%;
+    padding-top: 0.5em;
   }
 
   .topDiv {
@@ -56,6 +58,19 @@ const OrderCardStyled = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 10px;
+  }
+
+  .if-t-shirts {
+    width: 5em;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .price-div {
+    width: 5em;
+    display: flex;
+    justify-content: space-around;
   }
 
   .quantityDiv {
@@ -81,18 +96,42 @@ const OrderCardStyled = styled.div`
     margin-top: 5px;
   }
 
-  .if-t-shirts {
-    width: 5em;
-    display: flex;
-    justify-content: space-around;
+  @media screen and (max-width: 840px) {
+    padding: 0;
+
+    .imgDiv {
+      width: 45%;
+    }
+
+    .contentDiv {
+      width: 50%;
+    }
+
+    .if-t-shirts {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
-  .copy-of-styled {
-    width: 100%;
-    height: auto;
-    padding: 0.5em;
-    box-shadow: 0 8px 6px -6px black;
-    display: flex;
+  @media screen and (max-width: 400px) {
+    padding: 0;
+
+    .imgDiv {
+      width: 45%;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    .contentDiv {
+      width: 50%;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    .if-t-shirts {
+      display: flex;
+      flex-direction: column;
+    }
   }
 `;
 export default OrderCardStyled;

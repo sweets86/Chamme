@@ -12,7 +12,9 @@ export default function ReuseComposition() {
     let month = newDate.getMonth() + 1;
     let year = newDate.getFullYear();
 
-    return `${date}${space}${separator}${space}${
+    return `${
+      date < 10 ? `0${date}` : `${date}${space}`
+    }${space}${separator}${space}${
       month < 10 ? `0${month}` : `${month}${space}`
     }${separator}${space}${year}`;
   };

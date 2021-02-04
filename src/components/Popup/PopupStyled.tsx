@@ -18,17 +18,34 @@ const PopupStyled = styled.div`
     top: 25%;
     /* bottom: 25%; */
     margin: auto;
-    background: white;
+    background: black;
+    color: white;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    border-radius: 10px;
   }
 
   .pop-btn {
-      width: 3em;
-      height: 2em;
+    width: 5em;
+    height: 2em;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
   }
 
-  `
-  export default PopupStyled;
+  @media screen and (max-width: 840px) {
+    .pop-inner {
+      flex-wrap: wrap;
+      font-size: smaller;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .pop-inner {
+      flex-wrap: wrap;
+      font-size: smaller;
+    }
+  }
+`;
+export default PopupStyled;

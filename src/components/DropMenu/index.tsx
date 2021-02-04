@@ -34,6 +34,8 @@ const DropMenuStyled = styled.div<Props>`
 
     li {
       padding-bottom: 0px;
+      height: 0.5em;
+      width: 2em;
     }
 
     ul {

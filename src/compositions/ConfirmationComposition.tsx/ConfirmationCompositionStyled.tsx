@@ -6,7 +6,7 @@ const ConfirmationCompositionStyled = styled.div`
   margin-top: 10em;
   margin-bottom: 5em;
 
-  h1 {
+  h2 {
     margin: 0;
     margin-left: 15px;
     margin-bottom: 10px;
@@ -20,9 +20,10 @@ const ConfirmationCompositionStyled = styled.div`
   h4 {
     margin: 0;
     margin-bottom: 5px;
+    margin-right: 7px;
   }
 
-  .bottom-h1 {
+  .bottom-h2 {
     margin-left: 0;
     margin-bottom: 0.8em;
   }
@@ -32,10 +33,6 @@ const ConfirmationCompositionStyled = styled.div`
   }
 
   .contain {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    /*  background-color: #201e1e; */
     box-shadow: 0 8px 6px -6px black;
     height: auto;
     padding: 1em;
@@ -43,34 +40,17 @@ const ConfirmationCompositionStyled = styled.div`
     flex-direction: column;
   }
 
-  .product {
-    display: flex;
-    flex-direction: column;
-    /*  align-items: center; */
-  }
-
-  .extras {
-    margin-right: 6em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 5em;
-  }
-
   .top-container {
     width: 100%;
     height: auto;
-    justify-content: space-between;
-    display: flex;
   }
 
   .container {
     box-shadow: 0 8px 6px -12px black;
     width: 100%;
     height: auto;
-    /* margin-bottom: 2em; */
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
     padding-bottom: 0.5em;
     padding-top: 0.5em;
   }
@@ -87,25 +67,34 @@ const ConfirmationCompositionStyled = styled.div`
     width: 50%;
     margin-right: 0.5em;
     display: flex;
+  }
+
+  .product {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .extras {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
+    width: 5em;
+    margin-left: 5em;
   }
 
   .right-container {
-    /*  box-shadow: 0 8px 6px -12px black; */
     width: 50%;
     height: auto;
-    /* margin-bottom: 2em; */
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
     align-items: center;
   }
 
   .pay-container {
     width: 100%;
     height: auto;
-    /* margin-bottom: 2em; */
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
     padding-top: 10px;
   }
 
@@ -115,19 +104,32 @@ const ConfirmationCompositionStyled = styled.div`
     height: auto;
     padding: 0.8em;
     margin-bottom: 3em;
-    /* justify-content: space-evenly;
-    align-items: center; */
     box-shadow: 0 8px 6px -6px black;
   }
 
-  .buyerInfo {
-    width: 17%;
-  }
-
-  .name {
+  .information {
     margin-top: 5px;
     display: flex;
-    justify-content: space-between;
+  }
+
+  @media screen and (max-width: 840px) {
+    .left-container {
+      flex-wrap: wrap;
+    }
+
+    .extras {
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .left-container {
+      flex-wrap: wrap;
+    }
+
+    .extras {
+      margin-left: 0;
+    }
   }
 `;
 

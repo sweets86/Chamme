@@ -130,7 +130,7 @@ export default function OrderCard(props: Props) {
                   +
                 </span>
               </div>
-              <div className="priceDiv">{props.product.price} kr</div>
+              <div className="price-div"><h4>{props.product.price},00 kr</h4></div>
             </div>
           </div>
         </OrderCardStyled>
@@ -154,14 +154,12 @@ export default function OrderCard(props: Props) {
                 <div className="contentDiv">
                   <div className="topDiv">
                     {<h4>{props.product.brand}</h4>}
-                    <div className="deleteDiv">
+                    <div
+                      className="deleteDiv"
+                      onClick={() => deleteTshirtProducts(props.product, index)}
+                    >
                       <div className="deleteBtnDiv">
-                        <div
-                          className="deleteBtn"
-                          onClick={() =>
-                            deleteTshirtProducts(props.product, index)
-                          }
-                        ></div>
+                        <div className="deleteBtn"></div>
                       </div>
                     </div>
                   </div>
@@ -173,7 +171,7 @@ export default function OrderCard(props: Props) {
                       <h4>{extra.extrasColor}</h4>
                       <h4>{extra.extrasSize}</h4>
                     </div>
-                    <div className="priceDiv">{props.product.price} Kr</div>
+                    <div className="price-div"><h4>{props.product.price},00 kr</h4></div>
                   </div>
                 </div>
               </OrderCardStyled>

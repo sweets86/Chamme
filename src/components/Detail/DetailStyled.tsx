@@ -3,6 +3,11 @@ import styled from "styled-components";
 const DetailStyled = styled.div`
   margin-top: 3em;
 
+  h3 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
   .gridColor {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -41,15 +46,13 @@ const DetailStyled = styled.div`
   }
 
   label {
-    /* color: white; */
     display: inline-block;
-		background-color: #f5f5f5;
-		padding: 2px 5px;
-		font-family: Sweden Sans;
-		font-size: 16px;
-		border: 2px solid #c4c4c4;
-		border-radius: 3px;
-		margin: 3px;
+    background-color: white;
+    color: black;
+    padding: 2px 5px;
+    font-size: 16px;
+    border-radius: 3px;
+    margin: 3px;
   }
 
   input[type="Radio"]:checked + label {
@@ -57,6 +60,8 @@ const DetailStyled = styled.div`
   }
 
   @media screen and (max-width: 1200px) {
+    margin-top: 0;
+
     input[type="Radio"] {
       width: 8em;
     }
@@ -69,6 +74,29 @@ const DetailStyled = styled.div`
   @media screen and (max-width: 920px) {
     input[type="Radio"] {
       width: 5em;
+    }
+  }
+
+  @media screen and (max-width: 840px) {
+    margin-top: 0;
+
+    input[type="Radio"] {
+      width: 5em;
+    }
+
+    .sizeRadio {
+      height: 2em;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    margin-top: 0;
+
+    input[type="Radio"] {
+      width: 5em;
+    }
+
+    .sizeRadio {
+      height: 2em;
     }
   }
 `;
