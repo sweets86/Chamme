@@ -10,10 +10,6 @@ interface State {
   extrasList: [];
   showExtra: boolean;
 
-  color: string;
-  size: string;
-  title: string;
-
   deliveryPrice: number;
   VAT: number;
   totalAmount: number;
@@ -37,10 +33,6 @@ export default class ConfirmationComposition extends React.Component<
       cartList: [],
       extrasList: [],
       showExtra: false,
-
-      size: "",
-      color: "",
-      title: "",
 
       deliveryPrice: 0,
       VAT: 0,
@@ -108,22 +100,6 @@ export default class ConfirmationComposition extends React.Component<
       this.setState({ totalQuantity: quantity });
 
       this.setState({ orderNumber: orderNumber });
-
-      /* this.state.extrasList.map((extra: any) => {
-        this.setState({ color: extra.extrasColor });
-        this.setState({ size: extra.extrasSize });
-
-        return this.setState({ showExtra: true });
-      }); */
-
-      /*info: req.body.info,
-    cart: req.body.cart,
-    extras: req.body.extras,
-    totalSumProducts: req.body.totalPriceProducts,
-    VAT: req.body.VAT,
-    deliveryPrice: req.body.deliveryPrice,
-    totalAmount: req.body.totalAmount,
-    totalQuantity: req.body.totalQuantity, */
     } catch (err) {
       console.log(err);
     }
