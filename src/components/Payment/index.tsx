@@ -70,7 +70,7 @@ export default class Payment extends React.Component<Props, State> {
 
     try {
       console.log("Starting...");
-      const response = await fetch("/checkout-session", {
+      const response = await fetch("/v1/webhook_endpoints/we_1IH75ZGszsP3A8aqXZ1rstQJ/checkout-session", {
         headers: { "Content-Type": "application/json" },
         method: "POST",
         body: JSON.stringify(body),
@@ -135,7 +135,7 @@ export default class Payment extends React.Component<Props, State> {
         extras: extras
       };
 
-      fetch("/sending-data", {
+      fetch("/v1/webhook_endpoints/we_1IH75ZGszsP3A8aqXZ1rstQJ/sending-data", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(buyerInfo),

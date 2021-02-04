@@ -57,7 +57,7 @@ export default class ConfirmationComposition extends React.Component<
     const sessionId = urlParams.get("session_id");
     try {
       if (sessionId) {
-        const response = await fetch("/verify-checkout-session", {
+        const response = await fetch("/v1/webhook_endpoints/we_1IH75ZGszsP3A8aqXZ1rstQJ/verify-checkout-session", {
           headers: { "Content-Type": "application/json" },
           method: "POST",
           body: JSON.stringify({ sessionId }),
@@ -78,7 +78,7 @@ export default class ConfirmationComposition extends React.Component<
 
   async makeOrderRequest(sessionId: any) {
     try {
-      const response = await fetch("/order/" + sessionId, {
+      const response = await fetch("/v1/webhook_endpoints/we_1IH75ZGszsP3A8aqXZ1rstQJ/order/" + sessionId, {
         headers: { "Content-Type": "application/json" },
         method: "GET",
       });
