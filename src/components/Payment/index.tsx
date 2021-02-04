@@ -70,7 +70,7 @@ export default class Payment extends React.Component<Props, State> {
 
     try {
       console.log("Starting...");
-      const response = await fetch("/checkout-session", {
+      const response = await fetch("http://localhost:5000/checkout-session", {
         headers: { "Content-Type": "application/json" },
         method: "POST",
         body: JSON.stringify(body),
@@ -135,7 +135,7 @@ export default class Payment extends React.Component<Props, State> {
         extras: extras
       };
 
-      fetch("/sending-data", {
+      fetch("http://localhost:5000/sending-data", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(buyerInfo),
