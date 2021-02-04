@@ -41,6 +41,8 @@ Kopiera innehållet från frontend mappen i en ny egen frontend mapp och öppna 
 Gå sedan in i mappen components och öppna Payment, i index.tsx filen hitta funktionen: proceedToCheckout()
 Ersätt och klistra in din STRIPE_PUBLIC_KEY från ditt Stripe konto mellan situationstecken och spara filen.
 Därefter skriver du in npm start i terminalen. Nu bör du fått igång applikationen till port localhost:3000.
+Fraktpris är default, 49kr och betalningsalternativ är default VISA.
+Swish fungerar ej.
 Väl vid köp via VISA/Stripe använd test-kontonr: 4242 4242 4242 4242.
 
 För backend:
