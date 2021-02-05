@@ -9,6 +9,11 @@ const BlogCompositionStyled = styled.div`
 
   h1 {
     padding-left: 0.7em;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-top: 0;
   }
 
   .contain {

@@ -9,7 +9,7 @@ const DropMenuStyled = styled.div<Props>`
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   top: 0;
   right: 0;
-  height: 30vh;
+  height: 34vh;
   width: 200px;
   padding-top: 3.5em;
   transition: transform 0.3s ease-in-out;
@@ -23,14 +23,20 @@ const DropMenuStyled = styled.div<Props>`
   }
 
   li {
-    padding: 10px 10px 0;;
+    padding: 10px 10px 0;
     display: inline-block;
     color: white;
   }
 
+  p {
+    margin: 0;
+    width: 4em;
+  }
+
   @media screen and (max-width: 400px) {
     width: 86px;
-    height: 30vh;
+    display: flex;
+    align-items: center;
 
     li {
       padding-bottom: 0px;
@@ -41,6 +47,7 @@ const DropMenuStyled = styled.div<Props>`
     ul {
       padding-left: 0;
       padding-top: 0;
+      margin-top: 0;
     }
   }
 `;
@@ -54,16 +61,24 @@ export default function DropMenu(props: Props) {
     <DropMenuStyled open={props.open}>
       <ul>
         <Link to="/products">
-          <li>T-Shirts</li>
+          <li>
+            <p>T-Shirts</p>
+          </li>
         </Link>
         <Link to="/products#fragrances">
-          <li>Fragrance Bags</li>
+          <li>
+            <p>Fragrance Bags</p>
+          </li>
         </Link>
         <Link to="/products#fragrances">
-          <li>Yankee Candle</li>
+          <li>
+            <p>Yankee Candle</p>
+          </li>
         </Link>
         <Link to="/products#lotion">
-          <li>Lotion</li>
+          <li>
+            <p>Lotion</p>
+          </li>
         </Link>
       </ul>
     </DropMenuStyled>

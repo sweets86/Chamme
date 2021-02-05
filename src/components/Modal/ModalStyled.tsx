@@ -20,7 +20,7 @@ const ModalStyled = styled.div`
     margin: auto;
     background-color: black;
     color: white;
-    padding: 20px;
+    padding: 15px;
     border-radius: 5px;
   }
 
@@ -56,6 +56,9 @@ const ModalStyled = styled.div`
     margin-top: 0.5em;
     background-color: white;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   @media screen and (max-width: 1100px) {
@@ -86,7 +89,7 @@ const ModalStyled = styled.div`
     .modal-inner {
       width: 55%;
       bottom: 35%;
-      height: 50%;
+      height: 55%;
       right: 25%;
       left: 25%;
       display: flex;

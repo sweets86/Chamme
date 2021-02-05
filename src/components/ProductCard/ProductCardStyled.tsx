@@ -4,8 +4,7 @@ const ProductCardStyled = styled.div`
   background-color: white;
   height: 17.6em;
   width: 17.6em;
-  margin-right: 2em;
-  margin-bottom: 2em;
+  margin: 2em;
   padding: 1em;
   box-shadow: 0 -1px 10px -1px black;
 
@@ -47,11 +46,10 @@ const ProductCardStyled = styled.div`
   }
 
   @media screen and (max-width: 400px) {
-    height: 9.1em;
+    height: 8.5em;
     width: 9.1em;
     padding: 0.5em;
-    margin-right: 0.8em;
-    margin-bottom: 0.8em;
+    margin: 5px;
 
     .imgDiv {
       height: 60%;
