@@ -84,10 +84,14 @@ const ModalStyled = styled.div`
 
   @media screen and (max-width: 400px) {
     .modal-inner {
-      width: fit-content;
+      width: 55%;
       bottom: 35%;
+      height: 50%;
       right: 25%;
       left: 25%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     span {

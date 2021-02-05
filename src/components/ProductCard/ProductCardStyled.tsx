@@ -24,6 +24,8 @@ const ProductCardStyled = styled.div`
   .contentDiv {
     height: auto;
     width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   .price-and-btn-div {
@@ -42,8 +44,6 @@ const ProductCardStyled = styled.div`
     width: 7em;
     height: 2.5em;
     border-radius: 3px;
-    margin-top: 10px;
-    margin-right: 5px;
   }
 
   @media screen and (max-width: 400px) {
@@ -54,11 +54,11 @@ const ProductCardStyled = styled.div`
     margin-bottom: 0.8em;
 
     .imgDiv {
-        height: 60%;
+      height: 60%;
     }
 
     .contentDiv {
-        height: auto;
+      height: auto;
     }
 
     .price-and-btn-div {
@@ -66,10 +66,10 @@ const ProductCardStyled = styled.div`
     }
 
     button {
-        width: 3em;
-        height: 1.5em;
-        margin-right: 12px;
-        margin-top: 0;
+      width: 3em;
+      height: 1.5em;
+      display: flex;
+      align-items: center;
     }
 
     h3 {

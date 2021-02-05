@@ -98,6 +98,8 @@ const OrderCardStyled = styled.div`
 
   @media screen and (max-width: 840px) {
     padding: 0;
+    height: 10em;
+    width: 17em;
 
     .imgDiv {
       width: 45%;
@@ -115,6 +117,8 @@ const OrderCardStyled = styled.div`
 
   @media screen and (max-width: 400px) {
     padding: 0;
+    height: 10em;
+    width: 17em;
 
     .imgDiv {
       width: 45%;

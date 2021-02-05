@@ -20,11 +20,12 @@ const MasterViewStyled = styled.div`
   }
 
   .card {
-    width: 10em;
-    height: 7em;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 5em;
   }
 
   h1 {

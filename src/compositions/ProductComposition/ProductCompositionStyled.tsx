@@ -17,16 +17,13 @@ const ProductCompositionStyled = styled.div`
 
   h1 {
     margin-left: 13px;
+    padding-top: 10px;
   }
 
   @media screen and (max-width: 400px) {
-      .contain {
-          padding: 0;
-      }
-
-      h1 {
-        margin-left: 0;
-      }
+    .contain {
+      padding: 0;
+    }
   }
 `;
 
