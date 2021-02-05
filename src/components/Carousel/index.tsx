@@ -16,12 +16,12 @@ export default function Carousel() {
     setCurrent(current === 0 ? length - 1 : current - 1);
   }; */
 
-  useEffect(() => {
+ /*  useEffect(() => {
     const interval = setInterval(function () {
       setCurrent(current === length - 1 ? 0 : current + 1);
     }, 5000);
     return () => clearInterval(interval);
-  }, [current, length]);
+  }, [current, length]); */
 
   return (
     <CarouselStyled>

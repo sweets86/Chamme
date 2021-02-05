@@ -3,7 +3,7 @@ import styled from "styled-components";
 const CarouselStyled = styled.div`
   width: 50%;
   height: 22em;
-  margin-top: 3em;
+  margin-top: 10em;
   background-color: white;
   border-radius: 10px;
   padding: 1em;
@@ -72,6 +72,7 @@ const CarouselStyled = styled.div`
     padding: 0.5em;
     background-color: white;
     border-radius: 10px;
+    margin-top: 10em;
   }
 `;
 export default CarouselStyled;

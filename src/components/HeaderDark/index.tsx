@@ -10,7 +10,7 @@ export default function HeaderDark() {
         return (
           <HeaderDarkStyled>
             <Link to={"/"}>
-              <h1 className="titleLink">Chameleone</h1>
+              <h1 className="titleLink">Y3SS</h1>
             </Link>
             <Link to={"/order"}>
               {contextData.cartItems.length ? (

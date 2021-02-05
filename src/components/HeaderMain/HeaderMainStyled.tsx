@@ -3,12 +3,12 @@ import styled from "styled-components";
 const HeaderMainStyled = styled.header`
   height: 5em;
   width: 100%;
-  position: sticky;
-  background-color: black;
+  position: fixed;
+  /* background-color: black; */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 8px 6px -6px black;
+  /* box-shadow: 0 8px 6px -6px black; */
 
   .titleLink {
     display: inline-block;
@@ -34,23 +34,5 @@ const HeaderMainStyled = styled.header`
     }
   }
 `;
-
-/* export const navbar: CSSProperties = {
-    
-}
-
-export const titleLink: CSSProperties = {
-    display: 'inline-block',
-    margin: '8px',
-    marginTop: '17px',
-    color: 'white'
-}
-
-export const menu: CSSProperties = {
-    margin: "0",
-    marginRight: "5em",
-    display: "inline-block",
-    color: "white",
-} */
 
 export default HeaderMainStyled;
