@@ -11,17 +11,17 @@ export default function MasterView() {
       <div className="cardContainer">
         <div className="card">
           <Link to={"/gallery"}>
-            <h3>Gallery</h3>
+            <h1>Gallery</h1>
           </Link>
         </div>
         <div className="card">
           <Link to={"/news"}>
-            <h3>News</h3>
+            <h1>News</h1>
           </Link>
         </div>
         <div className="card">
           <Link to={"/blog"}>
-            <h3>Blog</h3>
+            <h1>Blog</h1>
           </Link>
         </div>
       </div>

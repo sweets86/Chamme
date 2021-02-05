@@ -7,7 +7,7 @@ export default function HeaderMain() {
   return (
     <HeaderMainStyled>
       <Link to={"/"}>
-        <h1 className="titleLink">Chameleone</h1>
+        <h1 className="titleLink">Y3SS</h1>
       </Link>
       <Burger open />
     </HeaderMainStyled>

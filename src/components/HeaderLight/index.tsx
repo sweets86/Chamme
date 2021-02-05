@@ -11,7 +11,7 @@ export default function HeaderLight() {
           <HeaderLightStyled>
             <div className="navigation">
               <Link to={"/"}>
-                <h1 className="titleLink">Chameleone</h1>
+                <h1 className="titleLink">Y3SS</h1>
               </Link>
               <Link to="/products">
                 <h4>{"<<"} Products</h4>

@@ -16,7 +16,7 @@ const MasterViewStyled = styled.div`
     justify-content: space-around;
     width: 100%;
     position: absolute;
-    bottom: 6em;
+    bottom: 1em;
   }
 
   .card {
@@ -25,13 +25,12 @@ const MasterViewStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: gainsboro;
   }
 
-  h3 {
+  h1 {
     margin: 0;
     display: inline-block;
-    color: black;
+    color: white;
   }
 
   @media screen and (max-width: 400px) {
@@ -42,7 +41,6 @@ const MasterViewStyled = styled.div`
 
       .cardContainer {
           flex-wrap: wrap;
-          bottom: 3em;
       }
 
       .card {

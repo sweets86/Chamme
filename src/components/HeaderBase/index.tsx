@@ -6,7 +6,7 @@ export default function HeaderBase() {
   return (
     <HeaderBaseStyled>
       <Link to={"/"}>
-        <h1 className="titleLink">Chameleone</h1>
+        <h1 className="titleLink">Y3SS</h1>
       </Link>
 
       <Link to="/products">
